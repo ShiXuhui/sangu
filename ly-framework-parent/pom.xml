@@ -160,7 +160,7 @@
            <artifactId>maven-resources-plugin</artifactId>
            <configuration>
                <encoding>UTF-8</encoding>
-           </configuration>
+           </configurationaa>
        </plugin>-->
       <!-- java编译插件 -->
       <plugin>
@@ -178,5 +178,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
