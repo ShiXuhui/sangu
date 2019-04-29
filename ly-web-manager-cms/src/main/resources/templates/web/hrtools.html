@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HR工具箱</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="骑士CMS"/>
+    <meta name="copyright" content="74cms.com"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <script src="./upload/Application/Home/View/default/public/js/jquery.min.js"></script>
+    <script src="./upload/Application/Home/View/default/public/js/htmlspecialchars.js"></script>
+    <script src="./static/tools/gt.js"></script>
+    <script type="text/javascript">
+        var app_spell = "1";
+        var qscms = {
+            base : "",
+            keyUrlencode:"1",
+            domain : "http://www.tywangcai.com",
+            root : "/index.php",
+            companyRepeat:"1",
+            regularMobile: /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$|17[0-9]{9}$|16[0-9]{9}$|19[0-9]{9}$/,
+            is_subsite : 0,
+            subsite_level : "4",
+            smsTatus: "1",
+            captcha_open:"1",
+            varify_mobile:"1",
+            varify_suggest:"0",
+            varify_user_login:"0",
+            is_login:"0",
+            default_district : "22.288",
+            default_district_spell : "chongqing.zhongqingshi"
+        };
+        $(function(){
+            $.getJSON("/home/ajax_common/get_header_min.html",function(result){
+                if(result.status == 1){
+                    $('#J_header').html(result.data.html);
+                }
+            });
+        })
+    </script>
+    <link href="./upload/Application/Home/View/default/public/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/hrtools.css" rel="stylesheet" type="text/css" />
+    <script src="./upload/Application/Home/View/default/public/js/jquery.common.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div class="header_min" id="header">
+    <div class="header_min_top">
+        <div id="J_header" class="itopl font_gray6 link_gray6">
+            <span class="link_yellow">欢迎登录骑士人才招聘网！请 <a id="J_site_login" href="javascript:;">登录</a> 或 <a id="J_site_reg" href="javascript:;">免费注册</a></span>
+        </div>
+        <div class="itopr font_gray9 link_gray6 substring new"> <a href="/" class="home">网站首页</a>|<a href="/m/index.html" class="m">手机访问</a>|<a href="/help.html" class="help">帮助中心</a>|<a href="/mall.html" class="shop">积分商城</a>|<a href="/subject.html" class="career new">专题<img style="right:-7px;" src="./upload/Application/Home/View/default/public/images/xin.png"></a>|<a href="/index.php?m=career&c=index&a=index" class="last new">事业单位招考<img src="./upload/Application/Home/View/default/public/images/xin.png"></a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="other_top_nav">
+    <div class="ot_nav_box">
+        <div class="ot_nav_logo"><a href="/"><img src="./upload/data/upload/resource/logo_home.gif" border="0"/></a></div>
+        <div class="ot_nav_sub">
+        </div>
+        <div class="ot_nav_link ">
+            <ul class="link_gray6 nowrap">
+                <li class="on_li J_hoverbut "><a  href="/index/index.html" target="_self">首  页</a></li><li class="on_li J_hoverbut "><a  href="/jobs/jobs_list.html" target="">找工作</a></li><li class="on_li J_hoverbut "><a  href="/resume/resume_list.html" target="">招人才</a></li><li class="on_li J_hoverbut "><a  href="/news.html" target="">职场资讯</a></li><li class="on_li J_hoverbut select"><a  href="/hrtools.html" target="_self">HR工具箱</a></li><li class="on_li J_hoverbut "><a  href="http://www.51lianzhi.cn" target="">云端职位</a></li><li class="on_li J_hoverbut "><a  href="/index.php?m=seniorjobfair&c=index&a=index" target="_self">招聘会</a></li><li class="on_li J_hoverbut "><a class="new" href="/index.php?m=interview&c=index&a=index" target="_self">企业专访<img src="./upload/Application/Home/View/default/public/images/xin.png"></a></li>            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<div class="new-hr-tp"></div>
+<div class="new-hr-main">
+    <div class="nhm-cell">
+        <div class="hc-top-bar"></div>
+        <div class="hc-ic-bar">
+            <div class="hc-sp-h20"></div>
+            <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/hr.jpg"></div>
+            <div class="hc-sp-h14"></div>
+            <div class="hc-sp-l">职场信用查询</div>
+        </div>
+        <div class="hc-tx-bar"><strong>HRcha.cn</strong>提供职场信用查询致力于让职场环境更和谐，更健康。欢迎HR上传无职业道德的”极品员工“共建和谐职场环境。</div>
+        <div class="hc-m-l"><a target="_blank" href="http://www.hrcha.cn" class="hc-more">查看更多</a></div>
+    </div>
+    <div class="nhm-cell">
+        <div class="hc-top-bar"></div>
+        <div class="hc-ic-bar">
+            <div class="hc-sp-h20"></div>
+            <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/1.jpg"></div>
+            <div class="hc-sp-h14"></div>
+            <div class="hc-sp-l">招聘/面试</div>
+        </div>
+        <div class="hc-tx-bar">包含各种人事招聘和人才面试专用表格文档，招聘专员可根据需求自行下载hr资料，实现人企互聘第一步。</div>
+        <div class="hc-m-l"><a target="_blank" href="/hrtools/list/1.html" class="hc-more">查看更多</a></div>
+    </div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/2.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">人事档案</div>
+    </div>
+    <div class="hc-tx-bar">以表单和文字形式记录企业和员工的主要经历、政治面貌、素质文化等内容，作为企业文化的内在凭证。 </div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/2.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/3.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">员工管理</div>
+    </div>
+    <div class="hc-tx-bar">包含工作内容、员工纪律等一系列直接涉及员工福利和工作性质的资料。帮助hr快速专业的落实人才工作。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/3.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/4.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">合同/试用</div>
+    </div>
+    <div class="hc-tx-bar">hr下载合适的合同范本作为跟人才之间的契约协议签订，成功实现企业和人才之间的双向选择。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/4.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/5.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">薪酬制度</div>
+    </div>
+    <div class="hc-tx-bar">hr可以适时参考工具箱内的资料表单，制定合理人性的薪酬制度，在众多招聘企业中一招制胜。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/5.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/6.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">加班/考勤</div>
+    </div>
+    <div class="hc-tx-bar">工具箱内提供各种形式的考勤表格供hr参考，以维护企业正常的工作秩序，严肃企业纪律。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/6.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/7.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">出差</div>
+    </div>
+    <div class="hc-tx-bar">针对公司出差问题，提供相关的出差规定、出差情况记录表等，准确掌握员工工作动态，明晰公司财务清单。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/7.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/8.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">员工培训</div>
+    </div>
+    <div class="hc-tx-bar">提供各类员工培训参考，包含出国培训、新进职员培训等，为企业提供多样的培训意见，提高员工素质能力。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/8.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/9.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">绩效考核</div>
+    </div>
+    <div class="hc-tx-bar">多种绩效考核办法标准，为企业提供全面的参考，正面引导员工的工作行为和工作业绩，实现企业战略目标。 </div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/9.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/10.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">辞退/移交</div>
+    </div>
+    <div class="hc-tx-bar">工具箱内提供各种辞职申请范本，企业可以进行参考，制定合理的离职流程。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/10.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/resource/hrtools_img/11.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">其它</div>
+    </div>
+    <div class="hc-tx-bar">企业hr工作中其他事项的参考标准，可以自定义选择添加。</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/11.html" class="hc-more">查看更多</a></div>
+</div><div class="nhm-cell">
+    <div class="hc-top-bar"></div>
+    <div class="hc-ic-bar">
+        <div class="hc-sp-h20"></div>
+        <div class="hib-icon h1"><img src="./upload/data/upload/hrtools_img/19/02/15/5c6672f13b15d.jpg"></div>
+        <div class="hc-sp-h14"></div>
+        <div class="hc-sp-l">测试测试测试测试</div>
+    </div>
+    <div class="hc-tx-bar">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+    <div class="hc-m-l"><a target="_blank" href="/hrtools/list/12.html" class="hc-more">查看更多</a></div>
+</div>    <div class="clear"></div>
+</div>
+<div class="footer_min" id="footer">
+    <div class="links link_gray6">
+        <a target="_blank" href="/index/index.html">网站首页</a>
+        |   <a target="_blank" href="/explain/5.html">法律申明</a>|   <a target="_blank" href="/explain/8.html">招贤纳士</a>|   <a target="_blank" href="/explain/7.html">联系我们</a>|   <a target="_blank" href="/explain/6.html">推广合作</a>|   <a target="_blank" href="/explain/4.html">产品服务</a>|   <a target="_blank" href="/explain/1.html">网站介绍</a>	|   <a target="_blank" href="/suggest.html">意见建议</a>
+    </div>
+    <div class="txt">
+
+        联系地址：山西省太原市小店区学府街坞城路口学府壹号2011室      联系电话：0351-5257204<br />
+
+        Copyright © 2018 74cms.com All Right Reserved      icp000000000		<script src="https://s22.cnzz.com/z_stat.php?id=1263726288&web_id=1263726288" language="JavaScript"></script>
+    </div>
+</div>
+
+<div class="">
+    <div class=""></div>
+</div>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/PIE.js"></script>
+<script type="text/javascript">
+    (function($){
+        $.pie = function(name, v){
+            // 如果没有加载 PIE 则直接终止
+            if (! PIE) return false;
+            // 是否 jQuery 对象或者选择器名称
+            var obj = typeof name == 'object' ? name : $(name);
+            // 指定运行插件的 IE 浏览器版本
+            var version = 9;
+            // 未指定则默认使用 ie10 以下全兼容模式
+            if (typeof v != 'number' && v < 9) {
+                version = v;
+            }
+            // 可对指定的多个 jQuery 对象进行样式兼容
+            if ($.browser.msie && obj.size() > 0) {
+                if ($.browser.version*1 <= version*1) {
+                    obj.each(function(){
+                        PIE.attach(this);
+                    });
+                }
+            }
+        }
+    })(jQuery);
+    if ($.browser.msie) {
+        $.pie('.pie_about');
+    };
+</script>
+<![endif]-->
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.disappear.tooltip.js"></script>
+<div class="floatmenu">
+    <div class="item mobile">
+        <a class="blk"></a>
+        <div class="popover popover1">
+            <div class="popover-bd">
+                <label>手机APP</label>
+                <span class="img-qrcode img-qrcode-mobile"><img src="/index.php?m=Home&c=Qrcode&a=index&url=http%3A%2F%2Fwww.tywangcai.com%2Fmobile%2Findex%2Fapp_download.html" alt=""></span>
+            </div>
+        </div>    <div class="popover">
+        <div class="popover-bd">
+            <label class="wx">企业微信</label>
+            <span class="img-qrcode img-qrcode-wechat"><img src="./upload/data/upload/resource/18/03/30/5abdb8c01dc9e.jpg" alt=""></span>
+        </div>
+        <div class="popover-arr"></div>
+    </div>  </div>  <div class="item ask">
+    <a class="blk" target="_blank" href="/suggest.html"></a>
+</div>
+    <div id="backtop" class="item backtop" style="display: none;"><a class="blk"></a></div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+
+    var global = {
+        h:$(window).height(),
+        st: $(window).scrollTop(),
+        backTop:function(){
+            global.st > (global.h*0.5) ? $("#backtop").show() : $("#backtop").hide();
+        }
+    }
+    $('#backtop').on('click',function(){
+        $("html,body").animate({"scrollTop":0},500);
+    });
+    global.backTop();
+    $(window).scroll(function(){
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    $(window).resize(function(){
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    // 客服QQ
+    var app_qq = "在线客服";
+    var qq_open = "1";
+    if(app_qq != '' && qq_open == 1){
+        var QQFloatUrl = "/qqfloat/index/index.html";
+        $.getJSON(QQFloatUrl, function (result) {
+            if (result.status == 1) {
+                //$(".qq-float").html(result.data);
+                $("body").append(result.data);
+            }
+        });
+    }
+</SCRIPT>
+<script type="text/javascript">
+    // 处理最后几个下边距的问题
+    var num = $('.nhm-cell').length;
+    if (num%3 == 0) {
+        $('.nhm-cell').eq(num-1).css('margin-bottom', '0');
+        $('.nhm-cell').eq(num-2).css('margin-bottom', '0');
+        $('.nhm-cell').eq(num-3).css('margin-bottom', '0');
+    }
+    if (num%3 == 1) {
+        $('.nhm-cell').eq(num-1).css('margin-bottom', '0');
+    }
+    if (num%3 == 2) {
+        $('.nhm-cell').eq(num-1).css('margin-bottom', '0');
+        $('.nhm-cell').eq(num-2).css('margin-bottom', '0');
+    }
+</script>
+</body>
+</html>

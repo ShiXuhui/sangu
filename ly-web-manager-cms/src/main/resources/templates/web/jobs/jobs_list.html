@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>重庆市人才招聘_最新招聘信息-骑士人才招聘网</title>
+    <meta name="keywords" content="重庆市"/>
+    <meta name="description" content=""/>
+    <meta name="author" content="骑士CMS"/>
+    <meta name="copyright" content="74cms.com"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <script src="../upload/Application/Home/View/default/public/js/jquery.min.js"></script>
+    <script src="../upload/Application/Home/View/default/public/js/htmlspecialchars.js"></script>
+    <script src="../static/tools/gt.js"></script>
+    <script type="text/javascript">
+        var app_spell = "1";
+        var qscms = {
+            base : "",
+            keyUrlencode:"1",
+            domain : "http://www.tywangcai.com",
+            root : "/index.php",
+            companyRepeat:"1",
+            regularMobile: /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$|17[0-9]{9}$|16[0-9]{9}$|19[0-9]{9}$/,
+            is_subsite : 0,
+            subsite_level : "4",
+            smsTatus: "1",
+            captcha_open:"1",
+            varify_mobile:"1",
+            varify_suggest:"0",
+            varify_user_login:"0",
+            is_login:"0",
+            default_district : "22.288",
+            default_district_spell : "chongqing.zhongqingshi"
+        };
+        $(function(){
+            $.getJSON("/home/ajax_common/get_header_min.html",function(result){
+                if(result.status == 1){
+                    $('#J_header').html(result.data.html);
+                }
+            });
+        })
+    </script>
+    <link href="../upload/Application/Home/View/default/public/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="../upload/Application/Home/View/default/public/css/common_ajax_dialog.css" rel="stylesheet" type="text/css" />
+    <link href="../upload/Application/Home/View/default/public/css/jobs.css" rel="stylesheet" type="text/css" />
+    <script src="../upload/Application/Home/View/default/public/js/jquery.common.js" type="text/javascript" language="javascript"></script>
+    <script type="text/javascript" src="/data/static/6f557ceaff36b5f87598d5441e0a6ba3.js?"></script>			</head>
+<body>
+<div class="header_min" id="header">
+    <div class="header_min_top">
+        <div id="J_header" class="itopl font_gray6 link_gray6">
+            <span class="link_yellow">欢迎登录骑士人才招聘网！请 <a id="J_site_login" href="javascript:;">登录</a> 或 <a id="J_site_reg" href="javascript:;">免费注册</a></span>
+        </div>
+        <div class="itopr font_gray9 link_gray6 substring new"> <a href="/" class="home">网站首页</a>|<a href="/m/index.html" class="m">手机访问</a>|<a href="/help.html" class="help">帮助中心</a>|<a href="/mall.html" class="shop">积分商城</a>|<a href="/subject.html" class="career new">专题<img style="right:-7px;" src="../upload/Application/Home/View/default/public/images/xin.png"></a>|<a href="/index.php?m=career&c=index&a=index" class="last new">事业单位招考<img src="../upload/Application/Home/View/default/public/images/xin.png"></a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="other_top_nav">
+    <div class="ot_nav_box">
+        <div class="ot_nav_logo"><a href="/"><img src="../upload/data/upload/resource/logo_home.gif" border="0"/></a></div>
+        <div class="ot_nav_sub">
+        </div>
+        <div class="ot_nav_link ">
+            <ul class="link_gray6 nowrap">
+                <li class="on_li J_hoverbut "><a  href="/index/index.html" target="_self">首  页</a></li><li class="on_li J_hoverbut select"><a  href="/jobs/jobs_list.html" target="">找工作</a></li><li class="on_li J_hoverbut "><a  href="/resume/resume_list.html" target="">招人才</a></li><li class="on_li J_hoverbut "><a  href="/news.html" target="">职场资讯</a></li><li class="on_li J_hoverbut "><a  href="/hrtools.html" target="_self">HR工具箱</a></li><li class="on_li J_hoverbut "><a  href="http://www.51lianzhi.cn" target="">云端职位</a></li><li class="on_li J_hoverbut "><a  href="/index.php?m=seniorjobfair&c=index&a=index" target="_self">招聘会</a></li><li class="on_li J_hoverbut "><a class="new" href="/index.php?m=interview&c=index&a=index" target="_self">企业专访<img src="../upload/Application/Home/View/default/public/images/xin.png"></a></li>            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<!--投递红包领取成功弹出框-->
+<div class="get-money-fail-suc" style="display: none">
+    <div class="gm-fs-group">
+        <div class="gm-fs-clo"></div>
+        <div class="cash-line">
+            <div class="cl-cell cl-big">000</div>
+            <div class="cl-cell">元</div>
+            <div class="clear"></div>
+        </div>
+        <div class="h119"></div>
+        <div class="qr-group"><img src="../upload/data/upload/resource/18/03/30/5abdb8c01dc9e.jpg" alt=""></div>
+        <div class="h16"></div>
+        <a href="/home/personal/allowance.html" class="gms-chk-btn">查看我的红包 ></a>
+        <div class="h15"></div>
+        <div class="t-co-f">现金红包到账时间可能有延迟，请微信扫码查询</div>
+        <div class="h15"></div>
+        <div class="t-co-dr">本活动最终解释权归骑士人才招聘网所有</div>
+    </div>
+</div><!--搜索 -->
+<div class="new-search-box" style="background-image: url(../upload/Application/Home/View/default/public/images/sebanner1.jpg);">
+    <div class="ns-main">
+        <div class="main-sty">
+            <div class="sty-cell J_sli_jc select" data-type="jobs">搜职位<div class="sty-aow"></div></div>
+            <div class="sty-cell J_sli_jc " data-type="company">搜企业<div class="sty-aow"></div></div>
+            <div class="sty-cell J_sli_jc " data-type="full">全文<div class="sty-aow"></div></div>            <div class="clear"></div>
+        </div>
+        <div class="main-sip">
+            <div class="ip-group">
+                <form id="ajax_search_location" action="/ajax_common/ajax_search_location/type/QS_jobslist.html" method="get">
+                    <div class="ip-box"><input type="text" name="key" id="autoKeyInput" data-original="" value="" placeholder="请输入关键字" /></div>
+                    <div class="for-border"></div>
+                    <div class="ip-city" data-toggle="funCityModal" data-title="请选择地区" data-multiple="false" data-maximum="0" data-width="630">选择地区</div>
+                    <input type="hidden" name="search_type" value="" />
+                    <input id="searchCityModalCode" type="hidden" name="citycategory" value="" />
+                    <input id="recoverSearchCityModalCode" type="hidden" name="" value="" />
+                    <input type="hidden" name="jobcategory" value="" />
+                    <input class="J_forclear" type="hidden" name="jobtag" value="" />
+                    <input class="J_forclear" type="hidden" name="wage" value="" />
+                    <input class="J_forclear" type="hidden" name="trade" value="" />
+                    <input class="J_forclear" type="hidden" name="scale" value="" />
+                    <input class="J_forclear" type="hidden" name="nature" value="" />
+                    <input class="J_forclear" type="hidden" name="education" value="" />
+                    <input class="J_forclear" type="hidden" name="experience" value="" />
+                    <input class="J_forclear" type="hidden" name="settr" value="" />
+                    <input type="hidden" name="lng" id="lng"  value=""/>
+                    <input type="hidden" name="lat" id="lat"  value=""/>
+                    <input type="hidden" name="ldLng" id="ldLng"  value=""/>
+                    <input type="hidden" name="ldLat" id="ldLat"  value=""/>
+                    <input type="hidden" name="ruLng" id="ruLng"  value=""/>
+                    <input type="hidden" name="ruLat" id="ruLat"  value=""/>
+                    <div class="ip-btn"><input type="submit" class="sobut J_hoverbut" value="找工作" /></div>
+                </form>
+            </div>
+            <div class="ip-txt link_white J_sub_s"><a href="/jobs.html">分类搜索</a></div>
+            <div class="ip-txt J_map_some link_white">
+                <div class="cur-map-pos" title=""></div>
+                <a class="for-div" href="javascript:;" id="popupBox">地图找工作</a>
+                <a class="map-clear" href="/jobs/jobs_list.html">清除</a>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="so_condition J_so_condition">
+    <div class="lefttit">地标地段</div>
+    <div class="rs">
+        <div onclick="javascript:location.href='/jobs/jobs_list/citycategory/zhongqingshi.html'" class="li ">全重庆市</div>
+        <div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wanzhouqu.html'" class="li ">万州区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fulingqu.html'" class="li ">涪陵区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yuzhongqu.html'" class="li ">渝中区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dadukouqu.html'" class="li ">大渡口区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangbeiqu2.html'" class="li ">江北区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shapingbaqu.html'" class="li ">沙坪坝区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiulongpoqu.html'" class="li ">九龙坡区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nananqu.html'" class="li ">南岸区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/beiqu2.html'" class="li ">北碚区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wanshengqu.html'" class="li ">万盛区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shuangqiaoqu2.html'" class="li ">双桥区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yubeiqu.html'" class="li ">渝北区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/bananqu.html'" class="li ">巴南区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/qianjiangqu.html'" class="li ">黔江区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/changshouqu.html'" class="li ">长寿区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangxian.html'" class="li ">綦江县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nanxian4.html'" class="li ">潼南县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/tongliangxian.html'" class="li ">铜梁县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dazuxian.html'" class="li ">大足县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/rongchangxian.html'" class="li ">荣昌县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shanxian5.html'" class="li ">璧山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/liangpingxian.html'" class="li ">梁平县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/chengkouxian.html'" class="li ">城口县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fengduxian.html'" class="li ">丰都县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dianjiangxian.html'" class="li ">垫江县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wulongxian.html'" class="li ">武隆县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/zhongxian.html'" class="li ">忠　县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/kaixian.html'" class="li ">开　县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yunyangxian.html'" class="li ">云阳县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fengjiexian.html'" class="li ">奉节县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wushanxian.html'" class="li ">巫山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wuxixian.html'" class="li ">巫溪县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shizhuxian.html'" class="li ">石柱县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/xiushanxian.html'" class="li ">秀山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/youyangxian.html'" class="li ">酉阳县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/pengshuixian.html'" class="li ">彭水县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangjinqu.html'" class="li ">江津区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/hechuanqu.html'" class="li ">合川区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yongchuanqu.html'" class="li ">永川区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nanchuanqu.html'" class="li ">南川区</div>			<div class="clear"></div>
+    </div>
+    <div class="clear"></div>	<div class="lefttit">职位薪资</div>
+    <div class="rs">
+        <div onclick="javascript:location.href='/jobs/jobs_list.html'" class="li select">不限</div>
+        <div onclick="javascript:location.href='/jobs/jobs_list/wage/56.html'" class="li ">1千~1千5/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/57.html'" class="li ">1千5~2千/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/58.html'" class="li ">3千~4千/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/59.html'" class="li ">3千~5千/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/60.html'" class="li ">5千~1万/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/61.html'" class="li ">1万以上/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/302.html'" class="li ">1万~2万/月</div><div onclick="javascript:location.href='/jobs/jobs_list/wage/316.html'" class="li ">面议</div>		<div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <div class="lefttit">职位亮点</div>
+    <div class="rs">
+        <div onclick="javascript:location.href='/jobs/jobs_list.html'" class="li select">不限</div>
+        <div onclick="javascript:location.href='/jobs/jobs_list/jobtag/145.html'" class="li ">环境好</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/146.html'" class="li ">年终奖</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/147.html'" class="li ">双休</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/148.html'" class="li ">五险一金</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/149.html'" class="li ">加班费</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/150.html'" class="li ">朝九晚五</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/151.html'" class="li ">交通方便</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/152.html'" class="li ">加班补助</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/153.html'" class="li ">包食宿</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/154.html'" class="li ">管理规范</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/155.html'" class="li ">有提成</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/156.html'" class="li ">全勤奖</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/157.html'" class="li ">有年假</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/158.html'" class="li ">专车接送</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/159.html'" class="li ">有补助</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/160.html'" class="li ">晋升快</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/161.html'" class="li ">车贴</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/162.html'" class="li ">房贴</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/164.html'" class="li ">技术培训</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/165.html'" class="li ">旅游</div><div onclick="javascript:location.href='/jobs/jobs_list/jobtag/318.html'" class="li ">节假日带薪休假假</div>		<div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="lefttit">更多筛选</div>
+    <div class="rs">
+        <div class="bli J_dropdown">
+            <span class="txt" title="所属行业">所属行业</span>
+            <div class="dropdowbox_searchtrade J_dropdown_menu">
+                <div class="dropdow_inner_searchtrade">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/trade/45.html'" class="" data-code="45" title="其他行业">其他行业</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/1.html'" class="" data-code="1" title="计算机软件/硬件">计算机软件/硬件</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/2.html'" class="" data-code="2" title="计算机系统/维修">计算机系统/维修</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/3.html'" class="" data-code="3" title="通信(设备/运营/服务)">通信(设备/运营/服务)</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/4.html'" class="" data-code="4" title="互联网/电子商务">互联网/电子商务</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/5.html'" class="" data-code="5" title="网络游戏">网络游戏</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/6.html'" class="" data-code="6" title="电子/半导体/集成电路">电子/半导体/集成电路</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/7.html'" class="" data-code="7" title="仪器仪表/工业自动化">仪器仪表/工业自动化</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/8.html'" class="" data-code="8" title="会计/审计">会计/审计</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/9.html'" class="" data-code="9" title="金融(投资/证券">金融(投资/证券</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/10.html'" class="" data-code="10" title="金融(银行/保险)">金融(银行/保险)</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/11.html'" class="" data-code="11" title="贸易/进出口">贸易/进出口</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/12.html'" class="" data-code="12" title="批发/零售">批发/零售</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/13.html'" class="" data-code="13" title="消费品(食/饮/烟酒)">消费品(食/饮/烟酒)</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/14.html'" class="" data-code="14" title="服装/纺织/皮革">服装/纺织/皮革</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/15.html'" class="" data-code="15" title="家具/家电/工艺品/玩具">家具/家电/工艺品/玩具</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/16.html'" class="" data-code="16" title="办公用品及设备">办公用品及设备</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/17.html'" class="" data-code="17" title="机械/设备/重工">机械/设备/重工</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/18.html'" class="" data-code="18" title="汽车/摩托车/零配件">汽车/摩托车/零配件</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/19.html'" class="" data-code="19" title="制药/生物工程">制药/生物工程</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/20.html'" class="" data-code="20" title="医疗/美容/保健/卫生">医疗/美容/保健/卫生</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/21.html'" class="" data-code="21" title="医疗设备/器械">医疗设备/器械</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/22.html'" class="" data-code="22" title="广告/市场推广">广告/市场推广</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/23.html'" class="" data-code="23" title="会展/博览">会展/博览</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/24.html'" class="" data-code="24" title="影视/媒体/艺术/出版">影视/媒体/艺术/出版</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/25.html'" class="" data-code="25" title="印刷/包装/造纸">印刷/包装/造纸</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/26.html'" class="" data-code="26" title="房地产开发">房地产开发</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/27.html'" class="" data-code="27" title="建筑与工程">建筑与工程</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/28.html'" class="" data-code="28" title="家居/室内设计/装潢">家居/室内设计/装潢</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/29.html'" class="" data-code="29" title="物业管理/商业中心">物业管理/商业中心</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/30.html'" class="" data-code="30" title="中介服务/家政服务">中介服务/家政服务</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/31.html'" class="" data-code="31" title="专业服务/财会/法律">专业服务/财会/法律</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/32.html'" class="" data-code="32" title="检测/认证">检测/认证</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/33.html'" class="" data-code="33" title="教育/培训">教育/培训</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/34.html'" class="" data-code="34" title="学术/科研">学术/科研</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/35.html'" class="" data-code="35" title="餐饮/娱乐/休闲">餐饮/娱乐/休闲</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/36.html'" class="" data-code="36" title="酒店/旅游">酒店/旅游</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/37.html'" class="" data-code="37" title="交通/运输/物流">交通/运输/物流</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/38.html'" class="" data-code="38" title="航天/航空">航天/航空</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/39.html'" class="" data-code="39" title="能源(石油/化工/矿产)">能源(石油/化工/矿产)</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/40.html'" class="" data-code="40" title="能源(采掘/冶炼/原材料)">能源(采掘/冶炼/原材料)</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/41.html'" class="" data-code="41" title="电力/水利/新能源">电力/水利/新能源</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/42.html'" class="" data-code="42" title="政府部门/事业单位">政府部门/事业单位</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/43.html'" class="" data-code="43" title="非盈利机构/行业协会">非盈利机构/行业协会</li><li onclick="javascript:location.href='/jobs/jobs_list/trade/44.html'" class="" data-code="44" title="农业/渔业/林业/牧业">农业/渔业/林业/牧业</li>						<div class="clear"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bli J_dropdown">
+            <span>企业规模</span>
+            <div class="dropdowbox_noa J_dropdown_menu">
+                <div class="dropdow_inner_noa">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/scale/80.html'" class="" data-code="80">20人以下</li><li onclick="javascript:location.href='/jobs/jobs_list/scale/81.html'" class="" data-code="81">20-99人</li><li onclick="javascript:location.href='/jobs/jobs_list/scale/82.html'" class="" data-code="82">100-499人</li><li onclick="javascript:location.href='/jobs/jobs_list/scale/83.html'" class="" data-code="83">500-999人</li><li onclick="javascript:location.href='/jobs/jobs_list/scale/84.html'" class="" data-code="84">1000-9999人</li><li onclick="javascript:location.href='/jobs/jobs_list/scale/85.html'" class="" data-code="85">10000人以上</li>	                </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bli J_dropdown">
+            <span>工作性质</span>
+            <div class="dropdowbox_noa J_dropdown_menu">
+                <div class="dropdow_inner_noa">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/nature/62.html'" class="" data-code="62">全职</li><li onclick="javascript:location.href='/jobs/jobs_list/nature/63.html'" class="" data-code="63">兼职</li><li onclick="javascript:location.href='/jobs/jobs_list/nature/64.html'" class="" data-code="64">实习</li>	                </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bli J_dropdown">
+            <span>学历要求</span>
+            <div class="dropdowbox_noa J_dropdown_menu">
+                <div class="dropdow_inner_noa">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/education/65.html'" class="" data-code="65">初中</li><li onclick="javascript:location.href='/jobs/jobs_list/education/66.html'" class="" data-code="66">高中</li><li onclick="javascript:location.href='/jobs/jobs_list/education/67.html'" class="" data-code="67">中技</li><li onclick="javascript:location.href='/jobs/jobs_list/education/68.html'" class="" data-code="68">中专</li><li onclick="javascript:location.href='/jobs/jobs_list/education/69.html'" class="" data-code="69">大专</li><li onclick="javascript:location.href='/jobs/jobs_list/education/70.html'" class="" data-code="70">本科</li><li onclick="javascript:location.href='/jobs/jobs_list/education/71.html'" class="" data-code="71">硕士</li><li onclick="javascript:location.href='/jobs/jobs_list/education/72.html'" class="" data-code="72">博士</li><li onclick="javascript:location.href='/jobs/jobs_list/education/73.html'" class="" data-code="73">博后</li>	                </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bli J_dropdown">
+            <span>工作经验</span>
+            <div class="dropdowbox_noa J_dropdown_menu">
+                <div class="dropdow_inner_noa">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/experience/74.html'" class="" data-code="74">无经验</li><li onclick="javascript:location.href='/jobs/jobs_list/experience/75.html'" class="" data-code="75">1年以下</li><li onclick="javascript:location.href='/jobs/jobs_list/experience/76.html'" class="" data-code="76">1-3年</li><li onclick="javascript:location.href='/jobs/jobs_list/experience/77.html'" class="" data-code="77">3-5年</li><li onclick="javascript:location.href='/jobs/jobs_list/experience/78.html'" class="" data-code="78">5-10年</li><li onclick="javascript:location.href='/jobs/jobs_list/experience/79.html'" class="" data-code="79">10年以上</li>	                </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bli J_dropdown">
+            <span>更新时间</span>
+            <div class="dropdowbox_noa J_dropdown_menu">
+                <div class="dropdow_inner_noa">
+                    <ul class="nav_box">
+                        <li onclick="javascript:location.href='/jobs/jobs_list/settr/3.html'" class="" data-code="3">3天内</li>
+                        <li onclick="javascript:location.href='/jobs/jobs_list/settr/7.html'" class="" data-code="7">7天内</li>
+                        <li onclick="javascript:location.href='/jobs/jobs_list/settr/15.html'" class="" data-code="15">15天内</li>
+                        <li onclick="javascript:location.href='/jobs/jobs_list/settr/30.html'" class="" data-code="30">30天内</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+
+    <!--已选条件，当没有条件的时候不显示下面的DIV -->
+</div>
+<div class="plist">
+    <div class="pl">
+        <div class="toptitle">
+            <div class="ltype">
+                <div class="typeli select" onclick="window.location='/jobs/jobs_list.html';">所有职位</div>
+                <div class="typeli " onclick="window.location='/jobs/jobs_list/search_cont/setmeal.html';">名企招聘</div>
+                <div class="typeli " onclick="window.location='/jobs/jobs_list/search_cont/famous.html';">诚聘通</div>				<div class="typeli money " onclick="window.location='/jobs/jobs_list/search_cont/allowance.html';">红包职位</div>
+                <div class="t-money">
+                    <div class="m-re-box">
+                        当前共有 <span class="red-txt" id="money_count_jobs">0</span> 个红包职位，红包总额 <span class="red-txt" id="money_count_amount">0</span> 元
+                        <div class="m-re-arr"></div>
+                        <div class="m-re-clo"></div>
+                    </div>
+                </div>				<div class="clear"></div>
+            </div>
+            <div class="ts">
+                <div class="l1 width575"></div>
+                <div class="l2 ">
+                </div>
+                <div class="l2 ">
+                    <div class="radio_group" onclick="window.location='/jobs/jobs_list/license/1.html';">
+                        <div class="radiobox"></div>
+                        <div class="radiotxt">营业执照已认证</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+                <div class="J_detailList l3 select" title="切换到详细列表"></div>
+                <div class="J_detailList l4 " title="切换到简易列表" show_type="1"></div>
+                <div class="clear"></div>
+            </div>
+            <div class="sort">
+                <div class="sl1">排序方式：</div>
+                <a class="sl2 select" href="/jobs/jobs_list.html">综合排序</a>				<a class="sl2 " href="/jobs/jobs_list/sort/rtime.html">更新时间</a>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <!--列表 -->
+        <div class="listb J_allListBox">
+            <div class="J_jobsList yli" data-jid="1095">
+                <div class="td1"><div class="J_allList radiobox"></div></div>
+                <div class="td2 link_blue link_visited ">
+                    <div class="td-j-name"><a href="/jobs/1095.html" target="_blank" title="江北区&nbsp;|&nbsp;jxjd">江北区&nbsp;|&nbsp;jxjd</a></div>
+                    <div class="td-j-img">
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="td3 link_gray6">
+                    <a class="line_substring" href="/company/2044.html" target="_blank">hhb</a>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="td4">6千-1万1/月</div>
+                <div class="td5">15小时前</div>
+                <div class="td6"><div class="J_jobsStatus hide "></div> </div>
+                <div class="clear"></div>
+                <div class="detail" >
+                    <div class="ltx">
+                        <div class="txt font_gray6">学历：学历不限<span>|</span>经验：经验不限<span>|</span>职位性质：兼职<span>|</span>人数：若干人<span>|</span>地点：重庆/重庆市/江北区</div>
+                        <div class="dlabs">
+                            <div class="dl">交通方便</div><div class="dl">包食宿</div><div class="dl">有提成</div>									<div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="rbtn ">
+                        <div class="deliver J_applyForJob" data-batch="false" data-url="/ajax_personal/resume_apply.html" >投递简历</div>
+                        <div class="favorites  J_collectForJob" data-batch="false" data-url="/ajax_personal/jobs_favorites.html">收藏</div>                                <div class="map-area"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div><div class="J_jobsList yli" data-jid="1094">
+            <div class="td1"><div class="J_allList radiobox"></div></div>
+            <div class="td2 link_blue link_visited ">
+                <div class="td-j-name"><a href="/jobs/1094.html" target="_blank" title="渝中区&nbsp;|&nbsp;测试">渝中区&nbsp;|&nbsp;测试</a></div>
+                <div class="td-j-img">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="td3 link_gray6">
+                <a class="line_substring" href="/company/2040.html" target="_blank">测试测试测试测试</a>
+                <div class="clear"></div>
+            </div>
+
+            <div class="td4">面议</div>
+            <div class="td5">2019-04-21</div>
+            <div class="td6"><div class="J_jobsStatus hide "></div> </div>
+            <div class="clear"></div>
+            <div class="detail" >
+                <div class="ltx">
+                    <div class="txt font_gray6">学历：学历不限<span>|</span>经验：经验不限<span>|</span>职位性质：全职<span>|</span>人数：若干人<span>|</span>地点：重庆/重庆市/渝中区</div>
+                    <div class="dlabs">
+                        <div class="dl">朝九晚五</div><div class="dl">交通方便</div><div class="dl">管理规范</div>									<div class="clear"></div>
+                    </div>
+                </div>
+                <div class="rbtn ">
+                    <div class="deliver J_applyForJob" data-batch="false" data-url="/ajax_personal/resume_apply.html" >投递简历</div>
+                    <div class="favorites  J_collectForJob" data-batch="false" data-url="/ajax_personal/jobs_favorites.html">收藏</div>                                <div class="map-area"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><div class="J_jobsList yli" data-jid="1093">
+            <div class="td1"><div class="J_allList radiobox"></div></div>
+            <div class="td2 link_blue link_visited ">
+                <div class="td-j-name"><a href="/jobs/1093.html" target="_blank" title="万州区&nbsp;|&nbsp;销售经理">万州区&nbsp;|&nbsp;销售经理</a></div>
+                <div class="td-j-img">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="td3 link_gray6">
+                <a class="line_substring" href="/company/2037.html" target="_blank">定南天天</a>
+                <img src="../upload/data/upload/setmeal_img/13.png" title="黄金年度会员">																					<div class="clear"></div>
+            </div>
+
+            <div class="td4">2千-4千/月</div>
+            <div class="td5">2019-04-07</div>
+            <div class="td6"><div class="J_jobsStatus hide "></div> </div>
+            <div class="clear"></div>
+            <div class="detail" >
+                <div class="ltx">
+                    <div class="txt font_gray6">学历：学历不限<span>|</span>经验：经验不限<span>|</span>职位性质：全职<span>|</span>人数：若干人<span>|</span>地点：重庆/重庆市/万州区</div>
+                    <div class="dlabs">
+                        <div class="dl">环境好</div><div class="dl">年终奖</div>									<div class="clear"></div>
+                    </div>
+                </div>
+                <div class="rbtn ">
+                    <div class="deliver J_applyForJob" data-batch="false" data-url="/ajax_personal/resume_apply.html" >投递简历</div>
+                    <div class="favorites  J_collectForJob" data-batch="false" data-url="/ajax_personal/jobs_favorites.html">收藏</div>                                <div class="map-area"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><div class="J_jobsList yli" data-jid="1043">
+            <div class="td1"><div class="J_allList radiobox"></div></div>
+            <div class="td2 link_blue link_visited ">
+                <div class="td-j-name"><a href="/jobs/1043.html" target="_blank" title="迎泽区&nbsp;|&nbsp;操作工">迎泽区&nbsp;|&nbsp;操作工</a></div>
+                <div class="td-j-img">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="td3 link_gray6">
+                <a class="line_substring" href="/company/1956.html" target="_blank">某科技有限公司</a>
+                <div class="clear"></div>
+            </div>
+
+            <div class="td4">3千5-5千/月</div>
+            <div class="td5">2019-04-03</div>
+            <div class="td6"><div class="J_jobsStatus hide "></div> </div>
+            <div class="clear"></div>
+            <div class="detail" >
+                <div class="ltx">
+                    <div class="txt font_gray6">学历：学历不限<span>|</span>经验：经验不限<span>|</span>职位性质：全职<span>|</span>人数：若干人<span>|</span>地点：山西/太原/迎泽区</div>
+                    <div class="dlabs">
+                        我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是111我是...																		<div class="clear"></div>
+                    </div>
+                </div>
+                <div class="rbtn ">
+                    <div class="deliver J_applyForJob" data-batch="false" data-url="/ajax_personal/resume_apply.html" >投递简历</div>
+                    <div class="favorites  J_collectForJob" data-batch="false" data-url="/ajax_personal/jobs_favorites.html">收藏</div>                                <div class="map-area"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div><div class="J_jobsList yli" data-jid="1056">
+            <div class="td1"><div class="J_allList radiobox"></div></div>
+            <div class="td2 link_blue link_visited ">
+                <div class="td-j-name"><a href="/jobs/1056.html" target="_blank" title="迎泽区&nbsp;|&nbsp;业务员33">迎泽区&nbsp;|&nbsp;业务员33</a></div>
+                <div class="td-j-img">
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="td3 link_gray6">
+                <a class="line_substring" href="/company/1956.html" target="_blank">某科技有限公司</a>
+                <div class="clear"></div>
+            </div>
+
+            <div class="td4">6千-7千/月</div>
+            <div class="td5">2019-04-03</div>
+            <div class="td6"><div class="J_jobsStatus hide "></div> </div>
+            <div class="clear"></div>
+            <div class="detail" >
+                <div class="ltx">
+                    <div class="txt font_gray6">学历：学历不限<span>|</span>经验：经验不限<span>|</span>职位性质：全职<span>|</span>人数：若干人<span>|</span>地点：山西/太原/迎泽区</div>
+                    <div class="dlabs">
+                        1.部门组织结构的制订和优化，客服部门业务操作规范；
+                        2.负责业务流程的制定、优化、以及监督和执行；
+                        3.负责业绩考核、奖惩制度的制订和落实公司考核指标；
+                        4.负责或安排人员进行线上系统的功能可用性定期检测、汇总...																		<div class="clear"></div>
+                    </div>
+                </div>
+                <div class="rbtn ">
+                    <div class="deliver J_applyForJob" data-batch="false" data-url="/ajax_personal/resume_apply.html" >投递简历</div>
+                    <div class="favorites  J_collectForJob" data-batch="false" data-url="/ajax_personal/jobs_favorites.html">收藏</div>                                <div class="map-area"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>				<div class="jobslist-login-layer">
+            <div class="tip-block">
+                <div class="tip-block-title">
+                    <p class="middle"><span class="font_red">30秒</span>快速注册简历，海量职位任意投！</p>							<p class="small">登录或注册简历后可以查看更多数据，各种红包送不停！</p>
+                </div>
+                <a href="javascript:;" class="btn_red J_hoverbut btn_inline" id="J_login">已有账号登录</a>
+                <a href="javascript:;" class="btn_lightblue J_hoverbut btn_inline" id="J_reg">30秒注册简历</a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="pr">
+        <div class="ad230_175">
+            <a title="职位资讯广告位" href="javascript:;" target="_blank"><img alt="职位资讯广告位" src="../upload/data/upload/attach_img/16/12/27/5861bb154da71.jpg" width="230" height="175"></a>			</div>		<!--紧急招聘 -->
+        <div class="lisbox link_gray6">
+            <div class="t">最新职位</div>
+            <div class="eyl">
+                <div class="jname substring"><a href="/jobs/1095.html">jxjd</a></div>
+                <div class="city substring">6千-1万1/月</div>
+                <div class="clear"></div>
+                <div class="etxt substring"><a href="/company/2044.html">hhb</a></div>
+                <div class="etxt substring">重庆/重庆市/江北区</div>
+            </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1094.html">测试</a></div>
+            <div class="city substring">面议</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2040.html">测试测试测试测试</a></div>
+            <div class="etxt substring">重庆/重庆市/渝中区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1093.html">销售经理</a></div>
+            <div class="city substring">2千-4千/月</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2037.html">定南天天</a></div>
+            <div class="etxt substring">重庆/重庆市/万州区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1092.html">职位A</a></div>
+            <div class="city substring">1万-2万/月</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2034.html">YJ</a></div>
+            <div class="etxt substring">上海/上海市/闸北区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1091.html">销售经理代表</a></div>
+            <div class="city substring">面议</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2033.html">北京灵动科技公司</a></div>
+            <div class="etxt substring">重庆/重庆市/万州区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1088.html">测试</a></div>
+            <div class="city substring">8千-9千/月</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2028.html">苏商</a></div>
+            <div class="etxt substring">重庆/重庆市/九龙坡区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1087.html">夜班值班员</a></div>
+            <div class="city substring">1千8-2千2/月</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2027.html">欧尚客度假酒店</a></div>
+            <div class="etxt substring">山东/济宁/微山县</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1086.html">房地产外场销售经理</a></div>
+            <div class="city substring">面议</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2026.html">成都三合堂房地产营销策划有限责任公司</a></div>
+            <div class="etxt substring">四川/资阳/简阳市</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1084.html">房产经纪人</a></div>
+            <div class="city substring">面议</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/2021.html">安康市米亚信息咨询有限公司</a></div>
+            <div class="etxt substring">陕西/安康/汉滨区</div>
+        </div><div class="eyl">
+            <div class="jname substring"><a href="/jobs/1083.html">ceshi00</a></div>
+            <div class="city substring">面议</div>
+            <div class="clear"></div>
+            <div class="etxt substring"><a href="/company/138.html">邢台招聘网</a></div>
+            <div class="etxt substring">山西/太原/杏花岭区</div>
+        </div>			</div>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+<input type="hidden" class="map-lng" value="112.654041">
+<input type="hidden" class="map-lat" value="37.761459"><div class="new-footer">
+    <div class="footer-txt-group nl">
+        <div class="ftg-main">
+            <div class="ftg-left">
+                <div class="ftg-a-group">
+                    <a href="/explain/5.html" target="_blank" class="fag-link-cell">法律申明</a><span class="hl">|</span><a href="/explain/8.html" target="_blank" class="fag-link-cell">招贤纳士</a><span class="hl">|</span><a href="/explain/7.html" target="_blank" class="fag-link-cell">联系我们</a><span class="hl">|</span><a href="/explain/6.html" target="_blank" class="fag-link-cell">推广合作</a><span class="hl">|</span>                    <span class="tel">联系电话：0351-5257204</span>
+                </div>
+                <p class="copyright">联系地址：山西省太原市小店区学府街坞城路口学府壹号2011室 &nbsp;&nbsp;网站备案：icp000000000</p>
+                <p class="copyright">Copyright © 2018 74cms.com All Right Reserved  &nbsp;&nbsp;Powered by <a href="http://www.74cms.com">74cms</a> v4.2.137 <script src="https://s22.cnzz.com/z_stat.php?id=1263726288&web_id=1263726288" language="JavaScript"></script></p>
+            </div>
+            <div class="ftg-right">
+                <div class="qr-box">
+                    <div class="img"><img src="../upload/data/upload/resource/18/03/30/5abdb8c01dc9e.jpg"></div>
+                    <div class="qr-txt">公众号</div>
+                </div>
+                <div class="qr-box">
+                    <div class="img"><img src="/index.php?m=Home&c=Qrcode&a=index&url=https%3A%2F%2Fmobile.tywangcai.com"></div>
+                    <div class="qr-txt">触屏端</div>
+                </div>                <div class="qr-box">
+                <div class="img"><img src="../upload/data/upload/images/18/03/16/5aab184644ef0.jpg"></div>
+                <div class="qr-txt">微信小程序</div>
+            </div>            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="floatmenu">
+    <div class="item mobile">
+        <a class="blk"></a>
+        <div class="popover popover1">
+            <div class="popover-bd">
+                <label>手机APP</label>
+                <span class="img-qrcode img-qrcode-mobile"><img src="/index.php?m=Home&c=Qrcode&a=index&url=http%3A%2F%2Fwww.tywangcai.com%2Fmobile%2Findex%2Fapp_download.html" alt=""></span>
+            </div>
+        </div>            <div class="popover">
+        <div class="popover-bd">
+            <label class="wx">企业微信</label>
+            <span class="img-qrcode img-qrcode-wechat"><img src="../upload/data/upload/resource/18/03/30/5abdb8c01dc9e.jpg" alt=""></span>
+        </div>
+        <div class="popover-arr"></div>
+    </div>        </div>    <div class="item ask"><a class="blk" target="_blank" href="/suggest.html"></a></div>
+    <div id="backtop" class="item backtop" style="display: none;"><a class="blk"></a></div>
+</div>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/PIE.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $.pie = function (name, v) {
+            // 如果没有加载 PIE 则直接终止
+            if (!PIE) return false;
+            // 是否 jQuery 对象或者选择器名称
+            var obj = typeof name == 'object' ? name : $(name);
+            // 指定运行插件的 IE 浏览器版本
+            var version = 9;
+            // 未指定则默认使用 ie10 以下全兼容模式
+            if (typeof v != 'number' && v < 9) {
+                version = v;
+            }
+            // 可对指定的多个 jQuery 对象进行样式兼容
+            if ($.browser.msie && obj.size() > 0) {
+                if ($.browser.version * 1 <= version * 1) {
+                    obj.each(function () {
+                        PIE.attach(this);
+                    });
+                }
+            }
+        }
+    })(jQuery);
+    if ($.browser.msie) {
+        $.pie('.pie_about');
+    }
+</script>
+<![endif]-->
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.disappear.tooltip.js"></script>
+<script type="text/javascript">
+    var global = {
+        h: $(window).height(),
+        st: $(window).scrollTop(),
+        backTop: function () {
+            global.st > (global.h * 0.5) ? $("#backtop").show() : $("#backtop").hide();
+        }
+    }
+    $('#backtop').on('click', function () {
+        $("html,body").animate({"scrollTop": 0}, 500);
+    });
+    global.backTop();
+    $(window).scroll(function () {
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    $(window).resize(function () {
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    // 客服QQ
+    var app_qq = "在线客服";
+    var qq_open = "1";
+    if(app_qq != '' && qq_open == 1){
+        var QQFloatUrl = "/qqfloat/index/index.html";
+        $.getJSON(QQFloatUrl, function (result) {
+            if (result.status == 1) {
+                //$(".qq-float").html(result.data);
+                $("body").append(result.data);
+            }
+        });
+    }
+</script>
+<div id="mapShowC" style="display: none"></div>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.jobslist.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.search.city.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.search.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.dropdown.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.listitem.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.highlight-3.js"></script>
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YpHFdZwwQ6fZefPqXRUw9gBh"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.mapjob.js"></script>
+<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.autocomplete.js"></script>
+<script type="text/javascript">
+    $('.get-money-fail-suc').css({
+        left: ($(window).width() - $('.get-money-fail-suc').outerWidth())/2,
+        top: ($(window).height() - $('.get-money-fail-suc').outerHeight())/2 + $(document).scrollTop()
+    });
+    $('.gm-fs-group .gm-fs-clo').die().live('click', function () {
+        $(this).closest('.get-money-fail-suc').remove();
+        $('.modal_backdrop').remove();
+    });
+    // 搜索类型切换
+    $('.J_sli_jc').click(function() {
+        $(this).addClass('select').siblings().removeClass('select');
+        var indexValue = $('.J_sli_jc').index(this);
+        var typeValue = $.trim($(this).data('type'));
+        if (typeValue == 'company') {
+            $('#ajax_search_location').attr('action', "/ajax_common/ajax_search_location/type/QS_companylist.html");
+        } else {
+            $('#ajax_search_location').attr('action', "/ajax_common/ajax_search_location/type/QS_jobslist.html");
+        }
+        $('input[name="search_type"]').val(typeValue);
+    });
+    var city_select = {"spell":"zhongqingshi","id":"288","parentid":"22","categoryname":"\u91cd\u5e86\u5e02","citycategory":"zhongqingshi"};
+    var city_parent = {"spell":"zhongqingshi","id":"288","parentid":"22","categoryname":"\u91cd\u5e86\u5e02","citycategory":"zhongqingshi"};
+    if (city_parent) {
+        if (app_spell) {
+            $('#showSearchModal').text(city_parent['categoryname']);
+            $('#recoverSearchCityModalCode').val(city_parent['spell']);
+        } else {
+            $('#showSearchModal').text(city_parent['categoryname']);
+            $('#recoverSearchCityModalCode').val(city_parent['citycategory']);
+        }
+    } else if(city_select) {
+        if (app_spell) {
+            $('#showSearchModal').text(city_select['categoryname']);
+            $('#recoverSearchCityModalCode').val(city_select['spell']);
+        } else {
+            $('#showSearchModal').text(city_select['categoryname']);
+            $('#recoverSearchCityModalCode').val(city_select['citycategory']);
+        }
+    }
+
+
+    if ($('.J_selected .slist').length) {
+        $('.J_selected').show();
+    }
+
+    $('.J_jobConditions .wli').each(function(index, el) {
+        if (index > 6) {
+            $(this).addClass('for_up');
+        };
+    });
+
+    // 关键字高亮
+    var keyWords = $('input[name="key"]').val();
+    if (keyWords.length) {
+        $('.J_jobsList').highlight(keyWords);
+    }
+    var qsMapUrl = "/jobs/jobs_list/lng/lngVal/lat/latVal/ldLng/ldLngVal/ldLat/ldLatVal/ruLng/ruLngVal/ruLat/ruLatVal/range/20.html";
+    var isMapSearch = "";
+    if (isMapSearch.length) {
+        var map = new BMap.Map("mapShowC");
+        map.enableScrollWheelZoom();
+        map.addControl(new BMap.NavigationControl());
+        var point = new BMap.Point($('#lng').val(),$('#lat').val());
+        map.centerAndZoom(point, 15);
+        var myGeo = new BMap.Geocoder();
+        var position;
+        function geocodeSearch(pt){
+            myGeo.getLocation(pt, function(rs){
+                var addComp = rs.addressComponents;
+                // 街道、区、市逐层向上找
+                if (addComp.street.length) {
+                    position = addComp.street;
+                } else if (addComp.district.length) {
+                    position = addComp.district;
+                } else {
+                    position = addComp.city;
+                }
+                var thisMapText =  '';
+                if (position.length > 4) {
+                    thisMapText = position.substring(0,4) + "...";
+                } else {
+                    thisMapText = position;
+                }
+                $('.J_sub_s').hide();
+                //$('.J_map_some').addClass('link_yellow');
+                $('.cur-map-pos').text('位置：' + thisMapText).attr('title', position).show();
+                $('#popupBox').text('修改');
+                $('.J_map_some .map-clear').show();
+                $('#mapShowC').remove();
+            });
+        }
+        geocodeSearch(point);
+    }
+    // 关键字联想
+    var hotKey = $('#autoKeyInput').autocomplete({
+        serviceUrl:"/ajax_common/hotword.html",
+        minChars:1,
+        maxHeight:400,
+        width:276,
+        zIndex: 1,
+        deferRequestBy: 0
+    });
+    // 关闭红包提醒
+    $('.t-money .m-re-clo').click(function() {
+        $(this).closest('.m-re-box').hide();
+    });
+    $.getJSON(qscms.root+'?m=Allowance&c=Ajax&a=counter',function(result){
+        if(result.status==1){
+            $('#money_count_jobs').html(result.data.money_count_jobs);
+            $('#money_count_amount').html(result.data.money_count_amount);
+        }
+    });    $('#J_login').click(function(){
+        var qsDialog = $(this).dialog({
+            loading: true,
+            footer: false,
+            header: false,
+            border: false,
+            backdrop: false
+        });
+        var loginUrl = qscms.root+"?m=Home&c=AjaxCommon&a=ajax_login";
+        $.getJSON(loginUrl, function(result){
+            if(result.status==1){
+                qsDialog.hide();
+                var qsDialogSon = $(this).dialog({
+                    header: false,
+                    content: result.data.html,
+                    footer: false,
+                    border: false
+                });
+                qsDialogSon.setInnerPadding(false);
+            } else {
+                qsDialog.hide();
+                disapperTooltip('remind',result.msg);
+            }
+        });
+    });
+    $('#J_reg').click(function(){
+        var qsDialog = $(this).dialog({
+            loading: true,
+            footer: false,
+            header: false,
+            border: false,
+            backdrop: false
+        });
+        var regResume = "1";
+        if(regResume == 1){
+            var creatsUrl = qscms.root + '?m=Home&c=AjaxPersonal&a=resume_add_dig';
+            $.getJSON(creatsUrl, {no_apply:1},function(result){
+                if(result.status==1){
+                    qsDialog.hide();
+                    var qsDialogSon = $(this).dialog({
+                        content: result.data.html,
+                        footer: false,
+                        header: false,
+                        border: false
+                    });
+                    qsDialogSon.setInnerPadding(false);
+                } else {
+                    qsDialog.hide();
+                    disapperTooltip("remind", result.msg);
+                }
+            });
+        }else{
+            var loginUrl = qscms.root+"?m=Home&c=AjaxCommon&a=ajax_login";
+            $.getJSON(loginUrl, function(result){
+                if(result.status==1){
+                    qsDialog.hide();
+                    var qsDialogSon = $(this).dialog({
+                        header: false,
+                        content: result.data.html,
+                        footer: false,
+                        border: false
+                    });
+                    qsDialogSon.setInnerPadding(false);
+                } else {
+                    qsDialog.hide();
+                    disapperTooltip('remind',result.msg);
+                }
+            });
+
+        }
+    });
+</script>
+</body>
+</html>

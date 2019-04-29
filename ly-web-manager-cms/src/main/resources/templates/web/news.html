@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新闻资讯</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content="骑士CMS"/>
+    <meta name="copyright" content="74cms.com"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <script src="./upload/Application/Home/View/default/public/js/jquery.min.js"></script>
+    <script src="./upload/Application/Home/View/default/public/js/htmlspecialchars.js"></script>
+    <script src="./static/tools/gt.js"></script>
+    <script type="text/javascript">
+        var app_spell = "1";
+        var qscms = {
+            base : "",
+            keyUrlencode:"1",
+            domain : "http://www.tywangcai.com",
+            root : "/index.php",
+            companyRepeat:"1",
+            regularMobile: /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$|17[0-9]{9}$|16[0-9]{9}$|19[0-9]{9}$/,
+            is_subsite : 0,
+            subsite_level : "4",
+            smsTatus: "1",
+            captcha_open:"1",
+            varify_mobile:"1",
+            varify_suggest:"0",
+            varify_user_login:"0",
+            is_login:"0",
+            default_district : "22.288",
+            default_district_spell : "chongqing.zhongqingshi"
+        };
+        $(function(){
+            $.getJSON("/home/ajax_common/get_header_min.html",function(result){
+                if(result.status == 1){
+                    $('#J_header').html(result.data.html);
+                }
+            });
+        })
+    </script>
+    <link href="./upload/Application/Home/View/default/public/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/news.css" rel="stylesheet" type="text/css" />
+    <script src="./upload/Application/Home/View/default/public/js/jquery.common.js" type="text/javascript" language="javascript"></script>
+    <meta name="__hash__" content="9f9277e7f3bbf2f6bd288cd7fa4a8bfc_689ccf8114970c8be9d6519ce04be2ea" /></head>
+<body>
+<div class="header_min" id="header">
+    <div class="header_min_top">
+        <div id="J_header" class="itopl font_gray6 link_gray6">
+            <span class="link_yellow">欢迎登录骑士人才招聘网！请 <a id="J_site_login" href="javascript:;">登录</a> 或 <a id="J_site_reg" href="javascript:;">免费注册</a></span>
+        </div>
+        <div class="itopr font_gray9 link_gray6 substring new"> <a href="/" class="home">网站首页</a>|<a href="/m/index.html" class="m">手机访问</a>|<a href="/help.html" class="help">帮助中心</a>|<a href="/mall.html" class="shop">积分商城</a>|<a href="/subject.html" class="career new">专题<img style="right:-7px;" src="./upload/Application/Home/View/default/public/images/xin.png"></a>|<a href="/index.php?m=career&c=index&a=index" class="last new">事业单位招考<img src="./upload/Application/Home/View/default/public/images/xin.png"></a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="other_top_nav">
+    <div class="ot_nav_box">
+        <div class="ot_nav_logo"><a href="/"><img src="./upload/data/upload/resource/logo_home.gif" border="0"/></a></div>
+        <div class="ot_nav_sub">
+        </div>
+        <div class="ot_nav_link ">
+            <ul class="link_gray6 nowrap">
+                <li class="on_li J_hoverbut "><a  href="/index/index.html" target="_self">首  页</a></li><li class="on_li J_hoverbut "><a  href="/jobs/jobs_list.html" target="">找工作</a></li><li class="on_li J_hoverbut "><a  href="/resume/resume_list.html" target="">招人才</a></li><li class="on_li J_hoverbut select"><a  href="/news.html" target="">职场资讯</a></li><li class="on_li J_hoverbut "><a  href="/hrtools.html" target="_self">HR工具箱</a></li><li class="on_li J_hoverbut "><a  href="http://www.51lianzhi.cn" target="">云端职位</a></li><li class="on_li J_hoverbut "><a  href="/index.php?m=seniorjobfair&c=index&a=index" target="_self">招聘会</a></li><li class="on_li J_hoverbut "><a class="new" href="/index.php?m=interview&c=index&a=index" target="_self">企业专访<img src="./upload/Application/Home/View/default/public/images/xin.png"></a></li>            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<div class="new-se-group">
+    <div class="new-se-main">
+        <form id="form" action="/ajax_common/ajax_search_location/type/QS_newslist.html">
+            <div class="ip-group">
+                <div class="ip-box"><input type="text" name="key" id="" value="" placeholder="请输入关键字" /></div>
+                <div class="ip-btn"><input type="submit" class="sobut J_hoverbut" value="搜资讯" /></div>
+                <div class="clear"></div>
+            </div>
+            <input type="hidden" name="__hash__" value="9f9277e7f3bbf2f6bd288cd7fa4a8bfc_689ccf8114970c8be9d6519ce04be2ea" /></form>
+    </div>
+</div>
+<div class="news">
+    <div class="l">
+        <div class="newsnav">
+            <a target="_blank" href="/news/news_list/id/5.html">职业指导</a><a target="_blank" href="/news/news_list/id/18.html">简历指南</a><a target="_blank" href="/news/news_list/id/24.html">石油资讯</a><a target="_blank" href="/news/news_list/id/25.html">面试宝典</a><a target="_blank" href="/news/news_list/id/26.html">职场八卦</a><a target="_blank" href="/news/news_list/id/27.html">劳动法苑</a><a target="_blank" href="/news/news_list/id/28.html">职场观察</a><a target="_blank" href="/news/news_list/id/30.html">就业指导</a>		<div class="clear"></div>
+        </div>
+        <div class="newslist">
+            <div class="tit"></div>
+            <div id="news_list">
+                <div class="listb">
+                    <div class="bl">
+                        <div class="pic"><img src="./upload/data/upload/images/18/06/26/5b31f3e2e2b1d.jpg" border="0"/></div>
+                    </div>
+                    <div class="br link_gray6">
+                        <div class="t substring"><a target="_blank" href="/news/40.html"><span style=font-weight:bold;>2017年“退役大学生士兵”专项硕士将招5000人</span></a></div>
+                        <div class="time substring">2016-09-22</div>
+                        <div class="summary">
+
+                            教育部近日发布关于做好2017年“退役大学生士兵”专项硕士研究生招生计划招生工作的通知，2017年全国共安排“退役大学生士兵计划”5000人，由467所普通高等学校承担，并在全国研究生招生总规模内单列下达，专项专用。
+
+
+
+
+
+
+                            招生计划
+
+
+
+
+
+
+                            （一）根据学校申请和相关学校招生办学情况，经研究，2017年全国共安排“…</div>
+                    </div>
+                    <div class="clear"></div>
+                </div><div class="listb">
+                <div class="bl">
+                    <div class="pic"><img src="./upload/data/upload/images/17/03/14/58c7b0d7ccb1f.png" border="0"/></div>
+                </div>
+                <div class="br link_gray6">
+                    <div class="t substring"><a target="_blank" href="/news/41.html"><span style=font-weight:bold;>79.3%受访者赞成年轻人做灵活工作者</span></a></div>
+                    <div class="time substring">2016-09-22&nbsp;/&nbsp;作者：admin</div>
+                    <div class="summary">
+                        互联网的发展节约了沟通成本，也提供了更多的工作机会。有专长的人做起了SOHO族（Small Office 或 Home Office的简称，指专门的自由职业者），甚至只要有时间或体力就可以在网上找到各种“任务”赚取报酬。
+
+
+
+
+
+
+                        日前，中国青年报社会调查中心通过问卷网，对2000人进行的一项调查显示，79.3%的受访者赞成年轻人做灵活工…</div>
+                </div>
+                <div class="clear"></div>
+            </div><div class="listb">
+                <div class="bl">
+                    <div class="pic"><img src="./upload/data/upload/resource/no_img_news.png" border="0"/></div>
+                </div>
+                <div class="br link_gray6">
+                    <div class="t substring"><a target="_blank" href="/news/176.html"><span style=font-weight:bold;>苹果端app公测啦！！！</span></a></div>
+                    <div class="time substring">2018-03-08</div>
+                    <div class="summary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 苹果app已上架苹果应用市场，欢迎广大用户测试，在苹果应用市场搜索“旺才”即可下载测试，测试问题请反馈给客服人员。联系QQ：2852378543&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div><div class="listb">
+                <div class="bl">
+                    <div class="pic"><img src="./upload/data/upload/resource/no_img_news.png" border="0"/></div>
+                </div>
+                <div class="br link_gray6">
+                    <div class="t substring"><a target="_blank" href="/news/183.html">123456测试</a></div>
+                    <div class="time substring">2019-03-01</div>
+                    <div class="summary">
+
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div><div class="listb">
+                <div class="bl">
+                    <div class="pic"><img src="./upload/data/upload/resource/no_img_news.png" border="0"/></div>
+                </div>
+                <div class="br link_gray6">
+                    <div class="t substring"><a target="_blank" href="http://http://www.74cms.com">1213156</a></div>
+                    <div class="time substring">2018-12-24</div>
+                    <div class="summary">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+                </div>
+                <div class="clear"></div>
+            </div>		    </div>
+            <!-- -->
+            <div class="more" page="1">查看更多</div>
+        </div>
+    </div>
+
+    <div class="r">
+        <div class="listbox">
+            <div class="ntit"><div class="tlh">热门资讯</div></div>
+            <ul class="link_gray6">
+                <li><a target="_blank" href="/news/40.html"><span style=font-weight:bold;>2017年“退役大学生士兵”专项硕士将招5000人</span></a></li><li><a target="_blank" href="/news/39.html">女孩从外交部“裸辞”：想看看生活的另一种可能</a></li><li><a target="_blank" href="/news/34.html"><span style=font-weight:bold;>深度好文！如何在三流学校过得好？</span></a></li><li><a target="_blank" href="/news/33.html">盘点职场菜鸟十大“痛事”</a></li><li><a target="_blank" href="/news/32.html">大学生实习 在失落中收获成长</a></li>			</ul>
+        </div>
+        <div class="ad313_165">
+            <a href="http://www.74cms.net" title="资讯右侧1">
+                <img src="./upload/data/upload/attach_img/17/01/06/586f8bea411d0.jpg" border="0">
+            </a>
+        </div><div class="ad313_165">
+        <a href="javascript:;" title="资讯右侧2">
+            <img src="./upload/data/upload/attach_img/17/01/06/586f8c19adf77.jpg" border="0">
+        </a>
+    </div>
+        <div class="listbox">
+            <div class="ntit"><div class="tlh">推荐资讯</div></div>
+            <ul class="link_gray6">
+                <li><a target="_blank" href="/news/41.html"><span style=font-weight:bold;>79.3%受访者赞成年轻人做灵活工作者</span></a></li><li><a target="_blank" href="/news/38.html">90后“男神” 乐当助产士 接生三年过千人</a></li><li><a target="_blank" href="/news/37.html">守小站的90后女研究生</a></li><li><a target="_blank" href="/news/30.html">这么写简历，你也能去苹果工作！</a></li><li><a target="_blank" href="/news/25.html">为何屡试屡败，看完秒懂……</a></li>			</ul>
+        </div>  </div>
+    <div class="clear"></div>
+</div>
+<div class="footer_min" id="footer">
+    <div class="links link_gray6">
+        <a target="_blank" href="/index/index.html">网站首页</a>
+        |   <a target="_blank" href="/explain/5.html">法律申明</a>|   <a target="_blank" href="/explain/8.html">招贤纳士</a>|   <a target="_blank" href="/explain/7.html">联系我们</a>|   <a target="_blank" href="/explain/6.html">推广合作</a>|   <a target="_blank" href="/explain/4.html">产品服务</a>|   <a target="_blank" href="/explain/1.html">网站介绍</a>	|   <a target="_blank" href="/suggest.html">意见建议</a>
+    </div>
+    <div class="txt">
+
+        联系地址：山西省太原市小店区学府街坞城路口学府壹号2011室      联系电话：0351-5257204<br />
+
+        Copyright © 2018 74cms.com All Right Reserved      icp000000000		<script src="https://s22.cnzz.com/z_stat.php?id=1263726288&web_id=1263726288" language="JavaScript"></script>
+    </div>
+</div>
+
+<div class="">
+    <div class=""></div>
+</div>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/PIE.js"></script>
+<script type="text/javascript">
+    (function($){
+        $.pie = function(name, v){
+            // 如果没有加载 PIE 则直接终止
+            if (! PIE) return false;
+            // 是否 jQuery 对象或者选择器名称
+            var obj = typeof name == 'object' ? name : $(name);
+            // 指定运行插件的 IE 浏览器版本
+            var version = 9;
+            // 未指定则默认使用 ie10 以下全兼容模式
+            if (typeof v != 'number' && v < 9) {
+                version = v;
+            }
+            // 可对指定的多个 jQuery 对象进行样式兼容
+            if ($.browser.msie && obj.size() > 0) {
+                if ($.browser.version*1 <= version*1) {
+                    obj.each(function(){
+                        PIE.attach(this);
+                    });
+                }
+            }
+        }
+    })(jQuery);
+    if ($.browser.msie) {
+        $.pie('.pie_about');
+    };
+</script>
+<![endif]-->
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.disappear.tooltip.js"></script>
+<div class="floatmenu">
+    <div class="item mobile">
+        <a class="blk"></a>
+        <div class="popover popover1">
+            <div class="popover-bd">
+                <label>手机APP</label>
+                <span class="img-qrcode img-qrcode-mobile"><img src="/index.php?m=Home&c=Qrcode&a=index&url=http%3A%2F%2Fwww.tywangcai.com%2Fmobile%2Findex%2Fapp_download.html" alt=""></span>
+            </div>
+        </div>    <div class="popover">
+        <div class="popover-bd">
+            <label class="wx">企业微信</label>
+            <span class="img-qrcode img-qrcode-wechat"><img src="./upload/data/upload/resource/18/03/30/5abdb8c01dc9e.jpg" alt=""></span>
+        </div>
+        <div class="popover-arr"></div>
+    </div>  </div>  <div class="item ask">
+    <a class="blk" target="_blank" href="/suggest.html"></a>
+</div>
+    <div id="backtop" class="item backtop" style="display: none;"><a class="blk"></a></div>
+</div>
+<SCRIPT LANGUAGE="JavaScript">
+
+    var global = {
+        h:$(window).height(),
+        st: $(window).scrollTop(),
+        backTop:function(){
+            global.st > (global.h*0.5) ? $("#backtop").show() : $("#backtop").hide();
+        }
+    }
+    $('#backtop').on('click',function(){
+        $("html,body").animate({"scrollTop":0},500);
+    });
+    global.backTop();
+    $(window).scroll(function(){
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    $(window).resize(function(){
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    // 客服QQ
+    var app_qq = "在线客服";
+    var qq_open = "1";
+    if(app_qq != '' && qq_open == 1){
+        var QQFloatUrl = "/qqfloat/index/index.html";
+        $.getJSON(QQFloatUrl, function (result) {
+            if (result.status == 1) {
+                //$(".qq-float").html(result.data);
+                $("body").append(result.data);
+            }
+        });
+    }
+</SCRIPT>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".more").click(function(){
+            var page = $(this).attr('page');
+            $.getJSON("/news/ajax_new_article_list.html",{page:page},function(result){
+                if(result.status==1){
+                    $("#news_list").append(result.data);
+                    $(".more").attr('page',parseInt(page)+1);
+                }else{
+                    $(".more").html('没有更多最新资讯了');
+                }
+            });
+        });
+        $('#form').submit(function(){
+            $('input[name="key"]').val(htmlspecialchars($('input[name="key"]').val()));
+            var data = $('#form').serialize();
+            if(qscms.keyUrlencode==1){
+                data = encodeURI(data);
+            }
+            $.post($('#form').attr('action'),data,function(result){
+                window.location=result.data;
+            },'json');
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

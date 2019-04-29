@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>骑士PHP高端人才系统(www.74cms.com)</title>
+    <meta name="keywords" content="骑士人才系统，74cms，骑士cms，人才网站源码，php人才网程序"/>
+    <meta name="description" content="骑士CMS是基于PHP+MYSQL的免费网站管理系统，提供完善的人才招聘网站建设方案"/>
+    <meta name="author" content="骑士CMS"/>
+    <meta name="copyright" content="74cms.com"/>
+    <link rel="shortcut icon" href="./upload/favicon.ico"/>
+    <script src="./upload/Application/Home/View/default/public/js/jquery.min.js"></script>
+    <script src="./upload/Application/Home/View/default/public/js/htmlspecialchars.js"></script>
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
+    <script type="text/javascript">
+        var app_spell = "1";
+        var qscms = {
+            base : "",
+            keyUrlencode:"0",
+            domain : "http://localhost",
+            root : "./upload/index.php",
+            companyRepeat:"1",
+            regularMobile: /^13[0-9]{9}$|14[0-9]{9}$|15[0-9]{9}$|18[0-9]{9}$|17[0-9]{9}$|16[0-9]{9}$|19[0-9]{9}$/,
+            is_subsite : 0,
+            subsite_level : "3",
+            smsTatus: "0",
+            captcha_open:"1",
+            varify_mobile:"1",
+            varify_suggest:"1",
+            varify_user_login:"0",
+            is_login:"0",
+            default_district : "1.35",
+            default_district_spell : "beijing.beijingshi"
+        };
+        $(function(){
+            $.getJSON("./upload/index.php?m=home&c=ajax_common&a=get_header_min",function(result){
+                if(result.status == 1){
+                    $('#J_header').html(result.data.html);
+                }
+            });
+        })
+    </script>
+    <link href="./upload/Application/Home/View/default/public/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/common_ajax_dialog.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/slider/themes/default/default.css" rel="stylesheet" type="text/css" />
+    <link href="./upload/Application/Home/View/default/public/css/slider/nivo-slider.css" rel="stylesheet" type="text/css" />
+    <script src="./upload/Application/Home/View/default/public/js/jquery.common.js" type="text/javascript" language="javascript"></script>
+</head>
+<body>
+<div class="header_min" id="header">
+    <div class="header_min_top">
+        <div id="J_header" class="itopl font_gray6 link_gray6">
+            <span class="link_yellow">欢迎登录骑士人才系统！请 <a id="J_site_login" href="javascript:;">登录</a> 或 <a id="J_site_reg" href="javascript:;">免费注册</a></span>
+        </div>
+        <div class="itopr font_gray9 link_gray6 substring"> <a href="./upload/" class="home">网站首页</a>|<a href="./upload/index.php?m=&c=m&a=index" class="m">手机访问</a>|<a href="./upload/index.php?m=&c=help&a=index" class="help">帮助中心</a>|<a href="./upload/index.php?m=home&c=index&a=shortcut" class="last">保存到桌面</a> </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="other_top_nav">
+    <div class="ot_nav_box">
+        <div class="ot_nav_logo"><a href="./upload/"><img src="./upload/Application/Home/View/default/public/images/logo.gif" border="0"/></a></div>
+        <div class="ot_nav_sub">
+        </div>
+        <div class="ot_nav_link ">
+            <ul class="link_gray6 nowrap">
+                <li class="on_li J_hoverbut select"><a href="./upload/index.php?m=&c=index&a=index" target="_self">首  页</a></li><li class="on_li J_hoverbut "><a href="./upload/index.php?m=&c=jobs&a=jobs_list" target="_self">找工作</a></li><li class="on_li J_hoverbut "><a href="./upload/index.php?m=&c=resume&a=resume_list" target="_self">招人才</a></li><li class="on_li J_hoverbut "><a href="./upload/index.php?m=&c=hrtools&a=index" target="_self">HR工具箱</a></li><li class="on_li J_hoverbut "><a href="./upload/index.php?m=&c=news&a=index" target="_self">职场资讯</a></li><li class="on_li J_hoverbut "><a href="./upload/index.php?m=&c=members&a=login" target="_self">会员中心</a></li><li class="on_li J_hoverbut "><a href="http://yun.51lianzhi.cn" target="_blank">云端职位</a></li>            </ul>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<div class="ni-top-group">
+    <div class="ni-top-container">
+        <div class="ni-top-left">
+            <div class="main-sty">
+                <div class="sty-cell J_sli select" data-type="QS_jobslist">找工作<div class="sty-aow"></div></div>
+                <div class="sty-cell J_sli" data-type="QS_resumelist">招人才<div class="sty-aow"></div></div>
+                <div class="sty-cell J_sli" data-type="QS_companylist">搜企业<div class="sty-aow"></div></div>
+                <div class="clear"></div>
+            </div>
+            <div class="main-sip">
+                <div class="ip-group">
+                    <form id="ajax_search_location">
+                        <div class="ip-box"><input type="text" name="key" id="top_search_input" value="" placeholder="请输入关键字" /></div>
+                        <div class="ip-btn"><input id="top_search_btn" type="submit" class="sobut J_hoverbut" value="搜  索" /></div>
+                        <input type="hidden" name="act" id="top_search_type" value="QS_jobslist" />
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="sip-sco">
+                <div class="sco-box" id="J_msgbox">
+                    <ul id="J_ajax_scroll"></ul>
+                </div>
+                <script type="text/javascript">
+                    var ajaxScrollHtml = '';
+                    $.getJSON('./upload/index.php?m=&c=index&a=ajax_scroll',function(result){
+                        if (result.status) {
+                            var dataArr = result.data;
+                            for (var i = 0; i < dataArr.length; i++) {
+                                if (dataArr[i]['utype'] == '1') {
+                                    if (dataArr['type'] = 'add') {
+                                        ajaxScrollHtml += '<li><div class="log-s-line"><div class="lsl-left"><a target="_blank" href="'+dataArr[i]['company_url']+'">'+dataArr[i]['companyname']+'</a> 发布了 <a target="_blank" href="'+dataArr[i]['job_url']+'">'+dataArr[i]['jobs_name']+'</a></div><div class="lsl-right">'+dataArr[i]['time_cn']+'</div><div class="clear"></div></div></li>';
+                                    } else {
+                                        ajaxScrollHtml += '<li><div class="log-s-line"><div class="lsl-left"><a target="_blank" href="'+dataArr[i]['company_url']+'">'+dataArr[i]['companyname']+'</a> 刷新了 <a target="_blank" href="'+dataArr[i]['job_url']+'">'+dataArr[i]['jobs_name']+'</a></div><div class="lsl-right">'+dataArr[i]['time_cn']+'</div><div class="clear"></div></div></li>';
+                                    }
+                                } else {
+                                    if (dataArr[i]['type'] = 'add') {
+                                        ajaxScrollHtml += '<li><div class="log-s-line"><div class="lsl-left"><a target="_blank" href="'+dataArr[i]['url']+'">'+dataArr[i]['fullname']+'</a> 发布了新简历</div><div class="lsl-right">'+dataArr[i]['time_cn']+'</div><div class="clear"></div></div></li>';
+                                    } else {
+                                        ajaxScrollHtml += '<li><div class="log-s-line"><div class="lsl-left"><a target="_blank" href="'+dataArr[i]['url']+'">'+dataArr[i]['fullname']+'</a> 刷新了简历</div><div class="lsl-right">'+dataArr[i]['time_cn']+'</div><div class="clear"></div></div></li>';
+                                    }
+                                }
+                            }
+                            $('#J_ajax_scroll').html(ajaxScrollHtml);
+                        }
+                    })
+                </script>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="index-plug-group">
+            <div class="plug-box">
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- 格子广告 -->
+<!-- 格子广告 end -->
+<!-- 头部横幅广告 -->
+<!-- 头部横幅广告 end -->
+<!-- 最新招聘 急聘专区 公告 招聘会-->
+<div class="bic-split-18"></div>
+<div class="ni-m-container-hj">
+    <div class="hiring-job">
+        <div class="hj-top">
+            <div class="hj-top-left">最新招聘</div>
+            <a class="hj-top-right" target="_blank" href="./upload/index.php?m=&c=jobs&a=jobs_list">更多</a>
+            <div class="clear"></div>
+        </div>
+        <div class="hj-jobs">
+        </div>
+    </div>
+    <div class="hot-job">
+        <div class="ht-top">
+            <div class="ht-top-left">急聘专区</div>
+            <a class="ht-top-right" target="_blank" href="./upload/index.php?m=&c=jobs&a=jobs_list&emergency=1">更多</a>
+            <div class="clear"></div>
+        </div>
+        <div class="ht-eme">
+            <div class="slide">
+            </div>
+        </div>
+        <div class="ht-not">
+            <div class="noticestab">
+                <div class="tli select">公告</div>
+                <div class="clear"></div>
+            </div>
+            <div class="notice_showtabs first">
+                <ul class="link_gray6">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 急聘专区 热门职位 end -->
+<!-- 明星雇主 -->
+<!-- 明星雇主 end -->
+<!--红包职位-->
+<!--红包职位 end-->
+<!-- 中部横幅广告 -->
+<!-- 中部横幅广告 end -->
+<!-- 推荐简历 -->
+<div class="bic-split-18"></div>
+<div class="some-job-group new-resume J_change_parent">
+    <a href="javascript:;" class="out-flag f3 J_change_batch" data-url="./upload/index.php?m=&c=ajax_common&a=resume_list">换<br/>一<br/>批</a>
+    <a target="_blank" href="./upload/index.php?m=&c=resume&a=resume_list" class="some-more">查看更多</a>
+    <div class="some-job-icon"></div>
+    <div class="some-job-jg">
+        <div class="ajax_loading"><div class="ajaxloadtxt"></div></div>
+        <div class="J_change_result">
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 推荐简历 end -->
+<!-- 职场资讯 -->
+<div class="bic-split-18"></div>
+<div class="some-job-group news">
+    <a target="_blank" href="./upload/index.php?m=&c=news&a=index" class="some-more">查看更多</a>
+    <div class="some-job-icon"></div>
+    <div class="new-cate-group">
+        <div class="ncg-top">
+            <div class="J_news_list_title ncg-top-cell select" cid="2">职业指导</div><div class="J_news_list_title ncg-top-cell " cid="3">简历指南</div><div class="J_news_list_title ncg-top-cell " cid="4">面试宝典</div><div class="J_news_list_title ncg-top-cell " cid="5">职场八卦</div><div class="J_news_list_title ncg-top-cell " cid="6">劳动法苑</div><div class="J_news_list_title ncg-top-cell " cid="7">职场观察</div>                <div class="clear"></div>
+        </div>
+        <div class="ncg-con-group J_news_content">
+            <div class="ajax_loading"><div class="ajaxloadtxt"></div></div>
+            <div class="J_news_txt">
+                <div class="ncg-con-left">
+                    <div class="ncg-img-cell">
+                        <div class="img-b"><a target="_blank" href=""><img src=""></a></div>
+                        <div class="img-t"><a target="_blank" href="" title=""></a></div>
+                    </div>
+                    <div class="ncg-img-cell">
+                        <div class="img-b"><a target="_blank" href=""><img src=""></a></div>
+                        <div class="img-t"><a target="_blank" href="" title=""></a></div>
+                    </div>
+                </div>
+                <div class="ncg-con-right">
+                </div>                </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="new-hot-group">
+        <div class="new-hot-top">热点资讯</div>
+        <div class="nhg-line-con">
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- 职场资讯 end -->
+<div class="new-footer">
+    <div class="footer-act-group">
+        <div class="fag-main">
+            <a href="javascript:;" target="_blank" class="fag-link-cell fir">友情链接</a>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="footer-txt-group">
+        <div class="ftg-main">
+            <div class="ftg-left">
+                <div class="ftg-a-group">
+                    <a href="./upload/index.php?m=&c=explain&a=explain_show&id=8" target="_blank" class="fag-link-cell">招贤纳士</a><span class="hl">|</span><a href="./upload/index.php?m=&c=explain&a=explain_show&id=7" target="_blank" class="fag-link-cell">联系我们</a><span class="hl">|</span><a href="./upload/index.php?m=&c=explain&a=explain_show&id=6" target="_blank" class="fag-link-cell">推广合作</a><span class="hl">|</span><a href="./upload/index.php?m=&c=explain&a=explain_show&id=5" target="_blank" class="fag-link-cell">法律申明</a><span class="hl">|</span>                    <span class="tel">联系电话：000-00000000</span>
+                </div>
+                <p class="copyright">联系地址：00省00市00路00号0大厦00楼 &nbsp;&nbsp;网站备案：icp000000000</p>
+                <p class="copyright">Copyright © 2016 74cms.com All Right Reserved  &nbsp;&nbsp;Powered by <a href="http://www.74cms.com">74cms</a> v4.2.111 </p>
+            </div>
+            <div class="ftg-right">
+                <div class="qr-box">
+                    <div class="img"><img src="http://localhost./upload/data./upload/resource/weixin_img.jpg"></div>
+                    <div class="qr-txt">公众号</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="floatmenu">
+    <div class="item ask"><a class="blk" target="_blank" href="./upload/index.php?m=&c=suggest&a=index"></a></div>
+    <div id="backtop" class="item backtop" style="display: none;"><a class="blk"></a></div>
+</div>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/PIE.js"></script>
+<script type="text/javascript">
+    (function ($) {
+        $.pie = function (name, v) {
+            // 如果没有加载 PIE 则直接终止
+            if (!PIE) return false;
+            // 是否 jQuery 对象或者选择器名称
+            var obj = typeof name == 'object' ? name : $(name);
+            // 指定运行插件的 IE 浏览器版本
+            var version = 9;
+            // 未指定则默认使用 ie10 以下全兼容模式
+            if (typeof v != 'number' && v < 9) {
+                version = v;
+            }
+            // 可对指定的多个 jQuery 对象进行样式兼容
+            if ($.browser.msie && obj.size() > 0) {
+                if ($.browser.version * 1 <= version * 1) {
+                    obj.each(function () {
+                        PIE.attach(this);
+                    });
+                }
+            }
+        }
+    })(jQuery);
+    if ($.browser.msie) {
+        $.pie('.pie_about');
+    }
+</script>
+<![endif]-->
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.disappear.tooltip.js"></script>
+<script type="text/javascript">
+    var global = {
+        h: $(window).height(),
+        st: $(window).scrollTop(),
+        backTop: function () {
+            global.st > (global.h * 0.5) ? $("#backtop").show() : $("#backtop").hide();
+        }
+    }
+    $('.footer-txt-group .hl').eq($('.footer-txt-group .hl').length-1).addClass('last');
+    $('#backtop').on('click', function () {
+        $("html,body").animate({"scrollTop": 0}, 500);
+    });
+    global.backTop();
+    $(window).scroll(function () {
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    $(window).resize(function () {
+        global.h = $(window).height();
+        global.st = $(window).scrollTop();
+        global.backTop();
+    });
+    // 客服QQ
+    var app_qq = "";
+    var qq_open = "";
+    if(app_qq != '' && qq_open == 1){
+        var QQFloatUrl = "./upload/index.php?m=qqfloat&c=index&a=index";
+        $.getJSON(QQFloatUrl, function (result) {
+            if (result.status == 1) {
+                //$(".qq-float").html(result.data);
+                $("body").append(result.data);
+            }
+        });
+    }
+</script>
+<div class="bt_guider J_bt_guider">
+    <p class="shadow"></p>
+    <div class="bt_guider_wrap">
+        <div class="guider_icon"></div>
+        <a href="javascript:;" class="guider_close J_bt_gui_close"></a>
+        <div class="gm_qr_code">
+            <div class="qr_code_box">
+                <img src="./upload/index.php?m=Home&c=Qrcode&a=index&url=http%3A%2F%2Flocalhost%2F74cms_v4.2.111%2Fupload%2F%3Fm%3DMobile" alt="触屏端">
+            </div>
+            <div class="hs_6"></div>
+            <div class="qr_other">扫一扫手机也能找工作</div>
+        </div>
+        <div class="gm_gr_sha"></div>
+        <div class="guider_main">
+            <div class="gm_left">
+                <div class="hs_16"></div>
+                <div class="gm_site_name">骑士人才招聘网 —— 让每一个人才都闪光</div>
+                <div class="hs_12"></div>
+                <div class="gm_other">钱多、活少、离家近，海量职位等你挑！ 更有红包等你拿！</div>
+            </div>
+            <div class="gm_right">
+                <div class="hs_20"></div>
+                <a href="javascript:;" id="J_reg" class="gm_btn">立即加入</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.J_bt_gui_close').click(function () {
+            $('.J_bt_guider').hide();
+        })
+    </script>
+</div>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<script type="text/javascript" src="./upload/Application/Home/View/default/public/js/jquery.index.js"></script>
+<script src="http://static.geetest.com/static/tools/gt.js"></script>
+<script type="text/javascript">
+    $('.h-line:last').remove();
+</script>
+</body>
+</html>

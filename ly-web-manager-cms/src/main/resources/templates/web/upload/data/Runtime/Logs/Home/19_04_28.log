@@ -1,0 +1,12 @@
+[ 2019-04-28T14:08:14+08:00 ] ::1 /74cms_v4.2.111/upload/index.php?m=&c=index&a=ajax_scroll
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')   ORDER BY refreshtime DESC  LIMIT 5' at line 1
+ [ SQL语句 ] : SELECT `id`,`fullname`,`sex`,refreshtime  as time,'refresh' as type FROM `qs_resume` WHERE `display` = 1 AND `audit` = 1 AND `id` NOT IN ()   ORDER BY refreshtime DESC  LIMIT 5 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')   ORDER BY refreshtime DESC  LIMIT 5' at line 1
+ [ SQL语句 ] : SELECT `id`,`fullname`,`sex`,refreshtime  as time,'refresh' as type FROM `qs_resume` WHERE `display` = 1 AND `audit` = 1 AND `id` NOT IN ()   ORDER BY refreshtime DESC  LIMIT 5 
+
+[ 2019-04-28T14:10:04+08:00 ] ::1 /74cms_v4.2.111/upload/index.php?m=&c=index&a=ajax_scroll
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')   ORDER BY refreshtime DESC  LIMIT 5' at line 1
+ [ SQL语句 ] : SELECT `id`,`fullname`,`sex`,refreshtime  as time,'refresh' as type FROM `qs_resume` WHERE `display` = 1 AND `audit` = 1 AND `id` NOT IN ()   ORDER BY refreshtime DESC  LIMIT 5 
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')   ORDER BY refreshtime DESC  LIMIT 5' at line 1
+ [ SQL语句 ] : SELECT `id`,`fullname`,`sex`,refreshtime  as time,'refresh' as type FROM `qs_resume` WHERE `display` = 1 AND `audit` = 1 AND `id` NOT IN ()   ORDER BY refreshtime DESC  LIMIT 5 
+
