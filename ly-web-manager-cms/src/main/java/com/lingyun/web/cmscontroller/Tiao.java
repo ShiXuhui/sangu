@@ -69,13 +69,6 @@ public class Tiao {
         return "cms/content/left";
     }
 
-    /**
-     * 加载内容管理上部
-     * @return
-     */
-    @RequestMapping("tiaocontenttop")
-    public String tiaocontenttop(){
-        return "cms/content/top";
-    }
+
 
 }
