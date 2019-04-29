@@ -5,7 +5,7 @@
     <title>网站后台管理中心- Powered by 74cms.com</title>
     <link rel="shortcut icon" href="./cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
     <meta name="author" content="骑士CMS" />
-    <meta name="copyright" content="74cms.com" />
+    <meta name="copyright" content="74cms.com"/>
     <link href="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
     <script src="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
     <script type="text/javascript">
@@ -29,7 +29,16 @@
     </div>
     <div class="navmenu">
         <a href="./cms/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=panel" class="select" target="mainFrame" id="index" data-id="0" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=0">首页</a>
-        <a href="./cms/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=jobs&a=index&menuid=194&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=194" data-id="194" title="企业" stat="company">企业</a><a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&menuid=171&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=171" data-id="171" title="个人" stat="personal">个人</a><a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=article&a=index&menuid=112&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=112" data-id="112" title="内容" stat="content">内容</a><a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=database&a=index&menuid=15&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=15" data-id="15" title="工具" >工具</a><a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=index&menuid=1&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=1" data-id="1" title="系统" >系统</a>        <div class="clear"></div>
+        <a href="./cms/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=jobs&a=index&menuid=194&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=194" data-id="194" title="企业" stat="company">企业</a>
+        <a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=personal&a=index&menuid=171&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=171" data-id="171" title="个人" stat="personal">个人</a>
+        <!--
+        //<a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=article&a=index&menuid=112&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=112" data-id="112" title="内容" stat="content">
+        -->
+        <a onclick="tiaocontent()">内容</a>
+        <a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=database&a=index&menuid=15&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=15" data-id="15" title="工具" >工具</a>
+        <a href="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=config&a=index&menuid=1&child=1" target="mainFrame" frame-url="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=index&a=left_menu&menuid=1" data-id="1" title="系统" >系统</a>
+        <div class="clear">
+        </div>
     </div>
     <div class="links">
         <a href="http://localhost/74cms/74cms_v4.2.111/upload/" target="_blank" class="home" title="网站首页"></a>
@@ -45,6 +54,14 @@
 </div>
 </body>
 <script type="text/javascript">
+
+    function tiaocontent(){
+      // location.href="/tiaocontent";
+        alert(123)
+    }
+
+
+
     function refresh_affair(){
         var affair = $('.navmenu a[stat]').map(function(){
             return $(this).attr('stat');
