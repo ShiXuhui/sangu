@@ -1,0 +1,181 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../../../74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '../../../74cms/74cms_v4.2.111/upload/index.php/admin/report',
+            SELF = '../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=report&amp;a=index',
+            ROOT_PATH = '../../../74cms/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '../../../74cms/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>投诉建议</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            投诉建议                        </div>
+        <div class="topnav">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index" class="select">举报信息</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=feedback&a=index" class="">意见建议</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=consultant&a=complain" class="">投诉</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">举报类型</div>
+        <div class="ct">
+            <div class="txt select">职位</div>
+        </div>
+        <div class="downlist">
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&type=1&type_cn=%E8%81%8C%E4%BD%8D">职位</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&type=2&type_cn=%E7%AE%80%E5%8E%86">简历</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">举报原因</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=&report_type_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=1&report_type_cn=%E7%94%B5%E8%AF%9D%E8%99%9A%E5%81%87%28%E5%A6%82%E7%A9%BA%E5%8F%B7%E3%80%81%E6%97%A0%E4%BA%BA%E6%8E%A5%E5%90%AC%29" title="电话虚假(如空号、无人接听)">电话虚假(如空号、无人接听)</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=2&report_type_cn=%E8%81%8C%E4%BB%8B%E6%94%B6%E8%B4%B9" title="职介收费">职介收费</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=3&report_type_cn=%E8%99%9A%E5%81%87%28%E5%A6%82%E8%81%8C%E4%BD%8D%E3%80%81%E5%BE%85%E9%81%87%E7%AD%89%E8%99%9A%E5%81%87%29" title="虚假(如职位、待遇等虚假)">虚假(如职位、待遇等虚假)</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=4&report_type_cn=%E6%B6%89%E9%BB%84%E8%BF%9D%E6%B3%95" title="涉黄违法">涉黄违法</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=5&report_type_cn=%E7%BD%91%E8%B5%9A%E8%99%9A%E5%81%87%28%E5%88%B7%E9%92%BB%E3%80%81%E5%88%B7%E4%BF%A1%E8%AA%89%E6%AC%BA%E8%AF%88%29" title="网赚虚假(刷钻、刷信誉欺诈)">网赚虚假(刷钻、刷信誉欺诈)</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=6&report_type_cn=%E8%81%8C%E4%BB%8B%E5%86%92%E5%85%85" title="职介冒充">职介冒充</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&report_type=7&report_type_cn=%E5%85%B6%E4%BB%96" title="其他">其他</li>    </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">核实情况</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&audit=&audit_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&audit=1&audit_cn=%E6%9C%AA%E5%AE%A1%E6%A0%B8">未核实</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&audit=2&audit_cn=%E5%B1%9E%E5%AE%9E">属实</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&audit=3&audit_cn=%E4%B8%8D%E5%B1%9E%E5%AE%9E">不属实</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">举报时间</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=&settr_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=3&settr_cn=%E4%B8%89%E5%A4%A9%E5%86%85">三天内</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=7&settr_cn=%E4%B8%80%E5%91%A8%E5%86%85">一周内</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=30&settr_cn=%E4%B8%80%E6%9C%88%E5%86%85">一月内</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=180&settr_cn=%E5%8D%8A%E5%B9%B4%E5%86%85">半年内</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=index&settr=360&settr_cn=%E4%B8%80%E5%B9%B4%E5%86%85">一年内</li>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <form id="form1" name="form1" method="post" action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=report&a=report_audit">
+        <input type="hidden" name="type" value="1">
+        <div class="list_th">
+            <div class="td" style=" width:15%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>
+                    投诉职位            </label>
+            </div>
+            <div class="td" style=" width:10%;">核实情况</div>
+            <div class="td" style=" width:20%;">举报原因</div>
+            <div class="td" style=" width:30%;">举报内容</div>
+            <div class="td" style=" width:10%;">举报者</div>
+            <div class="td center" style=" width:10%;">举报时间</div>
+            <div class="td" style=" width:5%;">操作</div>
+            <div class="clear"></div>
+        </div>
+
+    </form>
+
+    <div class="list_empty">没有任何信息！</div>
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAudit" value="审核"/>
+        </div>
+        <div class="footso"></div>
+    </div>
+    <div class="pages"></div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //审核
+        $("#ButAudit").click(function () {
+            var data = $("form[name=form1]").serialize();
+            if(data.length == 0){
+                disapperTooltip('remind','请选择举报记录！');
+            } else {
+                var qsDialog = $(this).dialog({
+                    title: '审核举报',
+                    loading: true,
+                    footer : false
+                });
+                var url = "../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=report_audit";
+                $.post(url, data, function (result) {
+                    if(result.status == 1){
+                        qsDialog.setContent(result.data);
+                    } else {
+                        qsDialog.hide();
+                        disapperTooltip('remind',result.msg);
+                    }
+                });
+            }
+        });
+    });
+</script>
+</html>
