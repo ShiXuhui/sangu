@@ -3,6 +3,10 @@ package com.lingyun.framework.domain.content;
 import java.io.Serializable;
 
 public class Notice implements Serializable{
+
+
+    //咳咳咳小失误
+
     private Integer id;
 
     private Short typeId;
