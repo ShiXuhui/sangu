@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.Notice" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="SMALLINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="tit_color" property="titColor" jdbcType="VARCHAR" />
+    <result column="tit_b" property="titB" jdbcType="BIT" />
+    <result column="is_display" property="isDisplay" jdbcType="TINYINT" />
+    <result column="is_url" property="isUrl" jdbcType="VARCHAR" />
+    <result column="seo_keywords" property="seoKeywords" jdbcType="VARCHAR" />
+    <result column="seo_description" property="seoDescription" jdbcType="VARCHAR" />
+    <result column="click" property="click" jdbcType="INTEGER" />
+    <result column="addtime" property="addtime" jdbcType="INTEGER" />
+    <result column="sort" property="sort" jdbcType="SMALLINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lingyun.framework.domain.content.Notice" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type_id, title, tit_color, tit_b, is_display, is_url, seo_keywords, seo_description, 
+    click, addtime, sort
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from qs_notice
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_notice
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.content.Notice" >
+    insert into qs_notice (id, type_id, title, 
+      tit_color, tit_b, is_display, 
+      is_url, seo_keywords, seo_description, 
+      click, addtime, sort, 
+      content)
+    values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, 
+      #{titColor,jdbcType=VARCHAR}, #{titB,jdbcType=BIT}, #{isDisplay,jdbcType=TINYINT}, 
+      #{isUrl,jdbcType=VARCHAR}, #{seoKeywords,jdbcType=VARCHAR}, #{seoDescription,jdbcType=VARCHAR}, 
+      #{click,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{sort,jdbcType=SMALLINT}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.Notice" >
+    insert into qs_notice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="titColor != null" >
+        tit_color,
+      </if>
+      <if test="titB != null" >
+        tit_b,
+      </if>
+      <if test="isDisplay != null" >
+        is_display,
+      </if>
+      <if test="isUrl != null" >
+        is_url,
+      </if>
+      <if test="seoKeywords != null" >
+        seo_keywords,
+      </if>
+      <if test="seoDescription != null" >
+        seo_description,
+      </if>
+      <if test="click != null" >
+        click,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titColor != null" >
+        #{titColor,jdbcType=VARCHAR},
+      </if>
+      <if test="titB != null" >
+        #{titB,jdbcType=BIT},
+      </if>
+      <if test="isDisplay != null" >
+        #{isDisplay,jdbcType=TINYINT},
+      </if>
+      <if test="isUrl != null" >
+        #{isUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="seoKeywords != null" >
+        #{seoKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="seoDescription != null" >
+        #{seoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="click != null" >
+        #{click,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=SMALLINT},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.Notice" >
+    update qs_notice
+    <set >
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="titColor != null" >
+        tit_color = #{titColor,jdbcType=VARCHAR},
+      </if>
+      <if test="titB != null" >
+        tit_b = #{titB,jdbcType=BIT},
+      </if>
+      <if test="isDisplay != null" >
+        is_display = #{isDisplay,jdbcType=TINYINT},
+      </if>
+      <if test="isUrl != null" >
+        is_url = #{isUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="seoKeywords != null" >
+        seo_keywords = #{seoKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="seoDescription != null" >
+        seo_description = #{seoDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="click != null" >
+        click = #{click,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=SMALLINT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lingyun.framework.domain.content.Notice" >
+    update qs_notice
+    set type_id = #{typeId,jdbcType=SMALLINT},
+      title = #{title,jdbcType=VARCHAR},
+      tit_color = #{titColor,jdbcType=VARCHAR},
+      tit_b = #{titB,jdbcType=BIT},
+      is_display = #{isDisplay,jdbcType=TINYINT},
+      is_url = #{isUrl,jdbcType=VARCHAR},
+      seo_keywords = #{seoKeywords,jdbcType=VARCHAR},
+      seo_description = #{seoDescription,jdbcType=VARCHAR},
+      click = #{click,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=SMALLINT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.Notice" >
+    update qs_notice
+    set type_id = #{typeId,jdbcType=SMALLINT},
+      title = #{title,jdbcType=VARCHAR},
+      tit_color = #{titColor,jdbcType=VARCHAR},
+      tit_b = #{titB,jdbcType=BIT},
+      is_display = #{isDisplay,jdbcType=TINYINT},
+      is_url = #{isUrl,jdbcType=VARCHAR},
+      seo_keywords = #{seoKeywords,jdbcType=VARCHAR},
+      seo_description = #{seoDescription,jdbcType=VARCHAR},
+      click = #{click,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      sort = #{sort,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="querynotice" resultMap="BaseResultMap">
+    SELECT  *  FROM  qs_notice
+  </select>
+
+  <delete id="deleteNotices">
+    DELETE  from  qs_notice WHERE  id IN (${ids})
+  </delete>
+
+</mapper>
