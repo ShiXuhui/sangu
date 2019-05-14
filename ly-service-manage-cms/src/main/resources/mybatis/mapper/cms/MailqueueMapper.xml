@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.MailqueueMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.Mailqueue" >
+    <id column="m_id" property="mId" jdbcType="INTEGER" />
+    <result column="m_type" property="mType" jdbcType="TINYINT" />
+    <result column="m_addtime" property="mAddtime" jdbcType="INTEGER" />
+    <result column="m_sendtime" property="mSendtime" jdbcType="INTEGER" />
+    <result column="m_uid" property="mUid" jdbcType="INTEGER" />
+    <result column="m_mail" property="mMail" jdbcType="VARCHAR" />
+    <result column="m_subject" property="mSubject" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lingyun.framework.domain.Mailqueue" extends="BaseResultMap" >
+    <result column="m_body" property="mBody" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    m_id, m_type, m_addtime, m_sendtime, m_uid, m_mail, m_subject
+  </sql>
+  <sql id="Blob_Column_List" >
+    m_body
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from qs_mailqueue
+    where m_id = #{mId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_mailqueue
+    where m_id = #{mId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.Mailqueue" >
+    insert into qs_mailqueue (m_id, m_type, m_addtime, 
+      m_sendtime, m_uid, m_mail, 
+      m_subject, m_body)
+    values (#{mId,jdbcType=INTEGER}, #{mType,jdbcType=TINYINT}, #{mAddtime,jdbcType=INTEGER}, 
+      #{mSendtime,jdbcType=INTEGER}, #{mUid,jdbcType=INTEGER}, #{mMail,jdbcType=VARCHAR}, 
+      #{mSubject,jdbcType=VARCHAR}, #{mBody,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.Mailqueue" >
+    insert into qs_mailqueue
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="mType != null" >
+        m_type,
+      </if>
+      <if test="mAddtime != null" >
+        m_addtime,
+      </if>
+      <if test="mSendtime != null" >
+        m_sendtime,
+      </if>
+      <if test="mUid != null" >
+        m_uid,
+      </if>
+      <if test="mMail != null" >
+        m_mail,
+      </if>
+      <if test="mSubject != null" >
+        m_subject,
+      </if>
+      <if test="mBody != null" >
+        m_body,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mId != null" >
+        #{mId,jdbcType=INTEGER},
+      </if>
+      <if test="mType != null" >
+        #{mType,jdbcType=TINYINT},
+      </if>
+      <if test="mAddtime != null" >
+        #{mAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="mSendtime != null" >
+        #{mSendtime,jdbcType=INTEGER},
+      </if>
+      <if test="mUid != null" >
+        #{mUid,jdbcType=INTEGER},
+      </if>
+      <if test="mMail != null" >
+        #{mMail,jdbcType=VARCHAR},
+      </if>
+      <if test="mSubject != null" >
+        #{mSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="mBody != null" >
+        #{mBody,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.Mailqueue" >
+    update qs_mailqueue
+    <set >
+      <if test="mType != null" >
+        m_type = #{mType,jdbcType=TINYINT},
+      </if>
+      <if test="mAddtime != null" >
+        m_addtime = #{mAddtime,jdbcType=INTEGER},
+      </if>
+      <if test="mSendtime != null" >
+        m_sendtime = #{mSendtime,jdbcType=INTEGER},
+      </if>
+      <if test="mUid != null" >
+        m_uid = #{mUid,jdbcType=INTEGER},
+      </if>
+      <if test="mMail != null" >
+        m_mail = #{mMail,jdbcType=VARCHAR},
+      </if>
+      <if test="mSubject != null" >
+        m_subject = #{mSubject,jdbcType=VARCHAR},
+      </if>
+      <if test="mBody != null" >
+        m_body = #{mBody,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lingyun.framework.domain.Mailqueue" >
+    update qs_mailqueue
+    set m_type = #{mType,jdbcType=TINYINT},
+      m_addtime = #{mAddtime,jdbcType=INTEGER},
+      m_sendtime = #{mSendtime,jdbcType=INTEGER},
+      m_uid = #{mUid,jdbcType=INTEGER},
+      m_mail = #{mMail,jdbcType=VARCHAR},
+      m_subject = #{mSubject,jdbcType=VARCHAR},
+      m_body = #{mBody,jdbcType=LONGVARCHAR}
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.Mailqueue" >
+    update qs_mailqueue
+    set m_type = #{mType,jdbcType=TINYINT},
+      m_addtime = #{mAddtime,jdbcType=INTEGER},
+      m_sendtime = #{mSendtime,jdbcType=INTEGER},
+      m_uid = #{mUid,jdbcType=INTEGER},
+      m_mail = #{mMail,jdbcType=VARCHAR},
+      m_subject = #{mSubject,jdbcType=VARCHAR}
+    where m_id = #{mId,jdbcType=INTEGER}
+  </update>
+</mapper>

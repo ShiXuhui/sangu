@@ -1,0 +1,106 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/clearcache',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=clearcache&amp;a=index',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>更新缓存</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            更新缓存                        </div>
+        <div class="clear"></div>
+    </div>
+    <!--<div class="allpagetop">系统提示</div>-->
+    <div class="admin_main_nr_dbox">
+        <div class="adminshowmsg">
+            <div class="msgtxt link_blue ">
+                <div class="tit">清除缓存成功！</div>            <div class="jump">
+                页面将自动跳转，等待时间 <span class="countdown_box">3</span> 秒<br>
+                如果您的浏览器没有自动跳转，请点击 <a href="javascript:;" onClick="javascript:location.href='/tool/clearcache';">[返回]</a>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+<script type="text/javascript">
+    var count = 3;
+    CountDown();
+    var countdown = setInterval(CountDown, 1000);
+    function CountDown() {
+        $(".countdown_box").text(count);
+        if (count == 0) {
+            clearInterval(countdown);
+            window.location.href = '/tool/clearcache';
+        }
+        count--;
+    }
+    function refresh_affair(){
+        window.parent.window.document.getElementById('leftFrame').contentWindow.refresh_affair();
+        window.parent.window.document.getElementById('topFrame').contentWindow.refresh_affair();
+    }
+    refresh_affair();</script>
+
+</body>
+</html>

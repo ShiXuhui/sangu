@@ -12,6 +12,8 @@ spring:
 feign:
   httpclient:
     enabled: true
-
+ribbon:
+  ReadTimeout: 61000
+  ConnectTimeout: 61000
 
 FILE_SERVER_URL: http://192.168.11.128/

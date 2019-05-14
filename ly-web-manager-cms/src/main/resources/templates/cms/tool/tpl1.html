@@ -1,0 +1,146 @@
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/tpl',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=tpl&amp;a=com_tpl',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>风格模板</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            风格模板                        </div>
+        <div class="topnav">
+            <a href="/tool/tpl" class="">风格模板</a><a href="/tool/tpl1" class="select">企业模板</a><a href="/tool/tpl2" class="">简历模板</a>   <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p class="link_green_line">新增企业模板只需将模板文件上传至 /Application/Home/View/tpl_company 目录下，更多模版请到 <a href="http://www.74cms.com/tpl/lists.html" target="_blank" style="color:#009900">[官网]</a> 获取。</p>
+        <p>增加或删除模版后请点击下方<strong>刷新</strong>按钮。</p>
+        <p class="link_green_line">如果您熟悉html语法，则可以参考 <a href="http://www.74cms.com/handbook" target="_blank" style="color:#009900">[模版开发手册]</a> 自定义风格模版。</p>
+    </div>
+    <div class="toptit">企业模版设置</div>
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=tpl&a=com_tpl_save" style="font-size:12px;">
+        <div style=" line-height:180%; padding:5px; border-bottom:1px #DFDFDF solid;padding-left:15px;margin-left:20px;margin-right: 20px;"  class="link_blue tpl_list">
+            <table width="100%" border="0" cellspacing="5" cellpadding="0">
+                <tr>
+                    <td width="225"><img src="./Application//Home/View/tpl_company/default/thumbnail.jpg" alt="默认模版" width="225" height="136" border="1"  style="border: #CCCCCC;"/></td>
+                    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="50" align="right">名称：</td>
+                            <td><input name="tpl_id[]" type="hidden" value="2" />
+                                <input name="tpl_name[]" type="text" value="默认模版"  class="input_text_200" />
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="50" align="right">默认：</td>
+                            <td><label>
+                                <input name="tpl_company" type="radio" value="default" checked="checked"/>
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td align="right">可用：</td>
+                            <td><label>
+                                <input name="tpl_display[]" type="checkbox" value="1" checked="checked"/>
+                            </label></td>
+                        </tr>
+                        <tr>
+                            <td align="right">售价：</td>
+                            <td><input type="text" class="input_text_200" maxlength="3" value="0" name="tpl_val[]"/>
+                                点积分		<span class="admin_note">企业会员使用此模版需要支付的积分，0为免费</span></td>
+                        </tr>
+                        <tr>
+                            <td align="right">版本：</td>
+                            <td>4.0</td>
+                        </tr>
+                        <tr>
+                            <td align="right">作者：</td>
+                            <td><a href="http://www.74cms.com" target="_blank">74cms.com</a></td>
+                        </tr>
+                    </table></td>
+                </tr>
+            </table>
+        </div><div class="list_foot">
+        <div class="btnbox">
+            <input type="submit" name="" value="保存" class="admin_submit" />
+            <input type="button" name="Submit22" value="刷新" class="admin_submit" onclick="window.location='/74cms_v4.2.111/upload/index.php?m=admin&c=tpl&a=refresh_tpl&type=1&tpl_dir=tpl_company'"/>
+        </div>
+    </div>
+    </form>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".tpl_list").hover(
+            function () {
+                $(this).css("background-color","#E4F4FC");
+            },
+            function () {
+                $(this).css("background-color","");
+            }
+        );
+    });
+</script>
+</body>
+</html>

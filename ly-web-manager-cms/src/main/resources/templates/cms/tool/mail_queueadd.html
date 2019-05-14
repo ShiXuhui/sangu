@@ -1,0 +1,125 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/mail_queue',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=mail_queue&amp;a=mailqueue_add',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>营销工具</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            营销工具                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index" class="select">邮件营销</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=sms_queue&a=index" class="">短信营销</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>你可以用HTML美化邮件内容。</p>
+    </div>
+    <div class="toptit">新增邮件任务</div>
+    <form id="form1" name="form1" method="post"   action="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=mailqueue_add" >
+        <div class="form_main width150">
+            <div class="fl">收件人：</div>
+            <div class="fr">
+                <input name="m_mail" type="text" maxlength="100" class="input_text_default" value=""/>
+            </div>
+            <div class="fl">邮件标题：</div>
+            <div class="fr">
+                <input name="m_subject" type="text" maxlength="100" class="input_text_default" value=""/>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <div id="{sitename}" class="sellabel">网站名称</div><div id="{sitedomain}" class="sellabel">网站域名</div><div id="{address}" class="sellabel">联系地址</div><div id="{tel}" class="sellabel">联系电话</div>            <div class="clear"></div>
+            </div>
+            <div class="fl">邮件内容：</div>
+            <div class="fr">
+                <textarea name="m_body" class="input_text_default" id="m_body" style="width:700px; height:200px; font-size:12px; line-height:180%"></textarea>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <input name="submit3" type="submit" class="admin_submit"    value="添加"/>
+                <input name="submit22" type="button" class="admin_submit"    value="返回" onclick="Javascript:window.history.go(-1)"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+<script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.caretInsert.js"></script>
+<link rel="stylesheet" href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/themes/default/default.css">
+
+<script type="text/javascript">
+    $.getScript('../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/kindeditor-all-min.js',
+        function() {
+            KindEditor.basePath = '../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/';
+            editor = KindEditor.create('#m_body', {
+                cssPath : '../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/plugins/code/prettify.css',
+                uploadJson : '../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/jsp/upload_json.jsp',
+                fileManagerJson : '../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor-4.1.7/jsp/file_manager_json.jsp',
+                afterBlur:function(){this.sync();}//和ajax同步
+            });
+        })
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.TplMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.Tpl" >
+    <id column="tpl_id" property="tplId" jdbcType="INTEGER" />
+    <result column="tpl_type" property="tplType" jdbcType="BIT" />
+    <result column="tpl_name" property="tplName" jdbcType="VARCHAR" />
+    <result column="tpl_display" property="tplDisplay" jdbcType="BIT" />
+    <result column="tpl_dir" property="tplDir" jdbcType="VARCHAR" />
+    <result column="tpl_val" property="tplVal" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tpl_id, tpl_type, tpl_name, tpl_display, tpl_dir, tpl_val
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from qs_tpl
+    where tpl_id = #{tplId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_tpl
+    where tpl_id = #{tplId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.Tpl" >
+    insert into qs_tpl (tpl_id, tpl_type, tpl_name, 
+      tpl_display, tpl_dir, tpl_val
+      )
+    values (#{tplId,jdbcType=INTEGER}, #{tplType,jdbcType=BIT}, #{tplName,jdbcType=VARCHAR}, 
+      #{tplDisplay,jdbcType=BIT}, #{tplDir,jdbcType=VARCHAR}, #{tplVal,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.Tpl" >
+    insert into qs_tpl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tplId != null" >
+        tpl_id,
+      </if>
+      <if test="tplType != null" >
+        tpl_type,
+      </if>
+      <if test="tplName != null" >
+        tpl_name,
+      </if>
+      <if test="tplDisplay != null" >
+        tpl_display,
+      </if>
+      <if test="tplDir != null" >
+        tpl_dir,
+      </if>
+      <if test="tplVal != null" >
+        tpl_val,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tplId != null" >
+        #{tplId,jdbcType=INTEGER},
+      </if>
+      <if test="tplType != null" >
+        #{tplType,jdbcType=BIT},
+      </if>
+      <if test="tplName != null" >
+        #{tplName,jdbcType=VARCHAR},
+      </if>
+      <if test="tplDisplay != null" >
+        #{tplDisplay,jdbcType=BIT},
+      </if>
+      <if test="tplDir != null" >
+        #{tplDir,jdbcType=VARCHAR},
+      </if>
+      <if test="tplVal != null" >
+        #{tplVal,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.Tpl" >
+    update qs_tpl
+    <set >
+      <if test="tplType != null" >
+        tpl_type = #{tplType,jdbcType=BIT},
+      </if>
+      <if test="tplName != null" >
+        tpl_name = #{tplName,jdbcType=VARCHAR},
+      </if>
+      <if test="tplDisplay != null" >
+        tpl_display = #{tplDisplay,jdbcType=BIT},
+      </if>
+      <if test="tplDir != null" >
+        tpl_dir = #{tplDir,jdbcType=VARCHAR},
+      </if>
+      <if test="tplVal != null" >
+        tpl_val = #{tplVal,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tpl_id = #{tplId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.Tpl" >
+    update qs_tpl
+    set tpl_type = #{tplType,jdbcType=BIT},
+      tpl_name = #{tplName,jdbcType=VARCHAR},
+      tpl_display = #{tplDisplay,jdbcType=BIT},
+      tpl_dir = #{tplDir,jdbcType=VARCHAR},
+      tpl_val = #{tplVal,jdbcType=INTEGER}
+    where tpl_id = #{tplId,jdbcType=INTEGER}
+  </update>
+</mapper>
