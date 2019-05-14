@@ -1,4 +1,4 @@
-package com.lingyun.manager_cms.service;
+package com.lingyun.manager_cms.service.cmsservice;
 
 import com.lingyun.framework.domain.Crons;
 
