@@ -11,9 +11,9 @@
     <meta name="author" content="骑士CMS"/>
     <meta name="copyright" content="74cms.com"/>
     <link rel="shortcut icon" href="/favicon.ico"/>
-    <script src="../upload/Application/Home/View/default/public/js/jquery.min.js"></script>
-    <script src="../upload/Application/Home/View/default/public/js/htmlspecialchars.js"></script>
-    <script src="../static/tools/gt.js"></script>
+    <script th:src="@{/web/js/jquery.min.js}"></script>
+    <script th:src="@{/web/js/htmlspecialchars.js}"></script>
+    <script th:src="@{/web/tools/gt.js}"></script>
     <script type="text/javascript">
         var app_spell = "1";
         var qscms = {
@@ -42,35 +42,14 @@
             });
         })
     </script>
-    <link href="../upload/Application/Home/View/default/public/css/common.css" rel="stylesheet" type="text/css" />
-    <link href="../upload/Application/Home/View/default/public/css/common_ajax_dialog.css" rel="stylesheet" type="text/css" />
-    <link href="../upload/Application/Home/View/default/public/css/resume.css" rel="stylesheet" type="text/css" />
-    <script src="../upload/Application/Home/View/default/public/js/jquery.common.js" type="text/javascript" language="javascript"></script>
+    <link th:href="@{/web/css/common.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/web/css/common_ajax_dialog.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/web/css/resume.css}" rel="stylesheet" type="text/css" />
+    <script th:src="@{/web/js/jquery.common.js}" type="text/javascript" language="javascript"></script>
     <script type="text/javascript" src="/data/static/6f557ceaff36b5f87598d5441e0a6ba3.js?"></script>			</head>
 <body>
-<div class="header_min" id="header">
-    <div class="header_min_top">
-        <div id="J_header" class="itopl font_gray6 link_gray6">
-            <span class="link_yellow">欢迎登录骑士人才招聘网！请 <a id="J_site_login" href="javascript:;">登录</a> 或 <a id="J_site_reg" href="javascript:;">免费注册</a></span>
-        </div>
-        <div class="itopr font_gray9 link_gray6 substring new"> <a href="/" class="home">网站首页</a>|<a href="/m/index.html" class="m">手机访问</a>|<a href="/help.html" class="help">帮助中心</a>|<a href="/mall.html" class="shop">积分商城</a>|<a href="/subject.html" class="career new">专题<img style="right:-7px;" src="../upload/Application/Home/View/default/public/images/xin.png"></a>|<a href="/index.php?m=career&c=index&a=index" class="last new">事业单位招考<img src="../upload/Application/Home/View/default/public/images/xin.png"></a></div>
-        <div class="clear"></div>
-    </div>
-</div>
-<div class="other_top_nav">
-    <div class="ot_nav_box">
-        <div class="ot_nav_logo"><a href="/"><img src="../upload/data/upload/resource/logo_home.gif" border="0"/></a></div>
-        <div class="ot_nav_sub">
-        </div>
-        <div class="ot_nav_link ">
-            <ul class="link_gray6 nowrap">
-                <li class="on_li J_hoverbut "><a  href="/index/index.html" target="_self">首  页</a></li><li class="on_li J_hoverbut "><a  href="/jobs/jobs_list.html" target="">找工作</a></li><li class="on_li J_hoverbut select"><a  href="/resume/resume_list.html" target="">招人才</a></li><li class="on_li J_hoverbut "><a  href="/news.html" target="">职场资讯</a></li><li class="on_li J_hoverbut "><a  href="/hrtools.html" target="_self">HR工具箱</a></li><li class="on_li J_hoverbut "><a  href="http://www.51lianzhi.cn" target="">云端职位</a></li><li class="on_li J_hoverbut "><a  href="/index.php?m=seniorjobfair&c=index&a=index" target="_self">招聘会</a></li><li class="on_li J_hoverbut "><a class="new" href="/index.php?m=interview&c=index&a=index" target="_self">企业专访<img src="../upload/Application/Home/View/default/public/images/xin.png"></a></li>            </ul>
-            <div class="clear"></div>
-        </div>
-        <div class="clear"></div>
-    </div>
-</div>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
+<div th:include="web/template/head :: head"></div>
+<script type="text/javascript" th:src="@{/web/js/jquery.modal.dialog.js}"></script>
 <div class="new-search-box" style="background-image: url(../upload/Application/Home/View/default/public/images/sebanner4.jpg);">
     <div class="ns-main">
         <div class="main-sty">
@@ -418,7 +397,7 @@
                 </div>
                 <div class="td3 substring">男<span>|</span>37岁<span>|</span>中专<span>|</span>10年以上</div>
                 <div class="td5 substring">金州区</div>
-                <div class="td6"><img src="../upload/Application/Home/View/default/public/images/stick.png"></div>
+                <div class="td6"><img th:src="@{/web/images/stick.png}"></div>
                 <div class="td7"><div class="J_resumeStatus hide "></div></div>
                 <div class="clear"></div>
                 <div class="detail" >
@@ -553,7 +532,7 @@
 </div>
 
 <!--[if lt IE 9]>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/PIE.js"></script>
+<script type="text/javascript" th:src="@{/web/js/PIE.js}"></script>
 <script type="text/javascript">
     (function ($) {
         $.pie = function (name, v) {
@@ -582,7 +561,7 @@
     }
 </script>
 <![endif]-->
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.disappear.tooltip.js"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.disappear.tooltip.js}"></script>
 <script type="text/javascript">
     var global = {
         h: $(window).height(),
@@ -618,15 +597,15 @@
         });
     }
 </script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.resumelist.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.search.city.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.dialog.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.modal.search.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.dropdown.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.listitem.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.highlight-3.js"></script>
-<script src="http://static.geetest.com/static/tools/gt.js"></script>
-<script type="text/javascript" src="../upload/Application/Home/View/default/public/js/jquery.autocomplete.js"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.resumelist.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.search.city.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.modal.dialog.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.modal.search.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.dropdown.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.listitem.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.highlight-3.js}"></script>
+<script src="http://static.geetest.com/static/tools/gt.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.autocomplete.js}"></script>
 <script type="text/javascript">
     var city_select = {"spell":"zhongqingshi","id":"288","parentid":"22","categoryname":"\u91cd\u5e86\u5e02","citycategory":"zhongqingshi"};
     var city_parent = {"spell":"zhongqingshi","id":"288","parentid":"22","categoryname":"\u91cd\u5e86\u5e02","citycategory":"zhongqingshi"};
@@ -750,5 +729,15 @@
         }
     });
 </script>
+<script type="text/javascript" th:src="@{/web/js/jquery.modal.dialog.js}"></script>
+<script type="text/javascript" th:src="@{/web/js/jquery.index.js}"></script>
+<script th:src="@{/web/tools/gt.js}"></script>
+<script th:src="@{/web/js/common/sign.js}"></script>
+<div class="modal_backdrop fade in"></div>
+<div class="modal">
+    <div class="modal_dialog" style="left: 379px; top: 102px;">
+        <div class="modal_content pie_about no_pad"><div class="modal_body no_pad">
+
+        </div><input type="hidden" class="J_btnload"></div></div></div>
 </body>
 </html>

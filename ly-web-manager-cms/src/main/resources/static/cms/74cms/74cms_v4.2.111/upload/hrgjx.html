@@ -1,0 +1,342 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../../../74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '../../../74cms/74cms_v4.2.111/upload/index.php/admin/hrtools',
+            SELF = '../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=hrtools&amp;a=index',
+            ROOT_PATH = '../../../74cms/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '../../../74cms/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>HR工具箱</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            HR工具箱                        </div>
+        <div class="topnav">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index" class="select">列表</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=add" class="">添加</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=category" class="">分类</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+
+    <div class="seltpye_y">
+        <div class="tit">分类选择</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=&h_typecn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=1&h_typecn=%E6%8B%9B%E8%81%98%2F%E9%9D%A2%E8%AF%95">招聘/面试</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=2&h_typecn=%E4%BA%BA%E4%BA%8B%E6%A1%A3%E6%A1%88">人事档案</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=3&h_typecn=%E5%91%98%E5%B7%A5%E7%AE%A1%E7%90%86">员工管理</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=4&h_typecn=%E5%90%88%E5%90%8C%2F%E8%AF%95%E7%94%A8">合同/试用</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=5&h_typecn=%E8%96%AA%E9%85%AC%E5%88%B6%E5%BA%A6">薪酬制度</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=6&h_typecn=%E5%8A%A0%E7%8F%AD%2F%E8%80%83%E5%8B%A4">加班/考勤</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=7&h_typecn=%E5%87%BA%E5%B7%AE">出差</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=8&h_typecn=%E5%91%98%E5%B7%A5%E5%9F%B9%E8%AE%AD">员工培训</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=9&h_typecn=%E7%BB%A9%E6%95%88%E8%80%83%E6%A0%B8">绩效考核</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=10&h_typecn=%E8%BE%9E%E9%80%80%2F%E7%A7%BB%E4%BA%A4">辞退/移交</li><li url="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&parentid=11&h_typecn=%E5%85%B6%E5%AE%83">其它</li>    </div>
+    </div>
+    <div class="clear"></div>
+
+    <form id="form1" name="form1" method="post" action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete">
+        <div class="list_th">
+            <div class="td" style=" width:30%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>文档名称
+                </label>
+            </div>
+            <div class="td" style=" width:40%;">文档路径</div>
+            <div class="td" style=" width:10%;">所属分类</div>
+            <div class="td center" style=" width:10%;">排序</div>
+            <div class="td" style=" width:10%;">操作</div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="list_tr link_blue">
+            <div class="td" style=" width:30%;">
+                <div class="left_padding striking">
+                    <input name="h_id[]" type="checkbox" id="id" value="1095"/>
+                    <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1095" >考核制度</a>
+                </div>
+            </div>
+            <div class="td" style=" width:40%;">
+                <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/10.doc" target="_blank">10.doc</a>
+            </div>
+            <div class="td" style=" width:10%;">
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+            </div>
+            <div class="td center" style=" width:10%;">0</div>
+            <div class="td edit" style=" width:10%;">
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1095">修改</a>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1095" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+            </div>
+            <div class="clear"></div>
+        </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1094"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1094" >请购单</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/9.doc" target="_blank">9.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1094">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1094" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1093"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1093" >员工请假单</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/8.doc" target="_blank">8.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1093">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1093" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1092"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1092" >办公室物资管理条例</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122453.doc" target="_blank">2002109122453.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1092">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1092" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1091"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1091" >办公行为规范</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122502.doc" target="_blank">2002109122502.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1091">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1091" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1090"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1090" >保密制度</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122510.doc" target="_blank">2002109122510.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1090">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1090" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1089"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1089" >财务管理规定</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122541.doc" target="_blank">2002109122541.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1089">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1089" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1088"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1088" >餐饮业人事管理规章</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122550.doc" target="_blank">2002109122550.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1088">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1088" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1087"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1087" >档案管理规定</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122559.doc" target="_blank">2002109122559.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1087">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1087" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_blue">
+        <div class="td" style=" width:30%;">
+            <div class="left_padding striking">
+                <input name="h_id[]" type="checkbox" id="id" value="1086"/>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1086" >法律工作制度</a>
+            </div>
+        </div>
+        <div class="td" style=" width:40%;">
+            <a href="http://localhost../../../74cms/74cms_v4.2.111/upload/data/upload/hrtools/2002109122607.doc" target="_blank">2002109122607.doc</a>
+        </div>
+        <div class="td" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&h_typeid=11" >其它</a>
+        </div>
+        <div class="td center" style=" width:10%;">0</div>
+        <div class="td edit" style=" width:10%;">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=edit&h_id=1086">修改</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=delete&h_id=1086" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+        </div>
+        <div class="clear"></div>
+    </div></form>
+
+
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAdd" value="添加" onclick="window.location='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=add'"/>
+            <input type="button" class="admin_submit" id="ButDel" value="删除所选"/>
+        </div>
+
+        <div class="footso">
+            <form action="?" method="get">
+                <div class="sobox">
+                    <input type="hidden" name="m" value="Admin">
+                    <input type="hidden" name="c" value="Hrtools">
+                    <input type="hidden" name="a" value="index">
+                    <input name="key" type="text" class="sinput" value=""/>
+                    <input name="key_type" id="J_key_type_id" type="hidden" value="1" />
+                    <input name="key_type_cn" id="J_key_type_cn" type="hidden" value="名称"/>
+                    <input name="" type="submit" value="" class="sobtn"/>
+                    <div class="sotype" id="J_key_click">名称</div>
+                    <div class="mlist" id="J_mlist">
+                        <ul>
+                            <li id="1" title="名称">名称</li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pages"> <a class='unable'>上一页</a>  <span class='current'>1</span> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=2'>2</a> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=3'>3</a> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=4'>4</a> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=5'>5</a> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=2'>下一页</a> <a href='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=hrtools&a=index&page=104' >最后一页</a></div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //点击批量删除
+        $("#ButDel").click(function () {
+            var ids = $("input[name='h_id[]']:checked");
+            if(ids.length == 0){
+                disapperTooltip('remind','请选择文档！');
+            } else {
+                if(confirm('确定删除吗？')){
+                    $("form[name=form1]").submit();
+                }
+            }
+        });
+    });
+</script>
+</html>

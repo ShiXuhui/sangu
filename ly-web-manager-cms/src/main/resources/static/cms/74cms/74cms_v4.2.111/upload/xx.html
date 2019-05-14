@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../../../74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script src="../../../vue.min.js"></script>
+    <script>
+        var URL = '../../../74cms/74cms_v4.2.111/upload/index.php/admin/pms',
+            SELF = '../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=pms&amp;a=index',
+            ROOT_PATH = '../../../74cms/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '../../../74cms/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>消息</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            消息                        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="seltpye_x">
+        <div class="left">接收会员</div>
+        <div class="right">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_usertype=" class="select">不限</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_usertype=0" >所有会员</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_usertype=1" >企业会员</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_usertype=2" >个人会员</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="seltpye_x">
+        <div class="left">消息类型</div>
+        <div class="right">
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_type=" class="select">不限</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_type=1" >普通消息</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=index&spms_type=2" >注册提醒</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="newsdiv">
+    <form id="form1" name="form1" method="post" action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=delete">
+        <div class="list_th">
+            <div class="td" style=" width:50%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>消息
+                </label>
+            </div>
+            <div class="td" style=" width:15%;">接收会员</div>
+            <div class="td center" style=" width:10%;">类型</div>
+            <div class="td center" style=" width:15%;">添加日期</div>
+            <div class="td" style=" width:10%;">操作</div>
+            <div class="clear"></div>
+        </div>
+
+        <div v-for="news in list">
+
+        <div class="list_tr link_black">
+            <div class="td" style=" width:50%;">
+                <div class="left_padding striking link_blue">
+                    <input name="spmid[]" type="checkbox" id="id" value="1"/>
+                    {{ news.message }}
+                </div>
+            </div>
+            <div class="td" style=" width:15%;">
+                <div id="app">
+                所有会员
+                </div>
+            </div>
+            <div class="td center" style=" width:10%;">
+                <div id="divif2">
+                    普通消息
+                </div>
+            </div>
+            <div class="td center" style=" width: 15%;">
+                {{ news.datelineto }}
+            </div>
+            <div class="td edit" style=" width:10%;">
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=edit&spmid=1">修改</a>
+                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=delete&spmid=1" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        </div>
+    </form>
+    </div>
+
+
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAdd" value="添加" onclick="window.location='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=pms&a=add'"/>
+            <input type="button" class="admin_submit" id="ButDel" value="删除"/>
+        </div>
+
+        <div class="footso">
+            <form action="?" method="get">
+                <div class="sobox">
+                    <input type="hidden" name="m" value="Admin">
+                    <input type="hidden" name="c" value="Pms">
+                    <input type="hidden" name="a" value="index">
+                    <input name="key" type="text" class="sinput" value=""/>
+                    <input name="key_type" id="J_key_type_id" type="hidden" value="1" />
+                    <input name="key_type_cn" id="J_key_type_cn" type="hidden" value="消息"/>
+                    <input name="" type="submit" value="" class="sobtn"/>
+                    <div class="sotype" id="J_key_click">消息</div>
+                    <div class="mlist" id="J_mlist">
+                        <ul>
+                            <li id="1" title="消息">消息</li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pages"> <a class='unable'>上一页</a>  <span class='current'>1</span> <a class='unable'>下一页</a> </div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script type="text/javascript">
+
+    new Vue({
+        el: '#app',
+        data: {
+            seen: true,
+            ok: true
+        }
+    })
+
+    $(function () {
+        $.ajax({
+            type:"post",
+            url:"/news/queryNews",
+            success:function (info) {
+                new Vue({
+                    el: "#newsdiv",
+                    data: {
+                        "list":info
+                    }
+                })
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    })
+
+    $(document).ready(function () {
+        //批量删除
+        $("#ButDel").click(function () {
+            var ids = $("input[name='spmid[]']:checked");
+            if(ids.length == 0){
+                disapperTooltip('remind','请选择消息！');
+            } else {
+                if(confirm('确定删除吗？')){
+                    $("#form1").submit();
+                }
+            }
+        });
+    });
+</script>
+</html>
