@@ -1,0 +1,112 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/payment',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=payment&amp;a=index',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>支付方式</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            支付方式                        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>安装在线支付插件需申请对应在线支付服务公司的服务账户。</p>
+    </div>
+    <div class="list_th">
+        <div class="td" style=" width:20%;"><div class="left_padding">名称</div></div>
+        <div class="td" style=" width:50%;">支付方式简短描述</div>
+        <div class="td center" style="width:15%;">排序</div>
+        <div class="td" style=" width:15%;">操作</div>
+        <div class="clear"></div>
+    </div>
+    <div class="list_tr link_black">
+        <div class="td" style=" width:20%;"><div class="left_padding" style="color:#3366CC">支付宝</div></div>
+        <div class="td" style=" width:50%;">全球领先的独立第三方支付平台</div>
+        <div class="td center" style="width:15%;">50</div>
+        <div class="td edit" style=" width:15%;">
+            <a href="/tool/paymentUpdate" >编辑</a>
+        </div>
+        <div class="clear"></div>
+    </div><div class="list_tr link_black">
+    <div class="td" style=" width:20%;"><div class="left_padding" style="color:#3366CC">微信支付</div></div>
+    <div class="td" style=" width:50%;">微信支付是集成在微信客户端的支付功能，用户可以通过手机完成快速的支付流程。</div>
+    <div class="td center" style="width:15%;">50</div>
+    <div class="td edit" style=" width:15%;">
+        <a href="/tool/paymentUpdate" >编辑</a>
+    </div>
+    <div class="clear"></div>
+</div><div class="list_tr link_black">
+    <div class="td" style=" width:20%;"><div class="left_padding" style="color:#3366CC">线下转账</div></div>
+    <div class="td" style=" width:50%;">没有开通网银的请选择此项，到款后需客服为您手动开通</div>
+    <div class="td center" style="width:15%;">50</div>
+    <div class="td edit" style=" width:15%;">
+        <a href="/tool/paymentUpdate" >编辑</a>
+    </div>
+    <div class="clear"></div>
+</div></div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+</body>
+</html>
