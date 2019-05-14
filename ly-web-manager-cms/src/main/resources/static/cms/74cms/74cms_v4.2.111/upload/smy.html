@@ -14,6 +14,7 @@
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
     <!--[if lt IE 9]>
     <script type="text/javascript" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script type="text/javascript">
         (function ($) {
             $.pie = function (name, v) {
@@ -65,15 +66,20 @@
         <div class="h1">
             说明页                        </div>
         <div class="topnav">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index" class="select">说明页列表</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=add" class="">添加</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=category" class="">分类</a>                <div class="clear"></div>
-        </div>		<div class="clear"></div>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index" class="select">说明页列表</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=add" class="">添加</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=category" class="">分类</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
     </div>
 
     <div class="seltpye_x">
         <div class="left">所属分类</div>
         <div class="right">
             <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index&type_id=" class="select">不限</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index&type_id=1" >关于我们</a>        <div class="clear"></div>
+            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=index&type_id=1" >关于我们</a>
+            <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
@@ -92,6 +98,9 @@
     </div>
 
     <form id="form1" name="form1" method="post" action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete">
+
+
+
         <div class="list_th">
             <div class="td" style=" width:40%;">
                 <label id="chkAll" class="left_padding">
@@ -106,103 +115,33 @@
             <div class="clear"></div>
         </div>
 
-        <div class="list_tr link_black">
-            <div class="td" style=" width:40%;">
-                <div class="left_padding striking link_blue">
-                    <input name="id[]" type="checkbox" id="id" value="1"/>
-                    <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=1" target="_blank" style="">网站介绍</a>
-                </div>
-            </div>
-            <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-            <div class="td center" style=" width:10%;">0</div>
-            <div class="td center" style=" width: 10%;">1</div>
-            <div class="td center" style=" width:15%;">2010-01-24</div>
-            <div class="td edit" style=" width:10%;">
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=1">修改</a>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=1" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-            </div>
-            <div class="clear"></div>
-        </div><div class="list_tr link_black">
-        <div class="td" style=" width:40%;">
-            <div class="left_padding striking link_blue">
-                <input name="id[]" type="checkbox" id="id" value="4"/>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=4" target="_blank" style="">产品服务</a>
-            </div>
+
+        <div class="list_empty" id="explaindiv123">
+            <ol>
+                <li v-for="explain in list">
+
+                    <div class="list_tr link_black">
+                        <div class="td" style=" width:40%;">
+                            <div class="left_padding striking link_blue">
+                                <input name="id[]" type="checkbox" id="id" value="1"/>
+                                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=1" target="_blank" style="">{{ explain.title }}</a>
+                            </div>
+                        </div>
+                        <div class="td" style=" width:15%;">{{ explain.categoryname }}&nbsp;</div>
+                        <div class="td center" style=" width:10%;">{{ explain.titB }}</div>
+                        <div class="td center" style=" width: 10%;">{{ explain.click }}</div>
+                        <div class="td center" style=" width:15%;">{{ explain.addtime }}</div>
+                        <div class="td edit" style=" width:10%;">
+                            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=1">修改</a>
+                            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=1" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </li>
+            </ol>
         </div>
-        <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-        <div class="td center" style=" width:10%;">0</div>
-        <div class="td center" style=" width: 10%;">1</div>
-        <div class="td center" style=" width:15%;">2010-01-24</div>
-        <div class="td edit" style=" width:10%;">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=4">修改</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=4" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-        </div>
-        <div class="clear"></div>
-    </div><div class="list_tr link_black">
-        <div class="td" style=" width:40%;">
-            <div class="left_padding striking link_blue">
-                <input name="id[]" type="checkbox" id="id" value="5"/>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=5" target="_blank" style="">法律申明</a>
-            </div>
-        </div>
-        <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-        <div class="td center" style=" width:10%;">0</div>
-        <div class="td center" style=" width: 10%;">1</div>
-        <div class="td center" style=" width:15%;">2010-01-24</div>
-        <div class="td edit" style=" width:10%;">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=5">修改</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=5" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-        </div>
-        <div class="clear"></div>
-    </div><div class="list_tr link_black">
-        <div class="td" style=" width:40%;">
-            <div class="left_padding striking link_blue">
-                <input name="id[]" type="checkbox" id="id" value="6"/>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=6" target="_blank" style="">推广合作</a>
-            </div>
-        </div>
-        <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-        <div class="td center" style=" width:10%;">0</div>
-        <div class="td center" style=" width: 10%;">1</div>
-        <div class="td center" style=" width:15%;">2010-01-24</div>
-        <div class="td edit" style=" width:10%;">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=6">修改</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=6" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-        </div>
-        <div class="clear"></div>
-    </div><div class="list_tr link_black">
-        <div class="td" style=" width:40%;">
-            <div class="left_padding striking link_blue">
-                <input name="id[]" type="checkbox" id="id" value="7"/>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=7" target="_blank" style="">联系我们</a>
-            </div>
-        </div>
-        <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-        <div class="td center" style=" width:10%;">0</div>
-        <div class="td center" style=" width: 10%;">1</div>
-        <div class="td center" style=" width:15%;">2010-01-24</div>
-        <div class="td edit" style=" width:10%;">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=7">修改</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=7" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-        </div>
-        <div class="clear"></div>
-    </div><div class="list_tr link_black">
-        <div class="td" style=" width:40%;">
-            <div class="left_padding striking link_blue">
-                <input name="id[]" type="checkbox" id="id" value="8"/>
-                <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=home&c=explain&a=explain_show&id=8" target="_blank" style="">招贤纳士</a>
-            </div>
-        </div>
-        <div class="td" style=" width:15%;">[关于我们]&nbsp;</div>
-        <div class="td center" style=" width:10%;">0</div>
-        <div class="td center" style=" width: 10%;">1</div>
-        <div class="td center" style=" width:15%;">2010-01-24</div>
-        <div class="td edit" style=" width:10%;">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=edit&id=8">修改</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=explain&a=delete&id=8" class="gray" onclick="return confirm('你确定要删除吗？')">删除</a>
-        </div>
-        <div class="clear"></div>
-    </div></form>
+    </form>
 
 
     <div class="list_foot">
@@ -242,6 +181,27 @@
 
 </body>
 <script type="text/javascript">
+
+    var resumeVue;
+    $(function(){
+        $.ajax({
+            type:"post",
+            url:"/explain/findExplainAll",
+            success:function(info){
+                resumeVue = new Vue({
+                    el: '#explaindiv123',
+                    data: {
+                        "list":info
+                    }
+                })
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    })
+
+
     $(document).ready(function () {
         //批量删除
         $("#ButDel").click(function () {
