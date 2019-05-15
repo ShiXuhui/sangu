@@ -2,6 +2,7 @@ package com.lingyun.manager_cms.dao.cmsdao;
 
 
 import com.lingyun.framework.domain.Crons;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -19,4 +20,8 @@ public interface CronsMapper {
     int updateByPrimaryKey(Crons record);
 
     List<Crons> query();
+
+    List<Crons> querycrons(Crons crons);
+
+    void delcrons(@Param("ids") String ids);
 }

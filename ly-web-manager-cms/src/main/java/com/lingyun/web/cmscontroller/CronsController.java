@@ -14,8 +14,52 @@ public class CronsController {
     @Autowired
     private CronsService cronsService;
 
-    @RequestMapping("query")
-    public List<Crons> query(){
-        return cronsService.query();
+    /**
+     * 添加查询
+     * @param crons
+     * @return
+     */
+    @RequestMapping("querycrons")
+    public List<Crons> querycrons(Crons crons){
+        return cronsService.querycrons(crons);
+    }
+
+    /**
+     * 添加
+     * @param crons
+     * @return
+     */
+    @RequestMapping("addcrons")
+    public void addcrons(Crons crons){
+         cronsService.addcrons(crons);
+    }
+
+    /**
+     *批量删除
+     * @param ids
+     * @return
+     */
+    @RequestMapping("delcrons")
+    public void delcrons(String ids){
+         cronsService.delcrons(ids);
+    }
+
+    /**
+     * 根据id查询
+     * @param crons
+     */
+    @RequestMapping("querycronsid")
+    public void querycronsid(Crons crons){
+        Crons c=cronsService.querycronsid(crons.getCronid());
+    }
+
+    /**
+     * 修改
+     * @param crons
+     * @return
+     */
+    @RequestMapping("updatecrons")
+    public void updatecrons(Crons crons){
+         cronsService.updatecrons(crons);
     }
 }
