@@ -14,13 +14,13 @@ public interface MaliqueueControllerApi {
     List<Mailqueue> querymailqueue(@RequestBody Mailqueue mailqueue);
 
     @RequestMapping("delmailqueue")
-    List<Mailqueue> delmailqueue(@RequestParam("ids") String ids);
+    List<Mailqueue> delmailqueue( String ids);
 
     @RequestMapping("showmailqueue")
-    List<Mailqueue> showmailqueue(@RequestParam("ids") String ids);
+    List<Mailqueue> showmailqueue(String ids);
 
     @RequestMapping("showmailqueueid")
-    Mailqueue showmailqueueid(@RequestParam Integer integer);
+    Mailqueue showmailqueueid(Integer integer);
 
     @RequestMapping("addmailqueue")
     void addmailqueue(@RequestBody Mailqueue mailqueue);

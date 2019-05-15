@@ -19,10 +19,10 @@ public interface CronsControllerApi {
     void addcrons(@RequestBody Crons crons);
 
     @RequestMapping("delcrons")
-    void delcrons(@RequestParam String ids);
+    void delcrons( String ids);
 
     @RequestMapping("querycronsid")
-    Crons querycronsid(@RequestParam Short cronid);
+    Crons querycronsid(Short cronid);
 
     @RequestMapping("updatecrons")
     void updatecrons(@RequestBody Crons crons);
