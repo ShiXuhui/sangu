@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.webdao.job.DistrictMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.District" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="parentid" property="parentid" jdbcType="INTEGER" />
+    <result column="categoryname" property="categoryname" jdbcType="VARCHAR" />
+    <result column="category_order" property="categoryOrder" jdbcType="SMALLINT" />
+    <result column="stat_jobs" property="statJobs" jdbcType="VARCHAR" />
+    <result column="stat_resume" property="statResume" jdbcType="VARCHAR" />
+    <result column="spell" property="spell" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, parentid, categoryname, category_order, stat_jobs, stat_resume, spell
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from qs_category_district
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="queryDistrictById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from qs_category_district
+    where parentid = #{id}
+  </select>
+  <select id="queryDistrict" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from qs_category_district
+    where spell = #{spell}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_category_district
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.District" >
+    insert into qs_category_district (id, parentid, categoryname, 
+      category_order, stat_jobs, stat_resume, 
+      spell)
+    values (#{id,jdbcType=INTEGER}, #{parentid,jdbcType=INTEGER}, #{categoryname,jdbcType=VARCHAR}, 
+      #{categoryOrder,jdbcType=SMALLINT}, #{statJobs,jdbcType=VARCHAR}, #{statResume,jdbcType=VARCHAR}, 
+      #{spell,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.District" >
+    insert into qs_category_district
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="parentid != null" >
+        parentid,
+      </if>
+      <if test="categoryname != null" >
+        categoryname,
+      </if>
+      <if test="categoryOrder != null" >
+        category_order,
+      </if>
+      <if test="statJobs != null" >
+        stat_jobs,
+      </if>
+      <if test="statResume != null" >
+        stat_resume,
+      </if>
+      <if test="spell != null" >
+        spell,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryname != null" >
+        #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryOrder != null" >
+        #{categoryOrder,jdbcType=SMALLINT},
+      </if>
+      <if test="statJobs != null" >
+        #{statJobs,jdbcType=VARCHAR},
+      </if>
+      <if test="statResume != null" >
+        #{statResume,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null" >
+        #{spell,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.District" >
+    update qs_category_district
+    <set >
+      <if test="parentid != null" >
+        parentid = #{parentid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryname != null" >
+        categoryname = #{categoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryOrder != null" >
+        category_order = #{categoryOrder,jdbcType=SMALLINT},
+      </if>
+      <if test="statJobs != null" >
+        stat_jobs = #{statJobs,jdbcType=VARCHAR},
+      </if>
+      <if test="statResume != null" >
+        stat_resume = #{statResume,jdbcType=VARCHAR},
+      </if>
+      <if test="spell != null" >
+        spell = #{spell,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.District" >
+    update qs_category_district
+    set parentid = #{parentid,jdbcType=INTEGER},
+      categoryname = #{categoryname,jdbcType=VARCHAR},
+      category_order = #{categoryOrder,jdbcType=SMALLINT},
+      stat_jobs = #{statJobs,jdbcType=VARCHAR},
+      stat_resume = #{statResume,jdbcType=VARCHAR},
+      spell = #{spell,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
