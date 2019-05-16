@@ -2,6 +2,8 @@ package com.lingyun.manager_cms.dao.cmsdao;
 
 import com.lingyun.framework.domain.Payment;
 
+import java.util.List;
+
 public interface PaymentMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -16,4 +18,6 @@ public interface PaymentMapper {
     int updateByPrimaryKeyWithBLOBs(Payment record);
 
     int updateByPrimaryKey(Payment record);
+
+    List<Payment> querypayment();
 }

@@ -131,6 +131,15 @@ public class ToolController {
         return  "cms/tool/submit";
     }
 
+    /**
+     * 清除缓存后的跳转页面
+     * @return
+     */
+    @RequestMapping("submit1")
+    public String submit1(){
+        return  "cms/tool/submit1";
+    }
+
 
     /**
      * 工具的树

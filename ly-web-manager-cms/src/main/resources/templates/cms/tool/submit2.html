@@ -1,3 +1,4 @@
+
 <!-- public:header 以下内容 -->
 <!doctype html>
 <html>
@@ -45,10 +46,10 @@
     <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
     <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
     <script>
-        var URL = '../cms/74cms/74cms_v4.2.111/upload/index.php/admin/oauth',
-            SELF = '../cms/74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=oauth&amp;a=index',
-            ROOT_PATH = '../cms/74cms/74cms_v4.2.111/upload/index.php/admin',
-            APP	 =	 '../cms/74cms/74cms_v4.2.111/upload/index.php';
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/clearcache',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=clearcache&amp;a=index',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
 
         var qscms = {
             is_subsite : 0,
@@ -60,63 +61,47 @@
 <body>
 
 <!-- public:header 以上内容 -->
-<div class="allpagetop">工具<strong>/</strong>合作账号</div><div class="mains">
+<div class="allpagetop">工具<strong>/</strong>计划任务</div><div class="mains">
     <div class="h1tit">
         <div class="h1">
-            合作账号                        </div>
-        <div class="topnav">
-            <a href="/oauth/queryoauth?id=1" class="select">QQ账号登录</a><a href="/oauth/queryoauth?id=2" class="">新浪微博登录</a><a href="/oauth/queryoauth?id=3" class="">淘宝账号登录</a><a href="/oauth/queryoauth?id=4" class="">微信帐号登录</a>                <div class="clear"></div>
-        </div>		<div class="clear"></div>
+            计划任务                        </div>
+        <div class="clear"></div>
     </div>
-    <div class="toptip"  >
-        <div class="toptit">提示：</div>
-        <p>网站接入QQ登录后，用户只需要使用QQ账号密码就可登录，简化用户注册流程，更有效率的提高转化用户流量</p>
-        <p class="link_green_line">接入QQ登录前，网站需首先进行申请，获得对应的appid与appkey，以保证后续流程中可正确对网站与用户进行验证与授权。
-            现在就去<a href="https://connect.qq.com/" target="_blank">申请</a></p>
-    </div>
-    <div class="toptit">QQ互联设置</div>
-    <form  method="post" name="form1" id="editJobForm">
-        <div class="form_main width150">
-            <div class="fl">开启QQ登录：</div>
-            <div class="fr">
-                <div data-code="0,1" class="imgchecked_small select"><input name="status" type="hidden" value="1" /></div>
-                <div class="clear"></div>
+    <!--<div class="allpagetop">系统提示</div>-->
+    <div class="admin_main_nr_dbox">
+        <div class="adminshowmsg">
+            <div class="msgtxt link_blue ">
+                <img src="../../cms/74cms/74cms_v4.2.111/upload/showmsg1.png" height="75" width="75"/>
+                <div class="tit">执行成功！</div>            <div class="jump">
+                页面将自动跳转，等待时间 <span class="countdown_box">3</span> 秒<br>
+                如果您的浏览器没有自动跳转，请点击 <a href="javascript:;" onClick="javascript:location.href='/tool/tpl';">[返回]</a>
             </div>
-            <div class="fl">appid：</div>
-            <div class="fr">
-                <input type="hidden" th:value="${o.id}">
-                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle" />
             </div>
-            <div class="fl">appkey：</div>
-            <div class="fr">
-                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle"/>
-            </div>
-            <div class="fl"></div>
-            <div class="fr">
-                <input type="hidden" name="id" value="2">
-                <input onclick="editJob()" type="button" class="admin_submit" value="保存"/>
-            </div>
-            <div class="clear"></div>
         </div>
-    </form>
+    </div>
 </div>
 <!-- public:footer 以下内容 -->
 <div class="footer link_blue">
     Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
         style="color: #FF3300">cms</span></a> v4.2.111</div>
 <!-- public:footer 以上内容 -->
-
-<script>
-    function editJob() {
-        $.ajax({
-            url:'/oauth/updateoauth',
-            type:'post',
-            data:$("#editJobForm").serialize(),
-            success:function () {
-                location.href="/oauth/queryoauth?id=1"
-            }
-        })
+<script type="text/javascript">
+    var count = 3;
+    CountDown();
+    var countdown = setInterval(CountDown, 1000);
+    function CountDown() {
+        $(".countdown_box").text(count);
+        if (count == 0) {
+            clearInterval(countdown);
+            window.location.href = '/tool/tpl';
+        }
+        count--;
     }
-</script>
+    function refresh_affair(){
+        window.parent.window.document.getElementById('leftFrame').contentWindow.refresh_affair();
+        window.parent.window.document.getElementById('topFrame').contentWindow.refresh_affair();
+    }
+    refresh_affair();</script>
+
 </body>
 </html>
