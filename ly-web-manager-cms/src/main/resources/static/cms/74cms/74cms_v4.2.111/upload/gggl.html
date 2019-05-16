@@ -53,12 +53,12 @@
     <div class="seltpye_x">
         <div class="left">添加时间</div>
         <div class="right">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=" class="select">不限</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=3" >三天内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=7" >一周内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=30" >一月内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=180" >半年内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=360" >一年内</a>
+            <a  class="select">不限</a>
+            <a @click="queryNotice(1)" >三天内</a>
+            <a @click="queryNotice(2)" >一周内</a>
+            <a @click="queryNotice(3)" >一月内</a>
+            <a @click="queryNotice(4)" >半年内</a>
+            <a @click="queryNotice(5)" >一年内</a>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
@@ -87,13 +87,14 @@
                     </div>
                 </div>
                 <div class="td" style=" width:15%;">[{{ notice.categoryname }}]&nbsp;</div>
-                <div class="td center" style=" width:10%;">{{ notice.titB }}</div>
+                <div class="td center" style=" width:10%;">{{ notice.sort }}</div>
                 <div class="td center" style=" width: 10%;">{{ notice.click }}</div>
-                <div class="td center" style=" width:15%;">{{ notice.addtime }}</div>
+                <div class="td center" style=" width:15%;">{{ notice.addtimestr }}</div>
                 <div class="td edit" style=" width:10%;">
                     <a @click="updateNotice(notice.id)">修改</a>
-                    <a class="gray" @click="deletenotice(notice)">删除</a>
+                    <a class="gray" @click="deleteNotice(notice.id)">删除</a>
                 </div>
+
                 <div class="clear"></div>
             </div>
             </div>
@@ -103,7 +104,7 @@
     <div class="list_foot">
         <div class="btnbox">
             <input type="button" class="admin_submit" id="ButAdd" value="添加公告" onclick="tiaotjgg()"/>
-            <input type="button" class="admin_submit" id="ButDel" value="删除"/>
+            <input type="button" class="admin_submit" @click="deleteNotices()" value="删除"/>
         </div>
 
         <div class="footso">
@@ -139,14 +140,22 @@
 <script type="text/javascript">
     var resumeVue;
     $(function(){
+        queryNotice();
+    })
+
+    function queryNotice(cratetime){
         $.ajax({
             type:"post",
             url:"/notice/queryNotice",
+            data:{
+                cratetime:cratetime
+            },
             success:function(info){
+                alert(info)
                 resumeVue=new Vue({
                     el: '#div123',
                     data: {
-                     "list":info
+                        "list":info
                     }
                 })
             },
@@ -154,18 +163,19 @@
                 alert("系统错误，请联系管理员！")
             }
         })
-    })
+    }
 
-    function deletenotice(notice) {
+    function deleteNotice(id) {
         $.ajax({
             type:"post",
             url:"/notice/deleteNotice",
             data:{
-                id:notice.id
+                id:id
             },
             success:function(){
-              location.href="/notice/queryNotice";
-            },
+
+                location.href=location.href;
+              },
             error:function () {
                 alert("系统错误，请联系管理员！")
             }
@@ -176,6 +186,30 @@
 
     }
 
+    function deleteNotices(){
+        alert(1);
+        var all=$("input[type=checkbox]:checked");
+        alert(all);
+        var str="";
+        for (var i=0;i<all.length;i++){
+            str+=","+all[i].id;
+        }
+        str=str.substring(1);
+        alert(str);
+        /*$.ajax({
+            type:"post",
+            url:"notice/deletesNotice",
+            data:{
+                ids:str
+            },
+            success:function(){
+                location.href=location.href;
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })*/
+    }
 
     $(document).ready(function () {
         //批量删除
@@ -190,7 +224,5 @@
             }
         });
     });
-
-
 </script>
 </html>
