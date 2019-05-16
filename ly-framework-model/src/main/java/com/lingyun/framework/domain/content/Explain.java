@@ -1,11 +1,8 @@
 package com.lingyun.framework.domain.content;
 
-import java.util.List;
 import java.io.Serializable;
 
-public class Notice extends PageNum implements Serializable{
-    //咳咳咳小失误
-
+public class Explain implements Serializable{
     private Integer id;
 
     private Short typeId;
@@ -26,18 +23,13 @@ public class Notice extends PageNum implements Serializable{
 
     private Integer click;
 
-    private Long addtime;
+    private Integer addtime;
 
-    private String addtimestr;
-
-    private Short sort;
+    private Short showOrder;
 
     private String content;
 
     private String categoryname;
-
-    //1 三天内 2 一周内 3 一月内 4 半年内 5 一年内
-    private Long cratetime;
 
     public String getCategoryname() {
         return categoryname;
@@ -127,20 +119,20 @@ public class Notice extends PageNum implements Serializable{
         this.click = click;
     }
 
-    public Long getAddtime() {
+    public Integer getAddtime() {
         return addtime;
     }
 
-    public void setAddtime(Long addtime) {
+    public void setAddtime(Integer addtime) {
         this.addtime = addtime;
     }
 
-    public Short getSort() {
-        return sort;
+    public Short getShowOrder() {
+        return showOrder;
     }
 
-    public void setSort(Short sort) {
-        this.sort = sort;
+    public void setShowOrder(Short showOrder) {
+        this.showOrder = showOrder;
     }
 
     public String getContent() {
@@ -148,24 +140,6 @@ public class Notice extends PageNum implements Serializable{
     }
 
     public void setContent(String content) {
-        this.content = content;
+        this.content = content == null ? null : content.trim();
     }
-
-
-    public void setAddtimestr(String addtimestr) {
-        this.addtimestr = addtimestr;
-    }
-
-    public String getAddtimestr() {
-        return addtimestr;
-    }
-
-    public Long getCratetime() {
-        return cratetime;
-    }
-
-    public void setCratetime(Long cratetime) {
-        this.cratetime = cratetime;
-    }
-
 }
