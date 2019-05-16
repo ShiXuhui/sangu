@@ -1,0 +1,204 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/vue.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/mail_queue',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=mail_queue&amp;a=index',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>营销工具</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            营销工具                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index" class="select">邮件营销</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=sms_queue&a=index" class="">短信营销</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip">
+        <div class="toptit">提示：</div>
+        <p>发送邮件请确认您的邮件配置正确，具体请在 “系统 > 邮件设置”中设置。</p>
+    </div>
+    <div class="seltpye_x">
+        <div class="left">筛选类型</div>
+        <div class="right">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index&m_type=0" class="select">不限</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index&m_type=1" >等待发送</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index&m_type=2" >发送成功</a>
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=index&m_type=3" >发送失败</a>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=del">
+        <div class="list_th">
+            <div class="td" style=" width:10%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>类型
+                </label>
+            </div>
+            <div class="td" style=" width:15%;">收件地址</div>
+            <div class="td" style=" width:10%;">邮件主题</div>
+            <div class="td" style=" width:35%;">邮件内容</div>
+            <div class="td center" style=" width:10%;">添加时间</div>
+            <div class="td center" style=" width:10%;">发送时间</div>
+            <div class="td center" style=" width:10%;">操作</div>
+            <div class="clear"></div>
+        </div>
+        <div class="list_tr link_black" id="" v-for="item in newsList"  >
+            <div class="td" style=" width:10%;">
+                <div class="left_padding striking">
+                    <input type="checkbox" name="id[]"  value="1"/>
+                    <span style="color:#666666">发送失败</span>            </div>
+            </div>
+            <div class="td" style="width:15%;">1494700045@qq.com</div>
+            <div class="td vtip" title="吗，给v就会加快" style=" width:10%;">吗，给v就会加快</div>
+            <div class="td vtip" title="都非常归还借款" style=" width:35%;">都非常归还借款</div>
+            <div class="td center" style=" width:10%;">05-14 10:09</div>
+            <div class="td center" style=" width:10%;">
+                ----
+            </div>
+            <div class="td center edit" style=" width:10%;"><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=mailqueue_edit&m_id=1">修改</a></div>
+            <div class="clear"></div>
+        </div>        <span id="OpDel">
+    </span>
+        <span id="OpSend">
+    </span>
+    </form>
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" name="Submit22" value="发送" class="admin_submit" id="ButSend"/>
+            <input type="button" name="Submit22" value="添加任务" class="admin_submit"    onclick="window.location='/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=mailqueue_add'"/>
+            <input type="button" name="Submit22" value="批量添加" class="admin_submit"    onclick="window.location='/74cms_v4.2.111/upload/index.php?m=admin&c=mail_queue&a=mailqueue_batchadd'"/>
+            <input type="button" name="ButDel" id="ButDel" value="删除" class="admin_submit" />
+        </div>
+        <div class="footso">
+            <form action="?" method="get">
+                <div class="sobox">
+                    <input type="hidden" name="m" value="Admin">
+                    <input type="hidden" name="c" value="MailQueue">
+                    <input type="hidden" name="a" value="index">
+                    <input name="key" type="text" class="sinput" value=""/>
+                    <input name="key_type" id="key_type" type="hidden" value="1" />
+                    <input name="key_type_cn" id="J_key_type_cn" type="hidden" value="邮件主题"/>
+                    <input name="" type="submit" value="" class="sobtn"/>
+                    <div class="sotype" id="J_key_click">邮件主题</div>
+                    <div class="mlist" id="J_mlist">
+                        <ul>
+                            <li id="1" title="邮件主题">邮件主题</li>
+                            <li id="2" title="收件地址">收件地址</li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="pages"> <a class='unable'>上一页</a>  <span class='current'>1</span> <a class='unable'>下一页</a> </div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        showmenu("#key_type_cn","#sehmenu","#key_type");
+        //发送
+        $("#ButSend").click(function () {
+            var data = $("form[name=form1]").serialize();
+            var qsDialog = $(this).dialog({
+                title: '请选择',
+                loading: true,
+                footer : false
+            });
+            var url = "/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=send_mail_queue";
+            $.post(url,data, function (result) {
+                if(result.status == 1){
+                    qsDialog.setContent(result.data);
+                } else {
+                    qsDialog.hide();
+                    disapperTooltip('remind',result.msg);
+                }
+            });
+        })
+
+        // 删除
+        $("#ButDel").click(function () {
+            var data = $("form[name=form1]").serialize();
+            var qsDialog = $(this).dialog({
+                title: '您要删除哪些信息',
+                loading: true,
+                footer : false
+            });
+            var url = "/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=delete_mail_queue";
+            $.post(url, data,function (result) {
+                if(result.status == 1){
+                    qsDialog.setContent(result.data);
+                } else {
+                    qsDialog.hide();
+                    disapperTooltip('remind',result.msg);
+                }
+            });
+        })
+    });
+</script>
+</body>
+</html>

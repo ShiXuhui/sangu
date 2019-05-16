@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.CronsMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.Crons" >
+    <id column="cronid" property="cronid" jdbcType="SMALLINT" />
+    <result column="available" property="available" jdbcType="BIT" />
+    <result column="admin_set" property="adminSet" jdbcType="BIT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="filename" property="filename" jdbcType="VARCHAR" />
+    <result column="lastrun" property="lastrun" jdbcType="INTEGER" />
+    <result column="nextrun" property="nextrun" jdbcType="INTEGER" />
+    <result column="weekday" property="weekday" jdbcType="BIT" />
+    <result column="day" property="day" jdbcType="TINYINT" />
+    <result column="hour" property="hour" jdbcType="TINYINT" />
+    <result column="minute" property="minute" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cronid, available, admin_set, name, filename, lastrun, nextrun, weekday, day, hour, 
+    minute
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from qs_crons
+    where cronid = #{cronid,jdbcType=SMALLINT}
+  </select>
+  <select id="query" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from qs_crons
+  </select>
+  <select id="querycrons" resultMap="BaseResultMap" >
+    select * from qs_crons
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from qs_crons
+    where cronid = #{cronid,jdbcType=SMALLINT}
+  </delete>
+  <delete id="delcrons" parameterType="java.lang.Short" >
+    delete from qs_crons
+    where cronid in (#{ids})
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.Crons" >
+    insert into qs_crons (cronid, available, admin_set, 
+      name, filename, lastrun, 
+      nextrun, weekday, day, 
+      hour, minute)
+    values (#{cronid,jdbcType=SMALLINT}, #{available,jdbcType=BIT}, #{adminSet,jdbcType=BIT}, 
+      #{name,jdbcType=VARCHAR}, #{filename,jdbcType=VARCHAR}, #{lastrun,jdbcType=INTEGER}, 
+      #{nextrun,jdbcType=INTEGER}, #{weekday,jdbcType=BIT}, #{day,jdbcType=TINYINT}, 
+      #{hour,jdbcType=TINYINT}, #{minute,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.Crons" >
+    insert into qs_crons
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cronid != null" >
+        cronid,
+      </if>
+      <if test="available != null" >
+        available,
+      </if>
+      <if test="adminSet != null" >
+        admin_set,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="filename != null" >
+        filename,
+      </if>
+      <if test="lastrun != null" >
+        lastrun,
+      </if>
+      <if test="nextrun != null" >
+        nextrun,
+      </if>
+      <if test="weekday != null" >
+        weekday,
+      </if>
+      <if test="day != null" >
+        day,
+      </if>
+      <if test="hour != null" >
+        hour,
+      </if>
+      <if test="minute != null" >
+        minute,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cronid != null" >
+        #{cronid,jdbcType=SMALLINT},
+      </if>
+      <if test="available != null" >
+        #{available,jdbcType=BIT},
+      </if>
+      <if test="adminSet != null" >
+        #{adminSet,jdbcType=BIT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null" >
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastrun != null" >
+        #{lastrun,jdbcType=INTEGER},
+      </if>
+      <if test="nextrun != null" >
+        #{nextrun,jdbcType=INTEGER},
+      </if>
+      <if test="weekday != null" >
+        #{weekday,jdbcType=BIT},
+      </if>
+      <if test="day != null" >
+        #{day,jdbcType=TINYINT},
+      </if>
+      <if test="hour != null" >
+        #{hour,jdbcType=TINYINT},
+      </if>
+      <if test="minute != null" >
+        #{minute,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.Crons" >
+    update qs_crons
+    <set >
+      <if test="available != null" >
+        available = #{available,jdbcType=BIT},
+      </if>
+      <if test="adminSet != null" >
+        admin_set = #{adminSet,jdbcType=BIT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="filename != null" >
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="lastrun != null" >
+        lastrun = #{lastrun,jdbcType=INTEGER},
+      </if>
+      <if test="nextrun != null" >
+        nextrun = #{nextrun,jdbcType=INTEGER},
+      </if>
+      <if test="weekday != null" >
+        weekday = #{weekday,jdbcType=BIT},
+      </if>
+      <if test="day != null" >
+        day = #{day,jdbcType=TINYINT},
+      </if>
+      <if test="hour != null" >
+        hour = #{hour,jdbcType=TINYINT},
+      </if>
+      <if test="minute != null" >
+        minute = #{minute,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cronid = #{cronid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.Crons" >
+    update qs_crons
+    set available = #{available,jdbcType=BIT},
+      admin_set = #{adminSet,jdbcType=BIT},
+      name = #{name,jdbcType=VARCHAR},
+      filename = #{filename,jdbcType=VARCHAR},
+      lastrun = #{lastrun,jdbcType=INTEGER},
+      nextrun = #{nextrun,jdbcType=INTEGER},
+      weekday = #{weekday,jdbcType=BIT},
+      day = #{day,jdbcType=TINYINT},
+      hour = #{hour,jdbcType=TINYINT},
+      minute = #{minute,jdbcType=VARCHAR}
+    where cronid = #{cronid,jdbcType=SMALLINT}
+  </update>
+</mapper>

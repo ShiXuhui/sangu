@@ -1,0 +1,122 @@
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="../cms/74cms/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '../cms/74cms/74cms_v4.2.111/upload/index.php/admin/oauth',
+            SELF = '../cms/74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=oauth&amp;a=index',
+            ROOT_PATH = '../cms/74cms/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '../cms/74cms/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">工具<strong>/</strong>合作账号</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            合作账号                        </div>
+        <div class="topnav">
+            <a href="/oauth/queryoauth?id=1" class="select">QQ账号登录</a><a href="/oauth/queryoauth?id=2" class="">新浪微博登录</a><a href="/oauth/queryoauth?id=3" class="">淘宝账号登录</a><a href="/oauth/queryoauth?id=4" class="">微信帐号登录</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+    <div class="toptip"  >
+        <div class="toptit">提示：</div>
+        <p>网站接入QQ登录后，用户只需要使用QQ账号密码就可登录，简化用户注册流程，更有效率的提高转化用户流量</p>
+        <p class="link_green_line">接入QQ登录前，网站需首先进行申请，获得对应的appid与appkey，以保证后续流程中可正确对网站与用户进行验证与授权。
+            现在就去<a href="https://connect.qq.com/" target="_blank">申请</a></p>
+    </div>
+    <div class="toptit">QQ互联设置</div>
+    <form  method="post" name="form1" id="editJobForm">
+        <div class="form_main width150">
+            <div class="fl">开启QQ登录：</div>
+            <div class="fr">
+                <div data-code="0,1" class="imgchecked_small select"><input name="status" type="hidden" value="1" /></div>
+                <div class="clear"></div>
+            </div>
+            <div class="fl">appid：</div>
+            <div class="fr">
+                <input type="hidden" th:value="${o.id}">
+                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle" />
+            </div>
+            <div class="fl">appkey：</div>
+            <div class="fr">
+                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle"/>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <input type="hidden" name="id" value="2">
+                <input onclick="editJob()" type="button" class="admin_submit" value="保存"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+<script>
+    function editJob() {
+        $.ajax({
+            url:'/oauth/updateoauth',
+            type:'post',
+            data:$("#editJobForm").serialize(),
+            success:function () {
+                location.href="/oauth/queryoauth?id=1"
+            }
+        })
+    }
+</script>
+</body>
+</html>
