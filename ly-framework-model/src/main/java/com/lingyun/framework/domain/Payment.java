@@ -1,6 +1,8 @@
 package com.lingyun.framework.domain;
 
-public class Payment {
+import java.io.Serializable;
+
+public class Payment implements Serializable {
     private Integer id;
 
     private Integer listorder;
