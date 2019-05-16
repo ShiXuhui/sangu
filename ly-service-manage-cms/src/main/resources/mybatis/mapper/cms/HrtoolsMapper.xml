@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.HrtoolsMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.Hrtools" >
+    <id column="h_id" property="hId" jdbcType="INTEGER" />
+    <result column="h_typeid" property="hTypeid" jdbcType="SMALLINT" />
+    <result column="h_filename" property="hFilename" jdbcType="VARCHAR" />
+    <result column="h_fileurl" property="hFileurl" jdbcType="VARCHAR" />
+    <result column="h_order" property="hOrder" jdbcType="INTEGER" />
+    <result column="h_color" property="hColor" jdbcType="VARCHAR" />
+    <result column="h_strong" property="hStrong" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    h_id, h_typeid, h_filename, h_fileurl, h_order, h_color, h_strong
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from qs_hrtools
+    where h_id = #{hId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_hrtools
+    where h_id = #{hId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.content.Hrtools" >
+    insert into qs_hrtools (h_id, h_typeid, h_filename, 
+      h_fileurl, h_order, h_color, 
+      h_strong)
+    values (#{hId,jdbcType=INTEGER}, #{hTypeid,jdbcType=SMALLINT}, #{hFilename,jdbcType=VARCHAR}, 
+      #{hFileurl,jdbcType=VARCHAR}, #{hOrder,jdbcType=INTEGER}, #{hColor,jdbcType=VARCHAR}, 
+      #{hStrong,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.Hrtools" >
+    insert into qs_hrtools
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hId != null" >
+        h_id,
+      </if>
+      <if test="hTypeid != null" >
+        h_typeid,
+      </if>
+      <if test="hFilename != null" >
+        h_filename,
+      </if>
+      <if test="hFileurl != null" >
+        h_fileurl,
+      </if>
+      <if test="hOrder != null" >
+        h_order,
+      </if>
+      <if test="hColor != null" >
+        h_color,
+      </if>
+      <if test="hStrong != null" >
+        h_strong,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hId != null" >
+        #{hId,jdbcType=INTEGER},
+      </if>
+      <if test="hTypeid != null" >
+        #{hTypeid,jdbcType=SMALLINT},
+      </if>
+      <if test="hFilename != null" >
+        #{hFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="hFileurl != null" >
+        #{hFileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hOrder != null" >
+        #{hOrder,jdbcType=INTEGER},
+      </if>
+      <if test="hColor != null" >
+        #{hColor,jdbcType=VARCHAR},
+      </if>
+      <if test="hStrong != null" >
+        #{hStrong,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.Hrtools" >
+    update qs_hrtools
+    <set >
+      <if test="hTypeid != null" >
+        h_typeid = #{hTypeid,jdbcType=SMALLINT},
+      </if>
+      <if test="hFilename != null" >
+        h_filename = #{hFilename,jdbcType=VARCHAR},
+      </if>
+      <if test="hFileurl != null" >
+        h_fileurl = #{hFileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="hOrder != null" >
+        h_order = #{hOrder,jdbcType=INTEGER},
+      </if>
+      <if test="hColor != null" >
+        h_color = #{hColor,jdbcType=VARCHAR},
+      </if>
+      <if test="hStrong != null" >
+        h_strong = #{hStrong,jdbcType=BIT},
+      </if>
+    </set>
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.Hrtools" >
+    update qs_hrtools
+    set h_typeid = #{hTypeid,jdbcType=SMALLINT},
+      h_filename = #{hFilename,jdbcType=VARCHAR},
+      h_fileurl = #{hFileurl,jdbcType=VARCHAR},
+      h_order = #{hOrder,jdbcType=INTEGER},
+      h_color = #{hColor,jdbcType=VARCHAR},
+      h_strong = #{hStrong,jdbcType=BIT}
+    where h_id = #{hId,jdbcType=INTEGER}
+  </update>
+  <select id="Hrtoolslist" resultMap="BaseResultMap">
+    SELECT  *  FROM  qs_hrtools
+  </select>
+</mapper>

@@ -1,12 +1,22 @@
 package com.lingyun.web.webcontroller;
 
-import com.lingyun.framework.domain.PhoneUser;
+/*import com.lingyun.framework.domain.PhoneUser;
+import com.lingyun.framework.utils.CheckSumbulider;*/
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 public class WebController {
@@ -62,7 +72,7 @@ public class WebController {
 	 * 企业专访
 	 * @return
 	 */
-	@RequestMapping("/toInterview")
+	/*@RequestMapping("/toInterview")
 	public String toInterview(){
 		return "web/interview";
 	}
@@ -74,7 +84,7 @@ public class WebController {
 		}else {
 			return "ok";
 		}
-	}
+	}*/
 
 
 

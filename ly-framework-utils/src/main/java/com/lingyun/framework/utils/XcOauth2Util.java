@@ -32,6 +32,26 @@ public class XcOauth2Util {
         private String userpic;
         private String utype;
         private String companyId;
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public void setUtype(String utype) {
+            this.utype = utype;
+        }
+
+        public void setUserpic(String userpic) {
+            this.userpic = userpic;
+        }
+
+        public void setCompanyId(String companyId) {
+            this.companyId = companyId;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 
 }

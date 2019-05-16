@@ -1,0 +1,164 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/help',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=help&amp;a=add',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>帮助中心</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            帮助中心                        </div>
+        <div class="topnav">
+            <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=help&a=index" class="">帮助列表</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=help&a=add" class="select">添加</a><a href="/74cms_v4.2.111/upload/index.php?m=admin&c=help_category&a=index" class="">帮助分类</a>                <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+
+    <div class="toptit">新增帮助</div>
+    <form  method="post" id="formadd">
+        <div class="form_main width150">
+            <div class="fl">标题:</div>
+            <div class="fr">
+                <input name="title" type="text" class="input_text_default middle" maxlength="45" value=""/>
+            </div>
+            <div class="fl">文章排序:</div>
+            <div class="fr">
+                <input name="ordid" type="text" class="input_text_default middle" id="ordid" maxlength="3" value="0" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" placeholder="数字越大越靠前，默认是0"/>
+                <label class="no-fl-note">(数字越大越靠前)</label>
+            </div>
+            <div class="fl">帮助分类:</div>
+            <div class="fr">
+                <div class="select_input_new w400 J_hoverinput J_dropdown J_listitme_parent">
+                    <span class="J_listitme_text">选择分类</span>
+                    <div class="dropdowbox_sn J_dropdown_menu">
+                        <div class="dropdow_inner_sn">
+                            <ul name="content">
+                                <li><a class="J_listitme list_sel" href="javascript:;" data-code="1">个人求职</a></li>
+                                <li><a class="J_listitme" href="javascript:;" data-code="3">├─常见问题</a></li><li><a class="J_listitme" href="javascript:;" data-code="4">├─新手上路</a></li><li><a class="J_listitme" href="javascript:;" data-code="5">├─账号管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="6">├─简历管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="7">├─职位搜索</a></li><li><a class="J_listitme" href="javascript:;" data-code="8">├─求职管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="9">├─订阅&amp;关注</a></li><li><a class="J_listitme" href="javascript:;" data-code="10">├─增值服务</a></li><li><a class="J_listitme" href="javascript:;" data-code="11">├─其它问题</a></li><li><a class="J_listitme " href="javascript:;" data-code="2">企业招聘</a></li>
+                                <li><a class="J_listitme" href="javascript:;" data-code="12">├─常见问题</a></li><li><a class="J_listitme" href="javascript:;" data-code="13">├─新手上路</a></li><li><a class="J_listitme" href="javascript:;" data-code="14">├─帐号管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="15">├─资料管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="16">├─职位管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="17">├─简历搜索</a></li><li><a class="J_listitme" href="javascript:;" data-code="18">├─简历管理</a></li><li><a class="J_listitme" href="javascript:;" data-code="19">├─会员服务</a></li><li><a class="J_listitme" href="javascript:;" data-code="20">├─招聘会</a></li><li><a class="J_listitme" href="javascript:;" data-code="21">├─微信招聘</a></li><li><a class="J_listitme" href="javascript:;" data-code="22">├─招聘技巧</a></li><li><a class="J_listitme" href="javascript:;" data-code="23">├─其它问题</a></li><li><a class="J_listitme " href="javascript:;" data-code="24">积分商城</a></li>
+                                <li><a class="J_listitme" href="javascript:;" data-code="25">├─常见问题</a></li><li><a class="J_listitme" href="javascript:;" data-code="26">├─购物指南</a></li><li><a class="J_listitme" href="javascript:;" data-code="27">├─付款方式</a></li><li><a class="J_listitme" href="javascript:;" data-code="28">├─物流配送</a></li><li><a class="J_listitme" href="javascript:;" data-code="29">├─售后服务</a></li><li><a class="J_listitme" href="javascript:;" data-code="30">├─其它问题</a></li>                        </ul>
+                        </div>
+                    </div>
+                    <input class="J_listitme_code" name="type_id" id="type_id" type="hidden" value="" />
+                </div>
+                <!-- <select name="type_id" id="type_id">
+                    <option value="1" selected="selected">个人求职</option>
+                        <option value="3">├─常见问题</option><option value="4">├─新手上路</option><option value="5">├─账号管理</option><option value="6">├─简历管理</option><option value="7">├─职位搜索</option><option value="8">├─求职管理</option><option value="9">├─订阅&amp;关注</option><option value="10">├─增值服务</option><option value="11">├─其它问题</option><option value="2" >企业招聘</option>
+                        <option value="12">├─常见问题</option><option value="13">├─新手上路</option><option value="14">├─帐号管理</option><option value="15">├─资料管理</option><option value="16">├─职位管理</option><option value="17">├─简历搜索</option><option value="18">├─简历管理</option><option value="19">├─会员服务</option><option value="20">├─招聘会</option><option value="21">├─微信招聘</option><option value="22">├─招聘技巧</option><option value="23">├─其它问题</option><option value="24" >积分商城</option>
+                        <option value="25">├─常见问题</option><option value="26">├─购物指南</option><option value="27">├─付款方式</option><option value="28">├─物流配送</option><option value="29">├─售后服务</option><option value="30">├─其它问题</option>            </select> -->
+            </div>
+            <div class="fl">内容:</div>
+            <div class="fr">
+                <textarea name="content" class="input_text_default" style=" width:682px;height:400px; line-height:180%"></textarea>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <input type="button" class="admin_submit" onclick="add()" value="保存"/>
+                <input type="button" class="admin_submit" value="返回" onClick="window.location='/Help/tohelplist'"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+</body>
+<link rel="stylesheet" href="/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/themes/default/default.css"/>
+<script charset="utf-8" src="/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript" src="/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.listitem.js"></script>
+<script type="text/javascript" src="/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.dropdown.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('textarea[name="content"]', {
+                uploadJson : "?m=Admin&c=upload&a=index",
+                allowFileManager : true});
+        });
+        if ($('.J_listitme.list_sel').length) {
+            var listSelCn = $.trim($('.J_listitme.list_sel').text());
+            var listSelCode = $('.J_listitme.list_sel').data('code');
+            $('.J_listitme.list_sel').closest('.J_listitme_parent').find('.J_listitme_text').text(listSelCn);
+            $('.J_listitme.list_sel').closest('.J_listitme_parent').find('.J_listitme_code').val(listSelCode);
+        }
+    });
+</script>
+<script>
+    function add() {
+        alert(1)
+        $.ajax({
+            type : "post",
+            url : "/Help/addhelp",
+            dataType : "json",
+            data : $("#formadd").serialize(),
+            success:function (responce) {
+                location.href="/Help/tohelplist"
+            }
+
+        })
+    }
+    
+    
+</script>
+</html>

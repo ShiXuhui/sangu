@@ -1,0 +1,282 @@
+
+<!-- public:header 以下内容 -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="/74cms_v4.2.111/upload/favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <link href="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="../cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="./cms/74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '/74cms_v4.2.111/upload/index.php/admin/appeal',
+            SELF = '/74cms_v4.2.111/upload/index.php?m=admin&amp;c=appeal&amp;a=index',
+            ROOT_PATH = '/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>账号申诉</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            账号申诉                        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">处理状态</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&status=&status_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&status=0&status_cn=%E6%9C%AA%E5%A4%84%E7%90%86">未处理</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&status=1&status_cn=%E5%B7%B2%E5%A4%84%E7%90%86">已处理</li>
+        </div>
+    </div>
+    <div class="seltpye_y">
+        <div class="tit">添加时间</div>
+        <div class="ct">
+            <div class="txt ">不限</div>
+        </div>
+        <div class="downlist">
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=&settr_cn=%E4%B8%8D%E9%99%90">不限</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=3&settr_cn=%E4%B8%89%E5%A4%A9%E5%86%85">三天内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=7&settr_cn=%E4%B8%80%E5%91%A8%E5%86%85">一周内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=30&settr_cn=%E4%B8%80%E6%9C%88%E5%86%85">一月内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=180&settr_cn=%E5%8D%8A%E5%B9%B4%E5%86%85">半年内</li>
+            <li url="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=index&settr=360&settr_cn=%E4%B8%80%E5%B9%B4%E5%86%85">一年内</li>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <form id="form1" name="form1" method="post" action="/74cms_v4.2.111/upload/index.php?m=admin&c=appeal&a=delete">
+        <div id="name">
+
+        <div class="list_th">
+            <div class="td" style=" width:10%;">
+                <label id="chkAll" class="left_padding">
+                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>真实姓名
+                </label>
+            </div>
+            <div class="td" style=" width:10%;">处理状态</div>
+            <div class="td" style=" width:28%;">申诉描述</div>
+            <div class="td" style=" width:10%;">联系手机</div>
+            <div class="td" style=" width:15%;">联系邮箱</div>
+            <div class="td center" style=" width:15%;">添加时间</div>
+            <div class="td" style=" width:12%;">操作</div>
+            <div class="clear"></div>
+        </div>
+            <div v-for="db in admin">
+              <!--  <div class="list_th">
+                    <div class="td" style=" width:10%;">
+                        <label id="xx" class="left_padding">
+                            <input type="checkbox" name="chkAll" id="xxx" title="全选/反选"/>{{db.name}}
+                        </label>
+                    </div>
+                    <div class="td" style=" width:10%;">{{db.chuli}}</div>
+                    <div class="td" style=" width:28%;">{{db.shenshu}}</div>
+                    <div class="td" style=" width:10%;">{{db.shouji}}</div>
+                    <div class="td" style=" width:15%;">{{db.youxiang}}</div>
+                    <div class="td center" style=" width:15%;">{{db.shijian}}</div>
+                    <div class="td" style=" width:12%;">
+                        <input type="button" class="admin_submit" id="xxxx" value="修改"/>
+                    </div>
+                    <div class="clear"></div>
+                </div>-->
+
+
+                <div class="list_tr link_blue">
+                    <div class="td" style=" width:10%;">
+                        <div class="left_padding striking">
+                            <input name="checkbox" type="checkbox"  :value="db.id"/>
+                            <a href="/74cms_v4.2.111/upload/index.php?m=home&c=news&a=news_show&id=1" target="_blank" style="">{{db.name}}</a>
+                        </div>
+                    </div>
+                    <div class="td center" style=" width:10%;">
+                        {{db.chuli}}                            </div>
+                    <div class="td center" style=" width:28%;">{{db.shenshu}}</div>
+                    <div class="td center" style=" width:10%;">{{db.shouji}}</div>
+                    <div class="td center" style=" width:15%;">{{db.youxiang}}</div>
+                    <div class="td center" style=" width:15%;">{{db.shijian}}</div>
+                    <div class="td edit" style=" width:12%;">
+                        <a href="/74cms_v4.2.111/upload/index.php?m=admin&c=article&a=edit&id=1">修改</a>
+                        <span><a  class="gray" @click="pishan(db.id)" >删除</a></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+        </div>
+        </div>
+    </form>
+    <div class="list_foot">
+        <div class="btnbox">
+            <input type="button" class="admin_submit" id="ButAudit" value="处理"/>
+            <input type="button" class="admin_submit" id="ButDel" value="删除所选" onclick="batchdisable()"/>
+        </div>
+        <div class="footso"></div>
+    </div>
+    <div class="pages"></div>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
+        style="color: #FF3300">cms</span></a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+
+</body>
+<script src="jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/vue.min.js}"></script>
+
+<script>
+    var sss;
+    $(function(){
+        $.ajax({
+            type : "post",
+            url : "/zhss/zhssList" ,
+            async: false,
+            dataType : "json",
+            success:function (responce) {
+                sss =new Vue ({
+                    el:"#name",
+                    data:{
+                        admin:responce,
+                    }
+                })
+            }
+
+        })
+
+    })
+
+    function batchdisable() {
+        alert("11")
+        var arr = $('[name="checkbox"]:checked')
+        var str = "";
+        for (var i = 0; i < arr.length; i++){
+            str+=","+arr[i].value;
+        }
+        str = str.substring(1);
+        alert(str)
+        $.ajax({
+            type:"post",
+            url:"/zhss/pldelete",
+            data:{
+                strid:str
+            },
+            success:function(){
+                location.href="";
+            }
+        })
+    }
+
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //发送邮件
+        $(".send_email").click(function () {
+            var qsDialog = $(this).dialog({
+                title: '帐号申诉回执邮件',
+                loading: true,
+                footer : false
+            });
+            var param = $(this).attr('parameter');
+            var url = "/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=appeal_send_email&" + param;
+            $.getJSON(url, function (result) {
+                qsDialog.setContent(result.data);
+            });
+        });
+        //处理
+        $("#ButAudit").click(function () {
+            var data = $("form[name=form1]").serialize();
+            if(data.length == 0){
+                disapperTooltip('remind','请选择申诉记录！');
+            } else {
+                var qsDialog = $(this).dialog({
+                    title: '处理申诉记录',
+                    loading: true,
+                    footer : false
+                });
+                var url = "/74cms_v4.2.111/upload/index.php?m=admin&c=ajax&a=appeal_audit";
+                $.post(url, data, function (result) {
+                    if(result.status == 1){
+                        qsDialog.setContent(result.data);
+                    } else {
+                        qsDialog.hide();
+                        disapperTooltip('remind',result.msg);
+                    }
+                });
+            }
+        });
+        //点击批量删除
+        $("#ButDel").click(function () {
+            var ids = $("input[name='id[]']:checked");
+            if(ids.length == 0){
+                disapperTooltip('remind','请选择申诉记录！');
+            } else {
+                if(confirm('确定删除吗？')){
+                    $("form[name=form1]").submit();
+                }
+            }
+        });
+    });
+    function pishan(id) {
+        alert(id)
+        $.ajax({
+            type : "post",
+            url : "/zhss/deletezhss?id="+id ,
+
+            dataType : "json",
+            success:function (responce) {
+                location.href=""
+            }
+
+        })
+    }
+</script>
+</html>

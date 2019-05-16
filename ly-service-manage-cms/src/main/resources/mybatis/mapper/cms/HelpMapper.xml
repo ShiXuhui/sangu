@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.HelpMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.Help" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="type_id" property="typeId" jdbcType="SMALLINT" />
+    <result column="parentid" property="parentid" jdbcType="SMALLINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="click" property="click" jdbcType="INTEGER" />
+    <result column="addtime" property="addtime" jdbcType="INTEGER" />
+    <result column="ordid" property="ordid" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.lingyun.framework.domain.content.Help" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, type_id, parentid, title, click, addtime, ordid
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from qs_help
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_help
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.content.Help" >
+    insert into qs_help (id, type_id, parentid, 
+      title, click, addtime, 
+      ordid, content)
+    values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=SMALLINT}, #{parentid,jdbcType=SMALLINT}, 
+      #{title,jdbcType=VARCHAR}, #{click,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, 
+      #{ordid,jdbcType=INTEGER}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.Help" >
+    insert into qs_help
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="parentid != null" >
+        parentid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="click != null" >
+        click,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="ordid != null" >
+        ordid,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="parentid != null" >
+        #{parentid,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="click != null" >
+        #{click,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="ordid != null" >
+        #{ordid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.Help" >
+    update qs_help
+    <set >
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=SMALLINT},
+      </if>
+      <if test="parentid != null" >
+        parentid = #{parentid,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="click != null" >
+        click = #{click,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=INTEGER},
+      </if>
+      <if test="ordid != null" >
+        ordid = #{ordid,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lingyun.framework.domain.content.Help" >
+    update qs_help
+    set type_id = #{typeId,jdbcType=SMALLINT},
+      parentid = #{parentid,jdbcType=SMALLINT},
+      title = #{title,jdbcType=VARCHAR},
+      click = #{click,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      ordid = #{ordid,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.Help" >
+    update qs_help
+    set type_id = #{typeId,jdbcType=SMALLINT},
+      parentid = #{parentid,jdbcType=SMALLINT},
+      title = #{title,jdbcType=VARCHAR},
+      click = #{click,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=INTEGER},
+      ordid = #{ordid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="helpList" resultMap="BaseResultMap">
+    SELECT  *  FROM  qs_help
+  </select>
+</mapper>
