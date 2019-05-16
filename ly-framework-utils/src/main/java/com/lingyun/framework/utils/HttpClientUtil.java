@@ -33,6 +33,7 @@ public class HttpClientUtil {
             String appKey = "eeb72b5ea1e34fe879dfb775ac34f8fd";//标识
             String appSecret = "4a702ca30227";//密钥
             String nonce = "1234";	//随机数（最大长度128个字符）
+            String TEMPLATEID="9784462";
             String curTime = timers.toString();	//当前UTC时间戳，从1970年1月1日0点0 分0 秒开始到现在的秒数(String)
 //            CheckSum	SHA1(AppSecret + Nonce + CurTime),三个参数拼接的字符串，进行SHA1哈希计算，转化成16进制字符(String，小写)
            

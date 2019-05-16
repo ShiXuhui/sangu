@@ -27,19 +27,9 @@
     from qs_mailqueue
     where m_id = #{mId,jdbcType=INTEGER}
   </select>
-  <select id="querymailqueue" resultMap="ResultMapWithBLOBs">
-    select * from qs_mailqueue
-  </select>
-  <select id="querymailqueueplcx" resultMap="ResultMapWithBLOBs">
-    select * from qs_mailqueue where m_id IN (#{ids})
-  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from qs_mailqueue
     where m_id = #{mId,jdbcType=INTEGER}
-  </delete>
-  <delete id="deleteByPrimaryKeyplsc" parameterType="java.lang.Integer" >
-    delete from qs_mailqueue
-    where m_id IN (#{ids})
   </delete>
   <insert id="insert" parameterType="com.lingyun.framework.domain.Mailqueue" >
     insert into qs_mailqueue (m_id, m_type, m_addtime, 

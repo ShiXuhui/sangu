@@ -19,7 +19,7 @@ function ly_sign() {
         "                <form action=\"\" id=\"topLoginForm\" method=\"get\">\n" +
         "                    <div class=\"ce\">\n" +
         "                        <div class=\"imgbg\"></div>\n" +
-        "                        <input name=\"username\" type=\"text\" maxlength=\"16\" id=\"username\" class=\"linput\" placeholder=\"请输入用户名/手机号\" onblur=\"checkout_phone()\" autocomplete=\"off\">\n" +
+        "                        <input id=\"mobile\" name=\"username\" type=\"text\" maxlength=\"16\" id=\"username\" class=\"linput\" placeholder=\"请输入用户名/手机号\" onblur=\"checkout_phone()\" autocomplete=\"off\">\n" +
         "                    </div>\n" +
         "                    <div class=\"ce\">\n" +
         "                        <div class=\"imgbg pwd\"></div>\n" +
@@ -99,7 +99,7 @@ function ly_signup() {
         "                <div class=\"ce\">\n" +
         "                    <div class=\"input_text_inside t5 reginput\">\n" +
         "                        <div class=\"inputtit\">输入手机号：</div>\n" +
-        "                        <input name=\"mobile\" type=\"text\" class=\"minput reginput\" onblur=\"checkout_phone()\" maxlength=\"11\">\n" +
+        "                        <input id=\"mobile\" name=\"mobile\" type=\"text\"  class=\"minput reginput\" onblur=\"checkout_phone()\" maxlength=\"11\">\n" +
         "                    </div>\n" +
         "                </div>\n" +
         "                <div class=\"err link_blue J_top_has_remind\">\n" +
@@ -109,7 +109,7 @@ function ly_signup() {
         "                    <div class=\"input_text_inside t5 reginput\">\n" +
         "                        <div class=\"inputtit\">手机验证码：</div>\n" +
         "                        <input name=\"mobile_vcode\" type=\"text\" class=\"minput reginput\" maxlength=\"4\">\n" +
-        "                        <div class=\"sendbtn\" id=\"J_top_get_code\"  onclick=\"getcode()\">获取验证码</div>\n" +
+        "                        <input type=\"button\" class=\"sendbtn\" id=\"J_top_get_code\"  onclick=\"getcode()\" value=\"获取验证码\"></input>\n" +
         "                    </div>\n" +
         "                </div>\n" +
         "                <div class=\"J_reg_com_box\">\n" +
@@ -190,7 +190,7 @@ function ly_signup_per(a) {
             "                <div class=\"ce\">\n" +
             "                    <div class=\"input_text_inside t5 reginput\">\n" +
             "                        <div class=\"inputtit\">输入手机号：</div>\n" +
-            "                        <input name=\"mobile\" type=\"text\" class=\"minput reginput\" onblur=\"checkout_phone()\" >\n" +
+            "                        <input id=\"mobile\" name=\"mobile\" type=\"text\"  class=\"minput reginput\" onblur=\"checkout_phone()\" >\n" +
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"err link_blue J_top_has_remind\">\n" +
@@ -200,7 +200,7 @@ function ly_signup_per(a) {
             "                    <div class=\"input_text_inside t5 reginput\">\n" +
             "                        <div class=\"inputtit\">手机验证码：</div>\n" +
             "                        <input name=\"mobile_vcode\" type=\"text\" class=\"minput reginput\" maxlength=\"4\">\n" +
-            "                        <div class=\"sendbtn\" id=\"J_top_get_code\" onclick=\"getcode()\">获取验证码</div>\n" +
+            "                        <input type=\"button\" class=\"sendbtn\" id=\"J_top_get_code\" onclick=\"getcode()\" value=\"获取验证码\"></input>\n" +
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"J_reg_com_box\" style=\"display: none;\">\n" +
@@ -275,7 +275,7 @@ function ly_signup_per(a) {
             "                <div class=\"ce\">\n" +
             "                    <div class=\"input_text_inside t5 reginput\">\n" +
             "                        <div class=\"inputtit\">输入手机号：</div>\n" +
-            "                        <input name=\"mobile\" type=\"text\" class=\"minput reginput\" onblur=\"checkout_phone()\" >\n" +
+            "                        <input id=\"mobile\"  name=\"mobile\" type=\"text\"  class=\"minput reginput\" onblur=\"checkout_phone()\" >\n" +
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"err link_blue J_top_has_remind\" style=\"display: none;\">\n" +
@@ -285,7 +285,7 @@ function ly_signup_per(a) {
             "                    <div class=\"input_text_inside t5 reginput\">\n" +
             "                        <div class=\"inputtit\">手机验证码：</div>\n" +
             "                        <input name=\"mobile_vcode\" type=\"text\" class=\"minput reginput\" maxlength=\"4\">\n" +
-            "                        <div class=\"sendbtn\" id=\"J_top_get_code\" onclick=\"getcode()\">获取验证码</div>\n" +
+            "                        <input type=\"button\" class=\"sendbtn\" id=\"J_top_get_code\" onclick=\"getcode()\" value=\"获取验证码\"></input>\n" +
             "                    </div>\n" +
             "                </div>\n" +
             "                <div class=\"J_reg_com_box\">\n" +
@@ -339,26 +339,49 @@ function checkout_phone() {
         url:'/checkout_phone',
         type:'post',
         data:{
-            phoneMumber:$("#username").val()
+            phoneMumber:$("#mobile").val()
         },
         success:function (msg) {
             if(msg != "ok"){
                 alert(msg)
                 $(".err").text(msg)
+                $("#mobile").val("")
             }
         }
     })
 }
 function getcode() {
-    alert($("#username").val());
-    $.ajax({
-        url: '/getCode',
-        type: 'post',
-        data: {
-            phoneNumber: $("#username").val()
-        },
-        success: function (code) {
-            console.info(code)
-        }
-    })
+    if($("#mobile").val()!="" && $("#mobile").val() != null){
+        var coded = $("#J_top_get_code");
+        console.info(coded)
+        coded.prop("disabled","disabled");
+        setTimeout(function(){
+            coded.css("opacity","0.8");
+        },1000)
+        var time = 60;
+        var set=setInterval(function(){
+            coded.val(""+--time+"秒后重新获取");
+        }, 1000);
+        setTimeout(function(){
+            coded.prop("disabled",false).val("重新获取验证码");
+            clearInterval(set);
+        }, 60000);
+        $.ajax({
+            url: '/getCode',
+            type: 'post',
+            data: {
+                phoneNumber: $("#mobile").val()
+            },
+            success: function (code) {
+                console.info(code)
+
+            },
+            error:function () {
+                alert("系统繁忙")
+            }
+        })
+    }else {
+        checkout_phone()
+    }
 }
+

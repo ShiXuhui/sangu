@@ -14,6 +14,7 @@
     <script th:src="@{/web/js/jquery.min.js}"></script>
     <script th:src="@{/web/js/htmlspecialchars.js}"></script>
     <script th:src="@{/web/tools/gt.js}"></script>
+    <script th:src="@{/web/js/vue.js}"></script>
     <script type="text/javascript">
         var app_spell = "1";
         var qscms = {
@@ -116,9 +117,11 @@
 </div>
 <div class="so_condition J_so_condition">
     <div class="lefttit">地标地段</div>
-    <div class="rs">
-        <div onclick="javascript:location.href='/jobs/jobs_list/citycategory/zhongqingshi.html'" class="li ">全重庆市</div>
-        <div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wanzhouqu.html'" class="li ">万州区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fulingqu.html'" class="li ">涪陵区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yuzhongqu.html'" class="li ">渝中区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dadukouqu.html'" class="li ">大渡口区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangbeiqu2.html'" class="li ">江北区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shapingbaqu.html'" class="li ">沙坪坝区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiulongpoqu.html'" class="li ">九龙坡区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nananqu.html'" class="li ">南岸区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/beiqu2.html'" class="li ">北碚区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wanshengqu.html'" class="li ">万盛区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shuangqiaoqu2.html'" class="li ">双桥区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yubeiqu.html'" class="li ">渝北区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/bananqu.html'" class="li ">巴南区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/qianjiangqu.html'" class="li ">黔江区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/changshouqu.html'" class="li ">长寿区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangxian.html'" class="li ">綦江县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nanxian4.html'" class="li ">潼南县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/tongliangxian.html'" class="li ">铜梁县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dazuxian.html'" class="li ">大足县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/rongchangxian.html'" class="li ">荣昌县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shanxian5.html'" class="li ">璧山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/liangpingxian.html'" class="li ">梁平县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/chengkouxian.html'" class="li ">城口县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fengduxian.html'" class="li ">丰都县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/dianjiangxian.html'" class="li ">垫江县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wulongxian.html'" class="li ">武隆县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/zhongxian.html'" class="li ">忠　县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/kaixian.html'" class="li ">开　县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yunyangxian.html'" class="li ">云阳县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/fengjiexian.html'" class="li ">奉节县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wushanxian.html'" class="li ">巫山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/wuxixian.html'" class="li ">巫溪县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/shizhuxian.html'" class="li ">石柱县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/xiushanxian.html'" class="li ">秀山县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/youyangxian.html'" class="li ">酉阳县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/pengshuixian.html'" class="li ">彭水县</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/jiangjinqu.html'" class="li ">江津区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/hechuanqu.html'" class="li ">合川区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/yongchuanqu.html'" class="li ">永川区</div><div onclick="javascript:location.href='/jobs/jobs_list/citycategory/nanchuanqu.html'" class="li ">南川区</div>			<div class="clear"></div>
+    <div id="district">
+        <div class="rs">
+            <div onclick="javascript:location.href='/jobs/jobs_list/citycategory/zhongqingshi.html'" class="li ">全{{alldistrict}}</div>
+            <div v-for="district in districtlist" onclick="javascript:location.href='/jobs/jobs_list/citycategory/wanzhouqu.html'" class="li ">{{district.categoryname}}</div>
+        </div>
     </div>
     <div class="clear"></div>	<div class="lefttit">职位薪资</div>
     <div class="rs">
@@ -796,5 +799,31 @@
         <div class="modal_content pie_about no_pad"><div class="modal_body no_pad">
 
         </div><input type="hidden" class="J_btnload"></div></div></div>
+<script>
+    $(function () {
+        queryDistrict("jiangxi")
+    })
+
+    function queryDistrict(districtname) {
+        $.ajax({
+            url:'/job/queryDistrict',
+            type:'post',
+            data:{
+                spell:districtname
+            },
+            dataType:"json",
+            success:function (data) {
+                console.info(data)
+                new Vue({
+                    el:'#district',
+                    data:{
+                        alldistrict:data[0].categoryname,
+                        districtlist:data[0].children
+                    }
+                })
+            }
+        })
+    }
+</script>
 </body>
 </html>

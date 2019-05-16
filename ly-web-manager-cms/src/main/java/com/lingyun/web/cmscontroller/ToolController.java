@@ -55,34 +55,6 @@ public class ToolController {
 
 
     /**
-     * 营销工具
-     * @return
-     */
-    @RequestMapping("mail_queue")
-    public String mail_queue(){
-        return  "cms/tool/mail_queue";
-    }
-
-    /**
-     * 营销工具添加
-     * @return
-     */
-    @RequestMapping("mail_queueadd")
-    public String mail_queueadd(){
-        return  "cms/tool/mail_queueadd";
-    }
-
-    /**
-     * 营销工具修改
-     * @return
-     */
-    @RequestMapping("mail_queueupdate")
-    public String mail_queueupdate(){
-        return  "cms/tool/mail_queueupdate";
-    }
-
-
-    /**
      *合作账号
      * @return
      */
@@ -129,15 +101,6 @@ public class ToolController {
     @RequestMapping("submit")
     public String submit(){
         return  "cms/tool/submit";
-    }
-
-    /**
-     * 清除缓存后的跳转页面
-     * @return
-     */
-    @RequestMapping("submit1")
-    public String submit1(){
-        return  "cms/tool/submit1";
     }
 
 

@@ -65,7 +65,7 @@
         <div class="h1">
             合作账号                        </div>
         <div class="topnav">
-            <a href="/oauth/queryoauth?id=1" class="select">QQ账号登录</a><a href="/oauth/queryoauth?id=2" class="">新浪微博登录</a><a href="/oauth/queryoauth?id=3" class="">淘宝账号登录</a><a href="/oauth/queryoauth?id=4" class="">微信帐号登录</a>                <div class="clear"></div>
+            <a href="/tool/oauth" class="select">QQ账号登录</a><a href="/tool/oauth1" class="">新浪微博登录</a><a href="/tool/oauth2" class="">淘宝账号登录</a><a href="/tool/oauth3" class="">微信帐号登录</a>                <div class="clear"></div>
         </div>		<div class="clear"></div>
     </div>
     <div class="toptip"  >
@@ -75,7 +75,7 @@
             现在就去<a href="https://connect.qq.com/" target="_blank">申请</a></p>
     </div>
     <div class="toptit">QQ互联设置</div>
-    <form  method="post" name="form1" id="editJobForm">
+    <form action="/74cms_v4.2.111/upload/index.php?m=admin&c=oauth&a=index" method="post" name="form1" id="form1">
         <div class="form_main width150">
             <div class="fl">开启QQ登录：</div>
             <div class="fr">
@@ -84,17 +84,16 @@
             </div>
             <div class="fl">appid：</div>
             <div class="fr">
-                <input type="hidden" th:value="${o.id}">
-                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle" />
+                <input name="config[app_id]" type="text" maxlength="40" class="input_text_default middle" value="1494700045"/>
             </div>
             <div class="fl">appkey：</div>
             <div class="fr">
-                <input  th:value="${o.id}" type="text" maxlength="40" class="input_text_default middle"/>
+                <input name="config[app_key]" type="text" maxlength="40" class="input_text_default middle" value=""/>
             </div>
             <div class="fl"></div>
             <div class="fr">
                 <input type="hidden" name="id" value="2">
-                <input onclick="editJob()" type="button" class="admin_submit" value="保存"/>
+                <input name="submit" type="submit" class="admin_submit" value="保存"/>
             </div>
             <div class="clear"></div>
         </div>
@@ -105,18 +104,5 @@
     Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span
         style="color: #FF3300">cms</span></a> v4.2.111</div>
 <!-- public:footer 以上内容 -->
-
-<script>
-    function editJob() {
-        $.ajax({
-            url:'/oauth/updateoauth',
-            type:'post',
-            data:$("#editJobForm").serialize(),
-            success:function () {
-                location.href="/oauth/queryoauth?id=1"
-            }
-        })
-    }
-</script>
 </body>
 </html>
