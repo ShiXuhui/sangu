@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.NewsMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.News" >
+    <id column="spmid" property="spmid" jdbcType="INTEGER" />
+    <result column="spms_usertype" property="spmsUsertype" jdbcType="BIT" />
+    <result column="spms_type" property="spmsType" jdbcType="BIT" />
+    <result column="message" property="message" jdbcType="VARCHAR" />
+    <result column="dateline" property="dateline" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    spmid, spms_usertype, spms_type, message, dateline
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from qs_pms_sys
+    where spmid = #{spmid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from qs_pms_sys
+    where spmid = #{spmid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lingyun.framework.domain.content.News" >
+    insert into qs_pms_sys (spmid, spms_usertype, spms_type, 
+      message, dateline)
+    values (#{spmid,jdbcType=INTEGER}, #{spmsUsertype,jdbcType=BIT}, #{spmsType,jdbcType=BIT}, 
+      #{message,jdbcType=VARCHAR}, #{dateline,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.News" >
+    insert into qs_pms_sys
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="spmid != null" >
+        spmid,
+      </if>
+      <if test="spmsUsertype != null" >
+        spms_usertype,
+      </if>
+      <if test="spmsType != null" >
+        spms_type,
+      </if>
+      <if test="message != null" >
+        message,
+      </if>
+      <if test="dateline != null" >
+        dateline,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="spmid != null" >
+        #{spmid,jdbcType=INTEGER},
+      </if>
+      <if test="spmsUsertype != null" >
+        #{spmsUsertype,jdbcType=BIT},
+      </if>
+      <if test="spmsType != null" >
+        #{spmsType,jdbcType=BIT},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="dateline != null" >
+        #{dateline,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.News" >
+    update qs_pms_sys
+    <set >
+      <if test="spmsUsertype != null" >
+        spms_usertype = #{spmsUsertype,jdbcType=BIT},
+      </if>
+      <if test="spmsType != null" >
+        spms_type = #{spmsType,jdbcType=BIT},
+      </if>
+      <if test="message != null" >
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="dateline != null" >
+        dateline = #{dateline,jdbcType=INTEGER},
+      </if>
+    </set>
+    where spmid = #{spmid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.News" >
+    update qs_pms_sys
+    set spms_usertype = #{spmsUsertype,jdbcType=BIT},
+      spms_type = #{spmsType,jdbcType=BIT},
+      message = #{message,jdbcType=VARCHAR},
+      dateline = #{dateline,jdbcType=INTEGER}
+    where spmid = #{spmid,jdbcType=INTEGER}
+  </update>
+
+  <select id="queryNews" resultMap="BaseResultMap">
+    SELECT * FROM  qs_pms_sys
+    <where>
+      <if test="message !=null and message !=''">
+        message LIKE  '%${message}%'
+      </if>
+    </where>
+  </select>
+
+  <delete id="deleteNewss">
+    DELETE FROM  qs_pms_sys WHERE  id in (${ids})
+  </delete>
+
+
+
+</mapper>

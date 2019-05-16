@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class NoticeController implements NoticeControllerApi{
 
     @Autowired
     public NoticeService noticeService;
+
+    /*@Override
+    public List<Notice> queryNotice(Notice notice) {
+        return noticeService.querynotice(notice);
+    }*/
 
     @Override
     public List<Notice> queryNotice(Notice notice) {
@@ -22,6 +28,11 @@ public class NoticeController implements NoticeControllerApi{
     @Override
     public void deleteNotices(String ids) {
         noticeService.deleteNotices(ids);
+    }
+
+    @Override
+    public Notice findNoticeById(Integer id) {
+        return noticeService.findNoticeById(id);
     }
 
     @Override

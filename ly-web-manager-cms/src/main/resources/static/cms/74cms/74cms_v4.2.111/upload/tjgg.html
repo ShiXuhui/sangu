@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>网站后台管理中心- Powered by 74cms.com</title>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <meta name="author" content="骑士CMS" />
+    <meta name="copyright" content="74cms.com" />
+    <!--<link href="Application/Admin/View/default/public/css/common.css" rel="stylesheet" type="text/css">
+    <script src="Application/Admin/View/default/public/js/jquery.min.js"></script>
+    <script src="Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
+    <script src="Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
+    <script src="Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
+    --><!--[if lt IE 9]>
+    <script type="text/javascript" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            $.pie = function (name, v) {
+                // 如果没有加载 PIE 则直接终止
+                if (!PIE) return false;
+                // 是否 jQuery 对象或者选择器名称
+                var obj = typeof name == 'object' ? name : $(name);
+                // 指定运行插件的 IE 浏览器版本
+                var version = 9;
+                // 未指定则默认使用 ie10 以下全兼容模式
+                if (typeof v != 'number' && v < 9) {
+                    version = v;
+                }
+                // 可对指定的多个 jQuery 对象进行样式兼容
+                if ($.browser.msie && obj.size() > 0) {
+                    if ($.browser.version * 1 <= version * 1) {
+                        obj.each(function () {
+                            PIE.attach(this);
+                        });
+                    }
+                }
+            }
+        })(jQuery);
+        if ($.browser.msie) {
+            $.pie('.pie_about');
+        };
+    </script>
+    <![endif]-->
+    <script src="Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
+    <script src="Application/Admin/View/default/public/js/common.js"></script>
+    <script>
+        var URL = '../../../74cms/74cms_v4.2.111/upload/index.php/admin/notice',
+            SELF = '../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=notice&amp;a=add',
+            ROOT_PATH = '../../../74cms/74cms_v4.2.111/upload/index.php/admin',
+            APP	 =	 '../../../74cms/74cms_v4.2.111/upload/index.php';
+
+        var qscms = {
+            is_subsite : 0,
+            subsite_level : "3",
+            default_district : ""
+        };
+    </script>
+</head>
+<body>
+
+<!-- public:header 以上内容 -->
+<div class="allpagetop">内容<strong>/</strong>公告管理</div><div class="mains">
+    <div class="h1tit">
+        <div class="h1">
+            公告管理                        </div>
+        <div class="topnav">
+            <a href="../../../74cms/74cms_v4.2.111/upload/gggl.html" class="">公告列表</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/tjgg.html" class="select">添加公告</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/ggfl.html" class="">公告分类</a>
+            <div class="clear"></div>
+        </div>		<div class="clear"></div>
+    </div>
+
+    <div class="toptit">添加公告</div>
+    <form action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=add" method="post" name="FormData" id="noticeform">
+        <div class="form_main width150">
+            <div class="fl">标题:</div>
+            <div class="fr">
+                <div style="float: left"><input name="title" type="text" class="input_text_default middle" maxlength="45" value=""/></div>
+                <div class="n-form" style="padding-left:10px;float: left">
+                    <div class="color_layer" style="display: inline-block;">
+                        <div id="color_box" onclick="color_box_display()"></div>
+                        <input type="hidden" name="tit_color" id="tit_color" value="">
+                        <div id="select_color_box">
+                            <div class="color_title">选择标题颜色：</div>
+                            <div class="color_box_close" onclick="color_box_display()">关闭</div>
+                            <div class="clear"></div>
+                            <a onclick="set_color('');color_box_display()" href="javascript:void(0);" style="background-image:url(../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/images/color_box_bg.gif)"></a>
+                            <a onclick="set_color('#000000');color_box_display()" href="javascript:void(0);" style=" background-color:#000000"></a>
+                            <a onclick="set_color('#333333');color_box_display()" href="javascript:void(0);" style=" background-color:#333333"></a>
+                            <a onclick="set_color('#666666');color_box_display()" href="javascript:void(0);" style=" background-color:#666666"></a>
+                            <a onclick="set_color('#000099');color_box_display()" href="javascript:void(0);" style=" background-color:#000099"></a>
+                            <a onclick="set_color('#0066FF');color_box_display()" href="javascript:void(0);" style=" background-color:#0066FF"></a>
+                            <a onclick="set_color('#9900FF');color_box_display()" href="javascript:void(0);" style=" background-color:#9900FF"></a>
+                            <a onclick="set_color('#990000');color_box_display()" href="javascript:void(0);" style=" background-color:#990000"></a>
+                            <a onclick="set_color('#FF0000');color_box_display()" href="javascript:void(0);" style=" background-color:#FF0000"></a>
+                            <a onclick="set_color('#FF6600');color_box_display()" href="javascript:void(0);" style=" background-color:#FF6600"></a>
+                            <a onclick="set_color('#669900');color_box_display()" href="javascript:void(0);" style=" background-color:#669900"></a>
+                            <a onclick="set_color('#336600');color_box_display()" href="javascript:void(0);" style=" background-color:#336600"></a>
+                            <div class="clear"></div>
+                        </div>
+                        <script type="text/javascript">
+                            function set_color(x){
+                                var rgb=x;
+                                if (rgb==""){
+                                    document.getElementById('color_box').style.background='url(../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/images/color_box_bg.gif)';
+                                }else{
+                                    document.getElementById('color_box').style.background=rgb;
+                                }
+                                //alert(rgb);
+                                document.getElementById('tit_color').value= rgb;
+                            }
+                            function color_box_display(){
+                                target=document.getElementById('select_color_box');
+                                if (target.style.display=="block"){
+                                    target.style.display="none";
+                                } else {
+                                    target.style.display="block";
+                                }
+                                //document.bgColor =rgb;
+                            }
+                        </script>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+
+            <div id="noticecategorydiv123">
+                <div class="fl">所属分类:</div>
+                <div v-for="noticecategory in list">
+                <div class="fr">
+                    <div class="imgradio">
+                        <input name="type_id" type="hidden" value="1">
+                        <div class="radio select" data="1" title="首页公告">首页公告</div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                   <!-- <input type="radio" @value="noticecategory.id">{{ noticecategory.categoryname }}-->
+
+                </div>
+            </div>
+
+            <div class="fl">内容:</div>
+            <div class="fr">
+                <textarea name="content" class="input_text_default" style=" width:682px;height:400px; line-height:180%"></textarea>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <div class="admin_submit small gray" id="J_moreform">更多选项</div>
+            </div>
+            <div class="clear"></div>
+            <div class="moreform">
+                <div class="fl">是否显示:</div>
+                <div class="fr">
+                    <div data-code="0,1" class="imgchecked_small select"><input name="is_display" type="hidden" value="1" /></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="fl">标题加粗:</div>
+                <div class="fr">
+                    <div data-code="0,1" class="imgchecked_small"><input name="tit_b" type="hidden" value="0" /></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+                <div class="fl">显示排序:</div>
+                <div class="fr">
+                    <input name="sort" type="text" class="input_text_default middle" maxlength="3" value="0" onkeyup="if(event.keyCode !=37 && event.keyCode != 39) value=value.replace(/\D/g,'');"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/\D/g,''))" placeholder="数字越大越靠前，默认是0"/>
+                    <label class="no-fl-note">(数字越大越靠前)</label>
+                </div>
+                <div class="clear"></div>
+                <div class="fl">外部链接:</div>
+                <div class="fr">
+                    <input name="is_url" type="text" class="input_text_default" maxlength="80" value="http://" placeholder="请输入完整的链接地址,如http://www.74cms.com"/>
+                </div>
+                <div class="clear"></div>
+                <div class="fl">Keywords:</div>
+                <div class="fr">
+                    <input name="seo_keywords" type="text" class="input_text_default" maxlength="150" value="" placeholder="合理设置Keywords有利于搜索引擎排名"/>
+                </div>
+                <div class="clear"></div>
+                <div class="fl">Description:</div>
+                <div class="fr">
+                    <textarea name="seo_description" type="text" class="input_text_default" style="height: 100px; line-height: 180%" maxlength="150" placeholder="合理设置Description有利于搜索引擎排名"/></textarea>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="fl"></div>
+            <div class="fr">
+                <input type="button" class="admin_submit" value="提交" onclick="saveNotice()"/>
+                <input type="button" class="admin_submit" value="返回" onClick="window.location='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index'"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </form>
+
+</div>
+<!-- public:footer 以下内容 -->
+<div class="footer link_blue">
+    Powered by <a href="http://www.74cms.com" target="_blank">
+    <span style="color:#009900">74</span>
+    <span
+        style="color: #FF3300">cms</span>
+</a> v4.2.111</div>
+<!-- public:footer 以上内容 -->
+</body>
+<link rel="stylesheet" href="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/themes/default/default.css"/>
+<script charset="utf-8" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $.ajax({
+            type:"post",
+            url:"/noticeCategory/findNoticeCategoryAll",
+            success:function(info){
+                new Vue({
+                    el:"#noticecategorydiv123",
+                    data:{
+                        "list":info
+                    }
+                })
+            },
+            error:function(){
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    })
+    $(document).ready(function () {
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('textarea[name="content"]', {
+                uploadJson : "?m=Admin&c=upload&a=index",
+                allowFileManager : true});
+        });
+    });
+
+    function noticeform(){
+        $.ajax({
+            type:"post",
+            url:"/notice/saveNotice",
+            data:$("#noticeform").serialize(),
+            success:function () {
+                location.href="/notice/queryNoticw";
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    }
+
+
+
+</script>
+</html>

@@ -1,6 +1,3 @@
-
-<!-- public:header 以下内容 -->
-<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -13,38 +10,9 @@
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.highlight-3.js"></script>
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.vtip-min.js"></script>
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.modal.dialog.js"></script>
-    <!--[if lt IE 9]>
-    <script type="text/javascript" src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/PIE.js"></script>
-    <script type="text/javascript">
-        (function ($) {
-            $.pie = function (name, v) {
-                // 如果没有加载 PIE 则直接终止
-                if (!PIE) return false;
-                // 是否 jQuery 对象或者选择器名称
-                var obj = typeof name == 'object' ? name : $(name);
-                // 指定运行插件的 IE 浏览器版本
-                var version = 9;
-                // 未指定则默认使用 ie10 以下全兼容模式
-                if (typeof v != 'number' && v < 9) {
-                    version = v;
-                }
-                // 可对指定的多个 jQuery 对象进行样式兼容
-                if ($.browser.msie && obj.size() > 0) {
-                    if ($.browser.version * 1 <= version * 1) {
-                        obj.each(function () {
-                            PIE.attach(this);
-                        });
-                    }
-                }
-            }
-        })(jQuery);
-        if ($.browser.msie) {
-            $.pie('.pie_about');
-        };
-    </script>
-    <![endif]-->
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/jquery.disappear.tooltip.js"></script>
     <script src="../../../74cms/74cms_v4.2.111/upload/Application/Admin/View/default/public/js/common.js"></script>
+    <script src="../../../vue.min.js"></script>
     <script>
         var URL = '../../../74cms/74cms_v4.2.111/upload/index.php/admin/notice',
             SELF = '../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&amp;c=notice&amp;a=index&amp;menu_id=112&amp;sub_menu_id=116',
@@ -66,7 +34,11 @@
         <div class="h1">
             公告管理                        </div>
         <div class="topnav">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index" class="select">公告列表</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=add" class="">添加公告</a><a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=category" class="">公告分类</a>                <div class="clear"></div>
+            <a href="../../../74cms/74cms_v4.2.111/upload/gggl.html" class="select">公告列表</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/tjgg.html" class="">添加公告</a>
+            <a href="../../../74cms/74cms_v4.2.111/upload/ggfl.html" class="">公告分类</a>
+            <div class="clear">
+            </div>
         </div>		<div class="clear"></div>
     </div>
 
@@ -81,39 +53,58 @@
     <div class="seltpye_x">
         <div class="left">添加时间</div>
         <div class="right">
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=" class="select">不限</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=3" >三天内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=7" >一周内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=30" >一月内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=180" >半年内</a>
-            <a href="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=index&settr=360" >一年内</a>
+            <a  class="select">不限</a>
+            <a @click="queryNotice(1)" >三天内</a>
+            <a @click="queryNotice(2)" >一周内</a>
+            <a @click="queryNotice(3)" >一月内</a>
+            <a @click="queryNotice(4)" >半年内</a>
+            <a @click="queryNotice(5)" >一年内</a>
             <div class="clear"></div>
         </div>
         <div class="clear"></div>
     </div>
-
-    <form id="form1" name="form1" method="post" action="../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=delete">
-        <div class="list_th">
-            <div class="td" style=" width:40%;">
-                <label id="chkAll" class="left_padding">
-                    <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>标题
-                </label>
+    <div id="div123">
+        <form id="form1" name="form1" method="post" action="/74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=delete">
+            <div class="list_th">
+                <div class="td" style=" width:40%;">
+                    <label id="chkAll" class="left_padding">
+                        <input type="checkbox" name="chkAll" id="chk" title="全选/反选"/>标题
+                    </label>
+                </div>
+                <div class="td" style=" width:15%;">所属分类</div>
+                <div class="td center" style=" width:10%;">排序</div>
+                <div class="td center" style=" width:10%;">点击</div>
+                <div class="td center" style=" width:15%;">添加日期</div>
+                <div class="td" style=" width:10%;">操作</div>
+                <div class="clear"></div>
             </div>
-            <div class="td" style=" width:15%;">所属分类</div>
-            <div class="td center" style=" width:10%;">排序</div>
-            <div class="td center" style=" width:10%;">点击</div>
-            <div class="td center" style=" width:15%;">添加日期</div>
-            <div class="td" style=" width:10%;">操作</div>
-            <div class="clear"></div>
-        </div>
+            <div v-for="notice in list">
+            <div class="list_tr link_black">
+                <div class="td" style=" width:40%;">
+                    <div class="left_padding striking link_blue">
+                        <input name="id[]" type="checkbox" id="id" value="1"/>
+                        <a href="/74cms/74cms_v4.2.111/upload/index.php?m=home&c=notice&a=notice_show&id=1" target="_blank" style="">{{ notice.title }}</a>
+                    </div>
+                </div>
+                <div class="td" style=" width:15%;">[{{ notice.categoryname }}]&nbsp;</div>
+                <div class="td center" style=" width:10%;">{{ notice.sort }}</div>
+                <div class="td center" style=" width: 10%;">{{ notice.click }}</div>
+                <div class="td center" style=" width:15%;">{{ notice.addtimestr }}</div>
+                <div class="td edit" style=" width:10%;">
+                    <a @click="updateNotice(notice.id)">修改</a>
+                    <a class="gray" @click="deleteNotice(notice.id)">删除</a>
+                </div>
 
-    </form>
+                <div class="clear"></div>
+            </div>
+            </div>
+        </form>
+    </div>
 
-    <div class="list_empty">没有任何信息！</div>
     <div class="list_foot">
         <div class="btnbox">
-            <input type="button" class="admin_submit" id="ButAdd" value="添加公告" onclick="window.location='../../../74cms/74cms_v4.2.111/upload/index.php?m=admin&c=notice&a=add'"/>
-            <input type="button" class="admin_submit" id="ButDel" value="删除"/>
+            <input type="button" class="admin_submit" id="ButAdd" value="添加公告" onclick="tiaotjgg()"/>
+            <input type="button" class="admin_submit" @click="deleteNotices()" value="删除"/>
         </div>
 
         <div class="footso">
@@ -147,6 +138,79 @@
 
 </body>
 <script type="text/javascript">
+    var resumeVue;
+    $(function(){
+        queryNotice();
+    })
+
+    function queryNotice(cratetime){
+        $.ajax({
+            type:"post",
+            url:"/notice/queryNotice",
+            data:{
+                cratetime:cratetime
+            },
+            success:function(info){
+                alert(info)
+                resumeVue=new Vue({
+                    el: '#div123',
+                    data: {
+                        "list":info
+                    }
+                })
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    }
+
+    function deleteNotice(id) {
+        $.ajax({
+            type:"post",
+            url:"/notice/deleteNotice",
+            data:{
+                id:id
+            },
+            success:function(){
+
+                location.href=location.href;
+              },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })
+    }
+
+    function updateNotice(){
+
+    }
+
+    function deleteNotices(){
+        alert(1);
+        var all=$("input[type=checkbox]:checked");
+        alert(all);
+        var str="";
+        for (var i=0;i<all.length;i++){
+            str+=","+all[i].id;
+        }
+        str=str.substring(1);
+        alert(str);
+        /*$.ajax({
+            type:"post",
+            url:"notice/deletesNotice",
+            data:{
+                ids:str
+            },
+            success:function(){
+                location.href=location.href;
+            },
+            error:function () {
+                alert("系统错误，请联系管理员！")
+            }
+        })*/
+    }
+
     $(document).ready(function () {
         //批量删除
         $("#ButDel").click(function () {

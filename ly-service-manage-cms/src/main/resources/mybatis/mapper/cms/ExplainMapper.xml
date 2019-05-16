@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.NoticeMapper" >
-  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.Notice" >
+<mapper namespace="com.lingyun.manager_cms.dao.cmsdao.content.ExplainMapper" >
+  <resultMap id="BaseResultMap" type="com.lingyun.framework.domain.content.Explain" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="type_id" property="typeId" jdbcType="SMALLINT" />
     <result column="title" property="title" jdbcType="VARCHAR" />
@@ -12,16 +12,15 @@
     <result column="seo_keywords" property="seoKeywords" jdbcType="VARCHAR" />
     <result column="seo_description" property="seoDescription" jdbcType="VARCHAR" />
     <result column="click" property="click" jdbcType="INTEGER" />
-    <result column="addtime" property="addtime" jdbcType="BIGINT" />
-    <result column="sort" property="sort" jdbcType="SMALLINT" />
+    <result column="addtime" property="addtime" jdbcType="INTEGER" />
+    <result column="show_order" property="showOrder" jdbcType="SMALLINT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.lingyun.framework.domain.content.Notice" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.lingyun.framework.domain.content.Explain" extends="BaseResultMap" >
     <result column="content" property="content" jdbcType="LONGVARCHAR" />
   </resultMap>
-
   <sql id="Base_Column_List" >
     id, type_id, title, tit_color, tit_b, is_display, is_url, seo_keywords, seo_description, 
-    click, addtime, sort
+    click, addtime, show_order
   </sql>
   <sql id="Blob_Column_List" >
     content
@@ -31,27 +30,27 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from qs_notice
+    from qs_explain
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from qs_notice
+    delete from qs_explain
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lingyun.framework.domain.content.Notice" >
-    insert into qs_notice (id, type_id, title, 
+  <insert id="insert" parameterType="com.lingyun.framework.domain.content.Explain" >
+    insert into qs_explain (id, type_id, title, 
       tit_color, tit_b, is_display, 
       is_url, seo_keywords, seo_description, 
-      click, addtime, sort, 
+      click, addtime, show_order, 
       content)
     values (#{id,jdbcType=INTEGER}, #{typeId,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, 
       #{titColor,jdbcType=VARCHAR}, #{titB,jdbcType=BIT}, #{isDisplay,jdbcType=TINYINT}, 
       #{isUrl,jdbcType=VARCHAR}, #{seoKeywords,jdbcType=VARCHAR}, #{seoDescription,jdbcType=VARCHAR}, 
-      #{click,jdbcType=INTEGER}, #{addtime}, #{sort,jdbcType=SMALLINT},
+      #{click,jdbcType=INTEGER}, #{addtime,jdbcType=INTEGER}, #{showOrder,jdbcType=SMALLINT}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.Notice" >
-    insert into qs_notice
+  <insert id="insertSelective" parameterType="com.lingyun.framework.domain.content.Explain" >
+    insert into qs_explain
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -86,8 +85,8 @@
       <if test="addtime != null" >
         addtime,
       </if>
-      <if test="sort != null" >
-        sort,
+      <if test="showOrder != null" >
+        show_order,
       </if>
       <if test="content != null" >
         content,
@@ -125,18 +124,18 @@
         #{click,jdbcType=INTEGER},
       </if>
       <if test="addtime != null" >
-        #{addtime},
+        #{addtime,jdbcType=INTEGER},
       </if>
-      <if test="sort != null" >
-        #{sort,jdbcType=SMALLINT},
+      <if test="showOrder != null" >
+        #{showOrder,jdbcType=SMALLINT},
       </if>
       <if test="content != null" >
         #{content,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.Notice" >
-    update qs_notice
+  <update id="updateByPrimaryKeySelective" parameterType="com.lingyun.framework.domain.content.Explain" >
+    update qs_explain
     <set >
       <if test="typeId != null" >
         type_id = #{typeId,jdbcType=SMALLINT},
@@ -166,10 +165,10 @@
         click = #{click,jdbcType=INTEGER},
       </if>
       <if test="addtime != null" >
-        addtime = #{addtime},
+        addtime = #{addtime,jdbcType=INTEGER},
       </if>
-      <if test="sort != null" >
-        sort = #{sort,jdbcType=SMALLINT},
+      <if test="showOrder != null" >
+        show_order = #{showOrder,jdbcType=SMALLINT},
       </if>
       <if test="content != null" >
         content = #{content,jdbcType=LONGVARCHAR},
@@ -177,8 +176,8 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lingyun.framework.domain.content.Notice" >
-    update qs_notice
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lingyun.framework.domain.content.Explain" >
+    update qs_explain
     set type_id = #{typeId,jdbcType=SMALLINT},
       title = #{title,jdbcType=VARCHAR},
       tit_color = #{titColor,jdbcType=VARCHAR},
@@ -189,12 +188,12 @@
       seo_description = #{seoDescription,jdbcType=VARCHAR},
       click = #{click,jdbcType=INTEGER},
       addtime = #{addtime,jdbcType=INTEGER},
-      sort = #{sort,jdbcType=SMALLINT},
+      show_order = #{showOrder,jdbcType=SMALLINT},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.Notice" >
-    update qs_notice
+  <update id="updateByPrimaryKey" parameterType="com.lingyun.framework.domain.content.Explain" >
+    update qs_explain
     set type_id = #{typeId,jdbcType=SMALLINT},
       title = #{title,jdbcType=VARCHAR},
       tit_color = #{titColor,jdbcType=VARCHAR},
@@ -204,28 +203,30 @@
       seo_keywords = #{seoKeywords,jdbcType=VARCHAR},
       seo_description = #{seoDescription,jdbcType=VARCHAR},
       click = #{click,jdbcType=INTEGER},
-      addtime = #{addtime},
-      sort = #{sort,jdbcType=SMALLINT}
+      addtime = #{addtime,jdbcType=INTEGER},
+      show_order = #{showOrder,jdbcType=SMALLINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
 
-  <select id="querynotice" resultMap="ResultMapWithBLOBs">
-    SELECT  t1.*,t2.categoryname  FROM  qs_notice t1,qs_notice_category t2 WHERE
-      t1.type_id=t2.id
-      <if test="title !=null and title !=''">
-        AND t1.title like  '%${title}%'
-      </if>
-      <if test="typeId !=null and typeId !=''">
-        AND t1.type_id=#{notice.typeId}
-      </if>
-      <if test="cratetime !=null and cratetime !=''">
-        AND t1.addtime &gt; #{cratetime}
-      </if>
+  <select id="querycount" resultType="long">
+    SELECT  count(*) FROM  qs_explain t1,qs_explain_category t2
+    WHERE  t1.type_id = t2.id
+    <if test="title !=null and title !=''">
+      t1.title like '%${title}%'
+    </if>
   </select>
 
-  <delete id="deleteNotices">
-    DELETE  from  qs_notice WHERE  id IN (${ids})
+  <select id="findExplainAll" resultMap="ResultMapWithBLOBs">
+    SELECT  t1.*,t2.categoryname FROM  qs_explain t1,qs_explain_category t2
+    WHERE  t1.type_id = t2.id
+    <if test="explain != null">
+    <if test="explain.title !=null and explain.title !=''">
+      t1.title like '%${explain.title}%'
+    </if>
+    </if>
+  </select>
+
+  <delete id="deleteExplains">
+    DELETE FROM  qs_explain_category WHERE id in (${ids})
   </delete>
-
-
 </mapper>
