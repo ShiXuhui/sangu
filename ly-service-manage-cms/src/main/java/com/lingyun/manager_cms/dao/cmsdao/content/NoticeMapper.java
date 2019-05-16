@@ -17,10 +17,11 @@ public interface NoticeMapper {
 
     int updateByPrimaryKeyWithBLOBs(Notice record);
 
-    int updateByPrimaryKey(Notice record);
+    int updateByPrimaryKey(Notice notice);
 
     List<Notice> querynotice(Notice notice);
 
     void deleteNotices(@Param("ids") String ids);
 
+    long querycount(Notice record);
 }
